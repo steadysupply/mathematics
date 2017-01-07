@@ -1,0 +1,152 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}%
+\author{BM Corser}
+\title{Discrete Assignment 2}
+\begin{document}
+    \maketitle 
+    \begin{enumerate}
+        \item Difference equations
+        \begin{enumerate}
+            \item Here, $u_n$ is an inhomogeneous first order difference
+                equation, of the general form
+                \begin{align*}
+                    u_n = f(n)u_{n - 1} + g(n)
+                        = U \cdot \prod_{i = 1}^n f(i) + \sum_{i = 1}^n\Bigg(g(i) \cdot \prod_{j = i + 1}^n f(j) \Bigg)
+                \end{align*}
+                where
+                \begin{align*}
+                    U &= 1 \\
+                    f(n) &= 16^{n^3} \\
+                    g(n) &= 2^{n^2(n + 1)^2}
+                \end{align*}
+                hence
+                \begin{align*}
+                    u_n = \prod_{i = 1}^n 16^{i^3} + \sum_{i = 1}^n\Bigg(2^{n^2(i + 1)^2} \cdot \prod_{j = i + 1}^n 16^{j^3} \Bigg)
+                \end{align*}
+            \item Let $k = n + 2$, then $a_{n + 2}$ can be written
+                \begin{align*}
+                    a_k = 4a_{k - 2} + 10 \cdot 3^{k - 2}
+                \end{align*}
+                Here, $a_k$ is an inhomogeneous second order difference
+                equation with constant coefficients and can be written in the
+                general form
+                \begin{align*}
+                    u_n = au_{n - 1} + bu_{n - 2} + f(n)
+                \end{align*}
+                where 
+                \begin{align*}
+                    a &= 0 \\
+                    b &= 4 \\
+                    f(n) &= 10 \cdot 3^{n - 2}
+                \end{align*}
+                and
+                \begin{align*}
+                    u_n = P(n) + G(n)
+                \end{align*}
+                where $P(n)$ is a particular solution to the inhomogeneous
+                difference equation and $G(n)$ is a general solution to the
+                homogenous part of the inhomogeneous difference equation.
+
+                The homogenous part of the difference equation has
+                characteristic polynomial $\lambda^2 - 4\lambda$ with distinct
+                real zeros $w_1 = 2$ and $w_2 = -2$. There must be values $c_1$
+                and $c_2$ such that the initial conditions are satisfied as
+                follows
+                \begin{align*}
+                    c_1 + c_2 &= 9 \\
+                    c_2 &= 9 - c_1 \\
+                    \\
+                    c_1w_1 + c_2w_2 &= 4 \\
+                    2c_1 - 2c_2 &= \\
+                    2c_1 - 2(9 - c_1) &= \\
+                    2c_1 - 18 + 2c_1 &= \\
+                    4c_1 &= 22 \\
+                    c_1 &= 11 \\
+                    \\
+                    c_2 &= 9 - 11 \\
+                    c_2 &= -2 \\
+                \end{align*}
+
+                so the general solution to the homogenous
+                part is $G(n) = A\cdot11^n + B\cdot2^n$.
+
+                $f(n)$ has the form $c\alpha^n$ where $\alpha = 3$ and $\alpha$
+                is not a zero of the characteristic polynomial, therefore we
+                can try $u_n = M\cdot3^n$ as a particular solution, hence
+
+                \begin{align*}
+                    M\cdot3^n &= 4M\cdot3^{n - 2} + 10 \cdot 3^{n - 2} \\
+                    M\cdot3^2 &= 4M + 10 \\
+                    9M &= 4M + 10 \\
+                    5M &= 10 \\
+                    M &= 2 \\
+                \end{align*}
+                and our particular solution is $P(n) = 2\cdot3^n$.
+                Now we can write a general solution for the inhomogeneous
+                difference equation $u_n$ as
+                \begin{align*}
+                    u_n &= P(n) + G(n) \\
+                        &= A\cdot2^n + B\cdot2^n + 2\cdot3^n.
+                \end{align*}
+                The initial conditions $u_0 = 9$, $u_1 = 4$ imply that
+                \begin{align*}
+                    A + B + 2 &= 9 \\
+                    A &= 7 - B  \\
+                    \\
+                    11A + 2B + 6 &= 4 \\
+                    11(7 - B) + 2B &= 4 \\
+                    9B &= 81 \\
+                    B &= 9 \\
+                    \\
+                    A &= 7 - 9 \\
+                    A &= 2 \\
+                \end{align*}
+                and therefore our general solution to the inhomogeneous
+                difference equation $u_n = 2\cdot2^n + 9\cdot2^n + 2\cdot3^n$.
+        \end{enumerate}
+        \item The reproduction of flora on planet Zod can be described as a
+            homogenous second order difference equation with constant
+            coefficients and the general form 
+            \begin{align*}
+                u_n = au_{n - 1} + bu_{n - 2}
+            \end{align*}
+            where $a = 1$, $b = 6$ and $u_0 = U = 1$, $u_1 = V = 1$. Let $u_n = w^n$. We can now write
+            \begin{align*}
+                w^n &= aw^{n - 1} + bw^{n - 2} \\
+                w^2 &= aw + b \\
+                w^2 - aw - b &= 0. \\
+            \end{align*}
+            For the above to be true, $w$ must be a zero of the characteristic
+            polynomial $\lambda^2 - a\lambda - b$. Since we know that $a^2 + 4b
+            > 0$, this polynomial has distinct real zeros $w_1$ and $w_2$.
+            Substituting $a$ and $b$ for their values and factorising gives the
+            values of these zeros:
+            $\lambda^2 - a\lambda - b = 0 = (\lambda - 3)(\lambda + 2)$
+
+            We also know that for $c_1, c_2 \in \mathbb{R}$ we have $u_n =
+            c_1w_1^n + c_2w_2^n$ with $c_1$ and $c_2$ taking values such that
+            they satisfy the initial conditions $U$ and $V$.
+
+            So, for $n = 0$
+            \begin{align*}
+                c_1 + c_2 = U &= 1 \\
+                c_2 &= 1 - c_1\\
+            \end{align*}
+            and for $n = 1$
+            \begin{align*}
+                c_1w_1 + c_2w_2 &= V \\
+                3c_1 - 2c_2 &= 1 \\
+                3c_1 - 2(1 - c_1) &= 1 \\
+                c_1 &= \frac{3}{5} \Longleftrightarrow c_2 = \frac{2}{5} \\
+            \end{align*}
+            then $u_n = 3(\tfrac{3}{5})^n - 2(\tfrac{2}{5})^n$.
+        \item
+            \begin{enumerate}
+                \item When $u_0 = 0$, $u_n = 0$. Similarly, when $u_0 = 2$, $u_n = 2$.
+                \item 
+            \end{enumerate}
+    \end{enumerate}
+\end{document}

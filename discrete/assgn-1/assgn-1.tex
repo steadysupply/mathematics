@@ -1,0 +1,143 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}%
+\author{BM Corser}
+\title{Discrete Assignment 1}
+\begin{document}
+    \maketitle 
+    \begin{enumerate}
+        \item
+        \begin{enumerate}
+            \item Let $j = i - 1$
+                \begin{align*}
+                    \sum_{i=1}^{1001} \binom{1000}{i-1}2^i &= 2 \times \sum_{i=1}^{1001} \binom{1000}{i-1}2^{i-1}\\
+                    &= 2 \times \sum_{j=0}^{1000} \binom{1000}{j}2^{j}\\
+                \end{align*}
+                Consider the binomial theorem when $x = 2$, $y = 1$, $n = 1000$
+            \begin{align*}
+                \sum_{r=0}^{n}\binom{n}{r}x^ry^{n-r} &= (x+y)^n\\
+                \sum_{r=0}^{1000}\binom{1000}{r}2^r1^{1000-r} &= (2+1)^{1000}\\
+                \sum_{r=0}^{1000}\binom{1000}{r}2^r &= 3^{1000}\\
+            \end{align*}
+                Now let $r = j$
+            \begin{align*}
+                2 \times \sum_{j=0}^{1000} \binom{1000}{j}2^{j} &= 2 \times 3^{1000}
+            \end{align*}
+            \item
+                \begin{align*}
+                    \sum_{i=1}^n \sum_{j=1}^i j &= \sum_{i=1}^n \frac{1}{2}i(i + 1) \\
+                                                &= \frac{1}{2} \sum_{i=1}^n (i^2 + i) \\
+                                                &= \frac{1}{2} \sum_{i=1}^n i^2 + \frac{1}{2} \sum_{i=1}^n i \\
+                                                &= \frac{1}{12}n(n + 1)(2n +1)  + \frac{3}{12}n(n + 1) \\
+                                                &= \frac{n(n + 1)(2n + 4)}{12} \\
+                                                &= \frac{n^3}{6} + \frac{n^2}{2} + \frac{n}{3}
+                \end{align*}
+        \end{enumerate}
+        \item
+        \begin{enumerate}
+            \item Assuming the order in which the films are played matters and
+                the audience doesn't watch the same film twice in the same
+                evening, this is an r-permutation problem.  With a total of 33
+                films, the number of 3-permutations is 
+                \begin{enumerate}
+                    \item $\perm{33}{3} =32736$.
+                    \item Since there are 10 comedy films there are 10 ways of
+                        choosing the first film. Following this there are 32
+                        remaining films which can be shown in $\perm{32}{2}$ ways.
+                        Hence $10 \times \perm{33}{2} = 10560$.
+                \end{enumerate}
+            \item Since the order doesn't matter and players cannot be picked
+                twice, this is an r-combination problem. There are
+                $\binom{30}{1}$ ways of choosing a captain, and $\binom{29}{7}$
+                ways of choosing the remaining players hence $\binom{30}{1}
+                \times \binom{29}{7} = 46823400$.
+            \item Similarly, the number of ways of selecting 2 pairs of players
+                from a team of 8 is $\binom{8}{2} \times \binom{6}{2} = 420$.
+        \end{enumerate}
+            \item Let $X = \{n : 1 \leq n \leq 50\}$ and $|X| = c$.
+
+                Let $P$ be the statement $\exists\ x, y \in X \text{ st. } x -
+                y \in 2 \mathbb{N}$.
+
+                The smallest value of $c$ for which $P$ is true is 2 (if we
+                agree that $0 \notin \mathbb{N}$), so $P$ is true for all $c >
+                1$.
+
+                Let $S_0$, $S_1$, $S_2$ be sets. By the inclusion-exclusion
+                theorem, the cardinality of their union $|S_0 \cup S_1 \cup
+                S_2|$ is given by
+                \[
+                    \biggr| \bigcup_{i = 0}^2 S_i \biggr| =
+                    \sum_{i=0}^2|S_i|
+                    - \sum_{i,j=0}^2|S_i \cap S_j|
+                    + |S_0 \cap S_1 \cap S_2|
+                    \label{cardsum} \tag{$\ast$}
+                \]
+                Now to address the problem. Let $A$, $B$ and $C$ be sets
+                containing the numbers that Alice, Bob and Charlie
+                (respectively) chose. We are told that $|A|, |B|, |C| = 15$,
+                $|A \cap B| = 8$, $|A \cap C| = 6$, $|B \cap C| = 7$ and that 
+                $|A \cup B \cup C| = 29$. Now let $A = S_0$, $B = S_1$ and $B =
+                S_2$ and substitute their values into \eqref{cardsum}, giving
+                \begin{align*}
+                    29 &= (15 + 15 + 15) - (6 + 7 + 8) + |A \cap B \cap C| \\
+                    |A \cap B \cap C| &= 5
+                \end{align*}
+                Now let $A \cap B \cap C = X$, then $|X| = 5$ and $c = 5$.
+                Since $c > 1$, $P$ is true.
+            \item
+                The generating function for the number of integer solutions of
+                \begin{align*}
+                    X_1 + X_2 + X_3 + X_4 = r \\
+                \end{align*}
+                where
+                \begin{align*}
+                    X_1 \leq 3 \\
+                    X_2 \leq 3 \\
+                    X_3 \leq 5 \\
+                    5 \leq X_4 \leq 3 \\
+                \end{align*}
+                is
+                \begin{align*}
+                    (1 + x + x^2 + x^3)^2(1 + x + \cdots + x^5)(x^5 + \cdots + x^{15}) \\
+                \end{align*}
+
+                Applying identities, factorising
+                \begin{align*}
+                    \Big((1 - x^4)(1 + x + x^2 + \cdots)\Big)^2(1 - x^6)(1 + x + x^2 + \cdots)x^5(1 + x + \cdots + x^{10}) \\
+                \end{align*}
+                Expanding, collecting, applying identities
+                \begin{align*}
+                    x^5(1 - x^4)^2(1 - x^6)(1 - x^{11})(1 + x + x^2 + \cdots)^4 \\
+                \end{align*}
+                Further application of identities
+                \begin{align*}
+                    x^5\Bigg(\sum_{i=0}^2(-1)^i\binom{2}{i}x^{4i}\Bigg)(1 - x^6)(1 - x^{11})\Bigg(\sum_{i=0}^\infty\binom{3+i}{i}x^i\Bigg) \\
+                \end{align*}
+                Expanding, distributing
+                \begin{align*}
+                    (1 - 2x^4 + x^8)(x^{22} - x^{16} - x^{11} + x^5)\Bigg(\sum_{i=0}^\infty\binom{3+i}{i}x^i\Bigg) \\
+                \end{align*}
+                To find the coefficient of $x^{15}$, we take all ``paths''
+                through the function where the sum of indices is 15 and sum
+                them
+                \begin{align*}
+                    \Big(&1 &\times& &-x^{11}& &\times& &\binom{7}{4}x^{4}&\Big) + \\
+                    \Big(&1 &\times& &x^{5}& &\times& &\binom{13}{10}x^{10}&\Big) + \\
+                    \Big(&-2x^4 &\times& &-x^{11}& &\times& &\binom{3}{0}x^{0}&\Big) + \\
+                    \Big(&-2x^4 &\times& &x^{5}& &\times& &\binom{9}{6}x^{6}&\Big) + \\
+                    \Big(&x^8 &\times& &x^{5}& &\times& &\binom{5}{2}x^{2}&\Big)
+                \end{align*}
+                taking coefficients only
+                \begin{align*}
+                    (&1 &\times& &-1& &\times& &35&) + \\
+                    (&1 &\times& &1& &\times& &286&) + \\
+                    (&-2 &\times& &-1& &\times& &1&) + \\
+                    (&-2 &\times& &1& &\times& &84&) + \\
+                    (&1 &\times& &1& &\times& &10&)
+                \end{align*}
+                gives $-35 + 286 + 2 - 168 + 10 = 95$.
+    \end{enumerate}
+\end{document}
