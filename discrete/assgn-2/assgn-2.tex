@@ -5,6 +5,7 @@
 \newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}%
 \author{BM Corser}
 \title{Discrete Assignment 2}
+\date{}
 \begin{document}
     \maketitle 
     \begin{enumerate}
@@ -38,53 +39,24 @@
                     &= g(n) + \sum_{i = 1}^n\Bigg(g(i) \cdot \frac{g(n)}{g(i)} \Bigg) \\
                     &= (n + 1)\cdot 2^{n^2(n + 1)^2}
                 \end{align*}
-            \item Let $k = n + 2$, then $a_{n + 2}$ can be written
-                \begin{align*}
-                    a_k = 4a_{k - 2} + 10 \cdot 3^{k - 2}
-                \end{align*}
-                Here, $a_k$ is an inhomogeneous second order difference
-                equation with constant coefficients and can be written in the
-                general form
-                \begin{align*}
-                    u_n = au_{n - 1} + bu_{n - 2} + f(n)
-                \end{align*}
-                where $a = 0$, $b = 4$ and $f(n) = 10 \cdot 3^{n - 2}$.
-                We know that
-                \begin{align*}
-                    u_n = G(n) + P(n)
-                \end{align*}
-                where $P(n)$ is a particular solution to the inhomogeneous
-                difference equation and $G(n)$ is a general solution to the
-                homogeneous part of the inhomogeneous difference equation and
-                $G(n) + P(n)$ is a general solution to the inhomogeneous
-                difference equation.
+            \item Here, $a_n$ is an inhomogeneous second order difference
+                equation with constant coefficients. We know that $u_n = G(n) +
+                P(n)$ where $P(n)$ is a particular solution to the
+                inhomogeneous difference equation and $G(n)$ is a general
+                solution to the homogeneous part of the inhomogeneous
+                difference equation and $G(n) + P(n)$ is a general solution to
+                the inhomogeneous difference equation.
 
-                The homogeneous part of the difference equation has
-                characteristic polynomial $\lambda^2 - 4$ with distinct
-                real zeros $w_1 = 2$ and $w_2 = -2$. There must be values $c_1$
-                and $c_2$ such that the initial conditions are satisfied as
-                follows
-                \begin{align*}
-                    c_1 + c_2 &= 9 \\
-                    c_2 &= 9 - c_1 \\
-                    \\
-                    c_1w_1 + c_2w_2 &= 4 \\
-                    2c_1 - 2c_2 &= \\
-                    c_1 - c_2 &= 2\\
-                    c_1 - (9 - c_1) &= 2\\
-                    2c_1 &= 11\\
-                    c_1 &= \tfrac{11}{2} \\
-                    \\
-                    c_2 &= 9 - \tfrac{11}{2} \\
-                    c_2 &= \tfrac{7}{2} \\
-                \end{align*}
+                The homogeneous part of the inhomogeneous difference equation
+                has characteristic polynomial $\lambda^2 - 4$ with distinct
+                real zeros $w_1 = 2$ and $w_2 = -2$, so the general solution to
+                the homogeneous part is
+                $$G(n) = A\cdot2^n + B\cdot(-2)^n.$$
 
-                so the general solution to the homogeneous
-                part is $$G(n) = A\cdot(\tfrac{11}{2})^n + B\cdot(\tfrac{7}{2})^n.$$
-
-                $f(n)$ has the form $c\alpha^n$ where $\alpha = 3$ and $\alpha$
-                is not a zero of the characteristic polynomial, therefore we
-                can try $u_n = M\cdot3^n$ as a particular solution, hence
+                The inhomogeneous part has an $f(n)$ part of the form
+                $c\alpha^n$ where $\alpha = 3$ and $\alpha$ is not a zero of
+                the characteristic polynomial, therefore we can try $u_n =
+                M\cdot3^n$ as a particular solution, hence
 
                 \begin{align*}
                     M\cdot3^n &= 4M\cdot3^{n - 2} + 10 \cdot 3^{n - 2} \\
@@ -98,37 +70,27 @@
                 difference equation $u_n$ as
                 \begin{align*}
                     u_n &= G(n) + P(n) \\
-                        &= A\cdot(\tfrac{11}{2})^n + B\cdot(\tfrac{7}{2})^n + 2\cdot3^n.
+                        &= A\cdot2^n + B\cdot(-2)^n + 2\cdot3^n.
                 \end{align*}
                 The initial conditions $u_0 = 9$, $u_1 = 4$ imply that
                 \begin{align*}
                     A + B + 2 &= 9 \\
                     A &= 7 - B  \\
                     \\
-                    \tfrac{11}{2}A + \tfrac{7}{2}B + 6 &= 4 \\
-                    \tfrac{11}{2}(7 - B) + \tfrac{7}{2}B &= -2 \\
-                    \tfrac{77}{2} - \tfrac{11}{2}B + \tfrac{7}{2}B &= -2 \\
-                    \tfrac{5}{2}B &= \tfrac{79}{2} \\
-                    B &= \tfrac{79}{5} \\
-                    \\
-                    A &= 7 - \tfrac{79}{5} \\
-                    &= - \tfrac{44}{5} \\
+                    2A - 2B &= -2 \\
+                    A - B &= -1 \\
+                    (7 - B) - B &= -1 \\
+                    B &= 4  \Leftrightarrow A = 3 \\
                 \end{align*}
                 and therefore our general solution to the inhomogeneous
                 difference equation is
-                        $u_n = (\tfrac{79}{5})\cdot(\tfrac{7}{2})^n - (\tfrac{44}{5})\cdot(\tfrac{11}{2})^n + 2\cdot3^n.$
+                        $u_n = 3\cdot2^n - 4\cdot(-2)^n + 2\cdot3^n.$
             \item Here $b_n$ is an inhomogeneous second order difference
                 equation with constant coefficients. We will solve it using the
                 same technique employed above. The homogeneous part of $b_n$ has
                 characteristic polynomial $\lambda^2 + 5 - 6\lambda = (\lambda - 3)^2 - 4$
-                with zeros $w_1 = 5$ and $w_2 = 1$ and as such there are
-                $c_1, c_2 \in \mathbb{R}$ such that
-                \begin{align*}
-                    c_1 + c_2 &= 9 \\
-                    5c_1 + c_2 &= 30 \\
-                \end{align*}
-                so $c_1 = \frac{21}{4}$,  $c_2 = \frac{15}{4}$ and the general
-                solution to the homogeneous part is $A\cdot(\frac{21}{4})^n + B\cdot(\frac{15}{4})^n$.
+                with zeros $w_1 = 5$ and $w_2 = 1$ and as such the general
+                solution to the homogeneous part $G(n) = A\cdot5^n + B$.
                 The inhomogeneous function is a polynomial of degree 1 in $n$
                 and 1 is a zero of the characteristic polynomial (of
                 multiplicity 1), so our particular solution will have the form
@@ -153,14 +115,12 @@
                 Then $G(n) + P(n) = A\cdot5^n + B -15n - \tfrac{177}{4}n^2$ and (using our values for $u_0$ and $u_1$)
                 \begin{align*}
                     A &= B - 9 \\
-                    \\
                     30 &= 5A + B - 15 - \tfrac{177}{4} \\
-                    &= 5(B - 9) + B - 15 - \tfrac{177}{4} \\
-                    B &= \tfrac{179}{8} \Leftrightarrow A = \tfrac{501}{4} \\
+                    A &= \tfrac{321}{16} \Leftrightarrow B = \tfrac{177}{16}
                 \end{align*}
                 and
                 \begin{align*}
-                    b_n = (\tfrac{501}{4})\cdot 5^n + \tfrac{179}{8} - 15n - (\tfrac{177}{4})n^2 \\
+                    b_n = (\tfrac{321}{16})\cdot 5^n - \tfrac{177}{16} - 15n^2 - (\tfrac{177}{4})n \\
                 \end{align*}
         \end{enumerate}
         \item The reproduction of flora on planet Zod can be described as a

@@ -15,24 +15,24 @@
     \begin{enumerate}
         \item $P'$ is a square $(0,0), (0,3), (3,3), (3, 0)$ and so the limits
             of both the inner and outer integrals are 0 and 3.
-        \item $\frac{\delta u}{\delta x} = \frac{\delta v}{\delta y} = \frac{2}{3}$, 
-              $\frac{\delta u}{\delta y} = \frac{\delta v}{\delta x} = \frac{1}{3}$
+        \item $\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} = \frac{2}{3}$, 
+              $\frac{\partial u}{\partial y} = \frac{\partial v}{\partial x} = \frac{1}{3}$
             \begin{align*}
-                \frac{\delta(u,v)}{\delta(x,y)}
+                \frac{\partial(u,v)}{\partial(x,y)}
                 = \det \left(
                 \begin{array}{cc}
-                    \tfrac{\delta u}{\delta x} & \tfrac{\delta u}{\delta y} \\
-                    \tfrac{\delta v}{\delta x} & \tfrac{\delta v}{\delta y} \\
+                    \tfrac{\partial u}{\partial x} & \tfrac{\partial u}{\partial y} \\
+                    \tfrac{\partial v}{\partial x} & \tfrac{\partial v}{\partial y} \\
                 \end{array}
                 \right)
                 = \left(\frac{2}{3}\right)^2 - \left(\frac{1}{3}\right)^2 = \frac{1}{3}
             \end{align*}
         \item
             \begin{align*}
-                \iint_\Delta f(u,v) \left|\frac{\delta(u,v)}{\delta(x,y)}\right| \text{d}u\text{d}v
+                \iint_\Delta f(u,v) \left|\frac{\partial(u,v)}{\partial(x,y)}\right| \text{d}u\text{d}v
                 &= \frac{1}{3} \cdot \int_0^3\int_0^3 e^{\frac{2u+v}{3}} \text{d}u\text{d}v \\
-                &= \tfrac{1}{3}(e^3 - e^2 - e +1) \\
-                &\approx 3.6593996652659907594459382408\dots
+                &= \tfrac{3}{2}(e^3 - e^2 - e +1) \\
+                &\approx 16.46729849369695841750672208398107137907551776145351486798\dots
             \end{align*}
         \end{enumerate}
         \item
@@ -80,7 +80,7 @@
                             Let's call this set of points $D$. Under the change
                             of variables, $x = ua$, $y = vb$, so
                             $
-                                \tfrac{\delta(x,y)}{\delta(u,v)} = \det\left(
+                                \tfrac{\partial(x,y)}{\partial(u,v)} = \det\left(
                                 \begin{array}{cc}
                                     a & 0 \\
                                     0 & b
@@ -135,24 +135,48 @@
                     \begin{enumerate}
                         \item
                             \begin{align*}
-                                \frac{\delta w}{\delta x} = F_x = \frac{\delta F}{\delta x} &=
-                                \frac{\delta f}{\delta u} \cdot \frac{\delta u}{\delta x} + \frac{\delta f}{\delta v} \cdot \frac{\delta v}{\delta x} \\
+                                \frac{\partial w}{\partial x} = F_x = \frac{\partial F}{\partial x} &=
+                                \frac{\partial f}{\partial u} \cdot \frac{\partial u}{\partial x} + \frac{\partial f}{\partial v} \cdot \frac{\partial v}{\partial x} \\
                                         &= 2u \cdot \frac{1}{a} + 2v \cdot 0 \\
-                                        &= \frac{2x}{a^2}
+                                        &= \frac{2x}{a^2} \\
                             \end{align*}
-                        \item Since $\frac{\delta w}{\delta x}$ describes the
+                            and
+                            \begin{align*}
+                                        \frac{\partial w}{\partial y} = F_y &= \frac{2y}{b^2} \\
+                            \end{align*}
+                            Here's where I started getting confused by the
+                            notation used in the question. Assuming that
+                            $\frac{dw}{dx}$ in the question means
+                            $\frac{\text{d}w}{\text{d}x}$ and not
+                            $\frac{\partial w}{\partial x}$ (it reads as
+                            something in between), then Wolfram Alpha defines
+                            $\frac{\text{d}}{\text{d}x}f(x,y) = f_x + f_y\cdot\frac{\text{d}y}{\text{d}x}$. Applying this to our function and its partial derivatives gives
+                            \begin{align*}
+                                \frac{\text{d}w}{\text{d}x} &= F_x + F_y \cdot \frac{\text{d}y}{\text{d}x} \\
+                                &= \frac{2x}{a^2} + \frac{2y}{b^2} \cdot \frac{\text{d}y}{\text{d}x}
+                            \end{align*}
+                        \item Since $\frac{\text{d} w}{\text{d} x}$ describes the
                             gradient in $w$ along the $x$-axis, and the
                             function $w$ describes a ``flat'' ellipse on the
                             $x$-$y$ axis -- meaning $w = 0$ for all $(x, y)$,
                             and hence the gradient of $w$ in the $x$-axis will
-                            always be 0, ie. $\frac{\delta w}{\delta x} = 0$.
+                            always be 0, ie. $\frac{\text{d} w}{\text{d} x} = 0$.
                             Then we can write 
                             \begin{align*}
-                                \frac{\delta y}{\delta x} &= \frac{\delta w}{\delta w} \cdot \frac{\delta y}{\delta x} \\
-                                &= \frac{\delta y}{\delta w} \cdot \frac{\delta w}{\delta x} \\
-                                &= \frac{1}{\frac{\delta w}{\delta y}} \cdot \frac{\delta w}{\delta x} \\
-                                &= \frac{b^2}{2y} \cdot \frac{2x}{a^2} \\
-                                &= \frac{b^2x}{a^2y}
+                                \frac{\text{d}w}{\text{d}x} = F_x + F_y \cdot \frac{\text{d}y}{\text{d}x} &= 0\\
+                                \frac{\text{d}y}{\text{d}x} &= -\frac{F_x}{F_y} \\
+                            \end{align*}
+                        \item Substituting $F_x$ and $F_y$ in terms of $x$ gives
+                            \begin{align*}
+                                \frac{\text{d}y}{\text{d}x} &= -\frac{\frac{2x}{a^2}}{\frac{2y}{b^2}} \\
+                                &= -\frac{b^2x}{a^2y} \\
+                                &= -\frac{bx}{a^2\sqrt{1 - \left(\frac{x}{a}\right)^2}} \\
+                            \end{align*}
+                        \item Let $u(x) = 1 - \left(\frac{x}{a}\right)^2$, $f = b\sqrt{u}$. Now 
+                            \begin{align*}
+                                \frac{\text{d}y}{\text{d}x} &= u'(x)f'(u) \\
+                                &= \frac{2x}{a^2} \cdot \frac{b}{2\sqrt{1 - \left(\frac{x}{a}\right)^2}} \\
+                                &= -\frac{bx}{a^2\sqrt{1 - \left(\frac{x}{a}\right)^2}} \\
                             \end{align*}
                     \end{enumerate}
     \end{enumerate}
