@@ -1,0 +1,159 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}%
+\author{BM Corser}
+\title{Calculus 2 Assignment 1}
+\date{}
+\begin{document}
+    \maketitle 
+    \begin{enumerate}
+            \item 
+    \begin{enumerate}
+        \item $P'$ is a square $(0,0), (0,3), (3,3), (3, 0)$ and so the limits
+            of both the inner and outer integrals are 0 and 3.
+        \item $\frac{\delta u}{\delta x} = \frac{\delta v}{\delta y} = \frac{2}{3}$, 
+              $\frac{\delta u}{\delta y} = \frac{\delta v}{\delta x} = \frac{1}{3}$
+            \begin{align*}
+                \frac{\delta(u,v)}{\delta(x,y)}
+                = \det \left(
+                \begin{array}{cc}
+                    \tfrac{\delta u}{\delta x} & \tfrac{\delta u}{\delta y} \\
+                    \tfrac{\delta v}{\delta x} & \tfrac{\delta v}{\delta y} \\
+                \end{array}
+                \right)
+                = \left(\frac{2}{3}\right)^2 - \left(\frac{1}{3}\right)^2 = \frac{1}{3}
+            \end{align*}
+        \item
+            \begin{align*}
+                \iint_\Delta f(u,v) \left|\frac{\delta(u,v)}{\delta(x,y)}\right| \text{d}u\text{d}v
+                &= \frac{1}{3} \cdot \int_0^3\int_0^3 e^{\frac{2u+v}{3}} \text{d}u\text{d}v \\
+                &= \tfrac{1}{3}(e^3 - e^2 - e +1) \\
+                &\approx 3.6593996652659907594459382408\dots
+            \end{align*}
+        \end{enumerate}
+        \item
+            \begin{enumerate}
+                \item The other co-ordinates of $R$ are $(x, -y)$, $(-x, -y)$, $(-x, y)$ and the area of $R$, $A_R = 4xy$.
+                \item Let $f(x,y) = A_R$, $g(x,y) = c_1x^2 + c_2y^2 - 1$, $c_1
+                    = a^{-2}$, $c_2 = b^{-2}$. We will maximise $f$ subject to
+                    the constraint $g(x,y) = 0$. Now let
+                    \begin{align*}
+                        L(x,y,\lambda) &= f(x,y) - \lambda g(x,y) \\
+                        &= 4xy - \lambda(c_1x^2 + c_2y^2 - 1). \\
+                    \end{align*}
+                    Then
+                    \begin{align*}
+                        L_x &= 4y - 2\lambda c_1x \\
+                        L_y &= 4x - 2\lambda c_2y \\
+                        L_\lambda &= -(c_1x^2 + c_2y^2 - 1). \\
+                    \end{align*}
+                    Let $L_x = L_y = 0$, then
+                    \begin{align*}
+                        4y - 2\lambda c_1x &= 0\\
+                        4c_2y^2 - 2\lambda c_1c_2xy &= \\
+                        \\
+                        4x - 2\lambda c_2y &= 0\\
+                        4c_1x^2 - 2\lambda c_1c_2xy &= \\
+                    \end{align*}
+                    and
+                    \begin{align*}
+                        (4c_2y^2 - 2\lambda c_1c_2xy) - (4c_1x^2 - 2\lambda c_1c_2xy) &= 0\\
+                        c_2y^2 &= c_1x^2.\\
+                    \end{align*}
+                    Since $c_1x^2 + c_2y^2 - 1$, $2c_1x^2 = 1$ then $$x =
+                    \pm\sqrt{\tfrac{1}{2c_1}} = \pm \frac{a}{\sqrt{2}},$$ $$y =
+                    \pm\sqrt{\tfrac{1}{2c_2}} = \pm \frac{b}{\sqrt{2}}$$ and
+                    the maximum is therefore $f\left( \frac{a}{\sqrt{2}},
+                    \frac{b}{\sqrt{2}}\right) = 2ab$.
+                \item 
+                    \begin{enumerate}
+                        \item With the change of variables $u = \tfrac{x}{a}$,
+                            $v = \tfrac{y}{b}$ the inequality \\
+                            $\tfrac{x^2}{a^2} + \tfrac{y^2}{b^2} \leq 1$
+                            becomes $u^2 + v^2 \leq 1$. The set of points
+                            satisfying this inequality such that $(u,v) \in
+                            \mathbb{R}^2$ describe the unit disc.
+                            Let's call this set of points $D$. Under the change
+                            of variables, $x = ua$, $y = vb$, so
+                            $
+                                \tfrac{\delta(x,y)}{\delta(u,v)} = \det\left(
+                                \begin{array}{cc}
+                                    a & 0 \\
+                                    0 & b
+                                \end{array}
+                                \right) = ab
+                            $ and the area of E can then be written
+                            $$
+                            A_E = A_D = ab\iint_D 1 \text{d}u\text{d}v
+                            $$
+                        \pagebreak
+                        \item Let's do another change of variables! In
+                            particular, $r\cos\theta = u$ and $r\sin\theta = v$.
+                            Let $\Delta = D$, then the area of $\Delta$ can be
+                            written as the integral
+                            \begin{align*}
+                                ab\iint_\Delta r \text{d}r\text{d}\theta &= ab\int_0^{2\pi}\int_0^1 r \text{d}r\text{d}\theta \\
+                                &= ab\int_0^{2\pi}\left[\frac{r^2}{2}\right]_0^1\text{d}\theta \\
+                                &= ab\int_0^{2\pi}\frac{1}{2}\text{d}\theta \\
+                                &= ab\left[\frac{\theta}{2}\right]_0^{2\pi} \\
+                                A_E = A_D = A_\Delta &= \pi ab
+                            \end{align*}
+                        \item $\frac{A_R}{A_E} = \frac{2ab}{\pi ab} = \frac{2}{\pi}$
+
+                    \end{enumerate}
+            \end{enumerate}
+            \item 
+                \begin{enumerate}
+                    \item Because $$h_x(a,b) = f_x(a,b) + g_x(a,b) = f_y(a,b) + g_y(a,b) = h_y(a,b) = 0,$$ $h(a,b)$ is a stationary point.
+                    \item
+                    \begin{enumerate}
+                        \item If $f(a,b)$ and $g(a,b)$ are at their (locally)
+                            lowest then their sum $h(a,b)$ will also be at its
+                            lowest. The statement is true.
+                        \item The statement is false, a counterexample is
+                            $f(x,y) = x^2 - \tfrac{y^2}{10}$, $g(x,y) = x^2 +
+                            y^2$, $(a, b) = (0, 0)$. Here $f(a,b)$ is a saddle
+                            point, $g(a,b)$ is a local minimum. However,
+                            $h(a,b)$ is a not a saddle point, but instead is a
+                            local minimum.
+                    \end{enumerate}
+                \end{enumerate}
+                \item Let $g : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$,
+                    with $g(u(x,y),v(x,y))$
+                    where
+                        $$u(x,y) = \tfrac{x}{a} \text{ and } v(x,y) = \tfrac{y}{b}.$$
+                    Let $f : \mathbb{R}^2 \longrightarrow \mathbb{R}$,
+                    with $f(u,v) = u^2 + v^2 - 1$.
+                    Then $F : \mathbb{R}^2 \longrightarrow \mathbb{R}$,
+                    where
+                        $$F(x,y) = f(g(x,y)) = \left(\frac{x}{a}\right)^2 + \left(\frac{y}{b}\right)^2 - 1 = 0.$$
+                    Now let $w = F$.
+                    \begin{enumerate}
+                        \item
+                            \begin{align*}
+                                \frac{\delta w}{\delta x} = F_x = \frac{\delta F}{\delta x} &=
+                                \frac{\delta f}{\delta u} \cdot \frac{\delta u}{\delta x} + \frac{\delta f}{\delta v} \cdot \frac{\delta v}{\delta x} \\
+                                        &= 2u \cdot \frac{1}{a} + 2v \cdot 0 \\
+                                        &= \frac{2x}{a^2}
+                            \end{align*}
+                        \item Since $\frac{\delta w}{\delta x}$ describes the
+                            gradient in $w$ along the $x$-axis, and the
+                            function $w$ describes a ``flat'' ellipse on the
+                            $x$-$y$ axis -- meaning $w = 0$ for all $(x, y)$,
+                            and hence the gradient of $w$ in the $x$-axis will
+                            always be 0, ie. $\frac{\delta w}{\delta x} = 0$.
+                            Then we can write 
+                            \begin{align*}
+                                \frac{\delta y}{\delta x} &= \frac{\delta w}{\delta w} \cdot \frac{\delta y}{\delta x} \\
+                                &= \frac{\delta y}{\delta w} \cdot \frac{\delta w}{\delta x} \\
+                                &= \frac{1}{\frac{\delta w}{\delta y}} \cdot \frac{\delta w}{\delta x} \\
+                                &= \frac{b^2}{2y} \cdot \frac{2x}{a^2} \\
+                                &= \frac{b^2x}{a^2y}
+                            \end{align*}
+                    \end{enumerate}
+    \end{enumerate}
+\end{document}
