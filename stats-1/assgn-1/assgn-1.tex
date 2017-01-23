@@ -1,0 +1,33 @@
+\documentclass[10pt]{article}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage[shortlabels]{enumitem}
+\newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}%
+\author{BM Corser}
+\title{Statistics Assignment 2}
+\begin{document}
+    \maketitle 
+    \begin{enumerate}
+        \item Let $R = (280, 155, 329, 140, 307, 116, 202, 262, 130, 131, 187, 187, 292,
+            83, 207, 197, 134, 294, 163, 217)$
+            \begin{enumerate}[(i)]
+            \item 
+                \begin{align*}
+                    \bar{x} &= \frac{1}{n}\cdot\sum_{i=0}^n R_i \\
+                    &= \frac{1}{20}\cdot(280 + 155 + 329 + 140 + 307 + 116 + 202 + 262 + 130 + \ \dots + R_n) \\
+                    &= 200.65
+                \end{align*}
+            \item 
+                \begin{align*}
+                    \sigma^2 &= \frac{1}{n - 1}\cdot\sum_{i=0}^n (\bar{x} - r)^2 \\
+                    &= \frac{1}{19}\cdot((200.65 - 280)^2 + (200.65 - 155)^2 + \ \dots) \\
+                    &= \frac{1}{19}\cdot((-79.35)^2 + 45.65^2 + \ \dots) \\
+                    &\approx 5161.60789
+                \end{align*}
+            \item 
+                \lstinputlisting{1.py}
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
