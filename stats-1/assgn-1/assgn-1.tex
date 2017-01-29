@@ -27,7 +27,116 @@
                     &\approx 5161.60789
                 \end{align*}
             \item 
+                Python code:
                 \lstinputlisting{1.py}
-        \end{enumerate}
+                Output:
+                \lstinputlisting{1.out}
+            \end{enumerate}
+        \item
+            \begin{enumerate}[(i)]
+                \item $\Pr(B^c) = 1 - \Pr(B) = 0.85$
+                \item $\Pr(A \cap B) = \Pr(B) \cdot \Pr(A|B) = 0.15 \times 0.67 = 0.1139$
+                \item $\Pr(A \cap B^c) = \Pr(A) - \Pr(A \cap B) = 0.3 - 0.1139 = 0.1861$
+                \item $\Pr(A | B^c) = \frac{\Pr(A \cap B^c)}{\Pr(B^c)} = \frac{0.1861}{0.85} = 0.21894117647058822$
+                \item The events are not independent, because $\Pr(A|B) \not= \Pr(A)$
+                \item The events are not mutually exclusive, because $\Pr(A \cap B) \not= 0$
+            \end{enumerate}
+        \item 
+            \begin{enumerate}[(i)]
+                \item
+                    $\binom{3000}{1} \cdot 0.002^1 \cdot 0.998^{2999} = 0.0148130528123 \dots$
+                    \\
+
+                    Python code:
+                    \lstinputlisting{3i.py}
+                    Output:
+                    \lstinputlisting{3i.out}
+                \item If an event happens $r$ times in $n$ samples the
+                    probability it happens is $\frac{r}{n}$. In the case where
+                    this event either happened an amount of 0 (ie. it didn't
+                    happen) or an amount of 1 (ie.  it completely happened) for
+                    a given sample, the mean is therefore equivalent to the
+                    probability because $\frac{1}{n}(r \cdot 1 + (n - r)\cdot
+                    0) = \frac{r}{n}$ so in this case we may use a Poisson
+                    distribution with $\mu = 0.002$. Hence, according to the
+                    Poisson estimation, the probabilty that one dog gets sick
+                    is
+                    $$
+                        \frac{0.002^1}{e^{0.002}\cdot1!} = 0.00199600 \dots
+                    $$
+                    \\
+
+                    Python code:
+                    \lstinputlisting{3ii.py}
+                    Output:
+                    \lstinputlisting{3ii.out}
+                \item I'm not entirely sure how to scale a Normal distribution
+                    based on probability of a discrete random variable instead
+                    of $\mu$ and $\sigma^2$ on continuous data, but going by
+                    the summary notes the $\mu$ value from a Poisson
+                    distribution can be used as $\mu$ and $\sigma^2$ in
+                    $N(\mu,\sigma^2)$, hence let $\mu = \sigma^2 = 0.002$ in
+                    $$
+                        f(x) = \frac{1}{2\pi\sigma^2}\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+                    $$
+                    then
+                    \begin{align*}
+                        f(1) &= \frac{1}{0.004\pi}\exp\left(-\frac{(1 - 0.002)^2}{0.004}\right)\\
+                         &= 5.768061039566294686832425143 ... \times 10^{-107}
+                    \end{align*}
+                    \\
+
+                    Python code:
+                    \lstinputlisting{3iii.py}
+                    Output:
+                    \lstinputlisting{3iii.out}
+                    Where presumabley the float representation in the Python
+                    library I used wasn't accurate enough to show this number.
+            \end{enumerate}
+        \item $\Pr(X \leq r)$ for a Poisson distribution with $\mu = 2$ is
+            given by $$F_r = \sum_{i=0}^re^{-2}\frac{2^i}{i!},$$
+            so evaulating for $r = 2$
+                \begin{align*}
+                    F_2 = \sum_{i=0}^2e^{-2}\frac{2^i}{i!} &= e^{-2}\frac{2^0}{0!} + e^{-2}\frac{2^1}{1!} + e^{-2}\frac{2^2}{2!} \\
+                    &= e^{-2} + 2e^{-2} + 2e^{-2} \\
+                    &= 5e^{-2}.
+                \end{align*}
+                As such, the probability two or fewer items will be sold in a
+                day is $5e^{-2}$. The probability that $F_r$ will occur on 7
+                successive is $(F_r)^7$, which evaluating for $r = 2$, as
+                before, $\left(5e^{-2}\right)^7 = 5^7e^{-14} < 0.95$. We can
+                write a Python program to try increasing values for $r$ until
+                we get a result $(F_r)^7 > 0.95$.
+
+                \pagebreak
+
+                Python code:
+                \lstinputlisting{4.py}
+                Output:
+                \lstinputlisting{4.out}
+
+                Therefore, in order to have 96.8\% probability of not running
+                out of stock, the salesperson will have to buy 7 days $\times$
+                6 items = 42.
+
+                Because the above assumes that the same number of items will
+                need to be bought each day, it gives us a kind of ``upper
+                bound''. Let's see if we can shave an item off and still
+                achieve our desired probability.
+                \\
+
+                Python code:
+                \lstinputlisting{42.py}
+                Output:
+                \lstinputlisting{42.out}
+
+                We can see here that $(F_6)^6 \cdot F_5$ also results in a
+                probability $> 0.95$, so the total number of items the
+                salesperson needs to buy is $6 \times 6 + 5 = 41$.
+            \item  $X \sim N(68, 10)$
+            \begin{enumerate}[(i)]
+                \item $1 - \Phi(75) = 0.241964$
+                \item $\Phi(75) - \Phi(70) = 0.758036 - 0.57926 = 0.178776$
+            \end{enumerate}
     \end{enumerate}
 \end{document}

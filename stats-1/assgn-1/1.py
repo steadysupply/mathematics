@@ -8,13 +8,7 @@ DATA = [
     197, 134, 294, 163, 217
 ]
 
-def main():
-    series = pd.Series(DATA)
-    mean = sum(DATA) / len(DATA)
-    variance = sum([math.pow(sample - mean, 2) for sample in DATA]) / (len(DATA) - 1)
+series = pd.Series(DATA)
+print("Sample mean: {0}".format(series.mean()))
+print("Sample variance: {0}".format(series.var()))
 
-    print(mean)
-    print(variance)
-
-if __name__ == '__main__':
-    main()
