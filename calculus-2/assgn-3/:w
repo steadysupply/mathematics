@@ -1,0 +1,185 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\newcommand*{\dydx}[0]{\frac{\text{d}y}{\text{d}x}}
+\newcommand*{\dy}[0]{\text{d}y}
+\newcommand*{\dx}[0]{\text{d}x}
+\newcommand*{\D}[2]{\frac{\partial{#1}}{\partial{#2}}}%
+\newcommand*{\df}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}%
+\author{BM Corser}
+\title{Calculus 2 Assignment 3}
+\begin{document}
+    \maketitle 
+    \begin{enumerate}
+        \item The variables separable, exact, homogeneous, first order ordinary
+            differential equation 
+            \begin{align}
+                x^2 + y^2\dydx = 0
+            \end{align}
+            can be solved by
+    \begin{enumerate}
+        \item separation of variables; if we rewrite (1) as
+            \begin{align*}
+                y^2\dydx &= -x^2 \\
+            \end{align*}
+            and integrate both sides with respect to $x$
+            \begin{align*}
+                \int \left(y^2\dydx\right)\dx &= -\int x^2 \dx \\
+                \int y^2\dy &= -\int x^2 \dx \\
+                \frac{y^3}{3} &= - \frac{x^3}{3} + c_1 \\
+            \end{align*}
+            then rearrange to make $y$ the subject
+            \begin{align*}
+                y^3 &= - x^3 + c_2 \\
+                y &= \sqrt[3]{-x^3} + c_3 \\
+            \end{align*}
+                is a general solution to (1), where $c_3$ is of the form
+                $\sqrt[3]{\frac{c_1}3}$.
+            \item observing that if we consider (1) to be of the form $$M(x,y) +
+                N(x,y)\dydx = 0$$ where $M = x^2$ and $N = y^2$ then $\D{M}{x} =
+                \D{M}{y} = 0$ and as such (1) is exact. We can then say that
+                (1) has a general solution of the form $f(x,y) = c$ such that
+                $\D{f}{x} = M$ and $\D{f}{y} = N$. Integrating $M$ with respect
+                to $x$ gives
+                \begin{align}
+                    f &= \frac{x^3}{3} + g(y)
+                \end{align}
+                and integrating (2) with respect to $y$ gives
+                \begin{align*}
+                    \D{f}{y} &= g'(y).
+                \end{align*}
+                We can therefore deduce that $$g'(y) = N = y^2$$ and $$g(y) = \int
+                N \dy = \frac{y^3}{3}$$ so $$f(x,y) = \frac{x^3 + y^3}{3}.$$
+                \begin{align*}
+                    \frac{x^3 + y^3}{3} &= c_1 \\
+                    y^3 &= -x^3+c_2 \\
+                    y &= \sqrt[3]{-x^3}+c_3 \\
+                \end{align*}
+                is therefore a general solution to (1), where $c_3$ is of the
+                form $\sqrt[3]{\frac{c_1}3}$.
+        \end{enumerate}
+        \item The non-linear, non-exact, first order differential equation
+            \begin{align}
+                y^2 + x^2\dydx = 0
+            \end{align}
+            can be solved by
+            \begin{enumerate}
+                \item separation of variables; if we rewrite (3) as
+                    \begin{align*}
+                        x^2\dydx &= -y^2 \\
+                        \dydx &= -y^2x^{-2} \\
+                        y^{-2}\dydx &= -x^{-2} \\
+                    \end{align*}
+                    and integrate both sides with respect to $x$
+                    \begin{align*}
+                        \int \left(y^{-2}\dydx\right)\dx &= -\int x^{-2} \dx \\
+                        \int y^{-2}\dy &= -\int x^{-2} \dx \\
+                         - x^{-1} - y^{-1} &= c\\
+                    \end{align*}
+                \item
+            \end{enumerate}
+        \pagebreak
+        \item
+            \begin{align}
+                f_1(x) \cdot g_1(y) + f_2(x)\cdot g_2(y)\dydx = 0
+            \end{align}
+            \begin{enumerate}
+                \item The equation (4) is of the general form
+                    $$M_0(x,y) + N_0(x,y)\dydx = 0.$$
+                    Let $\mu = \frac{1}{f_2(x)g_1(y)}$.
+                    Multiplying both sides of (4) by $\mu$ gives
+                    \begin{align*}
+                        M_0(x,y) + N_0(x,y)\dydx &= 0 \\
+                        \mu M_0(x,y) + \mu N_0(x,y) \dydx &= 0 \\
+                        \frac{f_1(x)}{f_2(x)} + \frac{g_2(y)}{g_1(y)}\dydx &= 0 \\
+                    \end{align*}
+                    which is of the form $$M_1(x) + N_1(y)\dydx = 0$$ and as such 
+                    $\D{N_1}{x} = \D{M_1}{y} = 0$ and the ODE is exact. This
+                    demonstrates that $\mu$ is an integrating factor.
+                \item Now, let $\mu = \frac{1}{x^2y^2}$ and multiply (3) by
+                    $\mu$, resulting in
+                    \begin{align}
+                        \frac{1}{x^2} + \frac{1}{y^2} \dydx &= 0
+                    \end{align}
+                    Now (5) is of the form $$M(x) + N(y)\dydx = 0,$$ which
+                    means  (as shown above) that it is exact. In this form we
+                    can solve by finding a function $f(x,y) = c$ such that
+                    $\D{f}{x} = M$ and $\D{f}{y} = N$. Now
+                    \begin{align*}
+                        \int \D{f}{x} \dx &= \int x^{-2} \dx \\
+                        f &= -x^{-1} + g(y) \\
+                        \D{f}{y} &= g'(y) = y^{-2}
+                    \end{align*}
+                    then $g(y) = \int y^{-2} \dy = -y^{-1}$
+                    and $f = -x^{-1} -y^{-1} = c$.
+            \end{enumerate}
+        \item Let $t = x^{-1}$ and $y = f(t)$. Now, by the chain rule
+            \begin{align*}
+                \df{y}{x} &= \df{t}{x}\cdot\df{y}{t} \\
+                          &= (-x^{-2})\cdot\df{y}{t} \\
+            \end{align*}
+            and by the product rule and chain rule
+            \begin{align*}
+                \df{^2y}{x^2} &= \df{^2t}{x^2}\cdot\df{y}{t} + \df{t}{x}\cdot\left(\df{^2y}{t^2}\cdot\df{t}{x}\right) \\
+                &= 2x^{-3}\cdot\df{y}{t} + (-x^{-2})\cdot\left(\df{^2y}{t^2}\cdot(-x^{-2})\right) \\
+                &= 2x^{-3}\cdot\df{y}{t} + x^{-4}\cdot\df{^2y}{t^2} \\
+            \end{align*}
+            then
+            \begin{align*}
+                x^4\cdot\df{^2y}{x^2} &= 2x\cdot\df{y}{t} + \df{^2y}{t^2} \\
+            \end{align*}
+            and
+            \begin{align*}
+                2x^3\cdot\df{y}{x} &= -2x\cdot\df{y}{t} \\
+            \end{align*}
+            so, under the substitution $x=t^{-1}$, $\df{^2y}{t^2} - 4y = 4$.
+            This is a linear, non-homogeneous, second order, ordinary
+            differential equation with constant coefficients. Its homogeneous
+            part has characteristic polynomial $w^2 - 4 = 0$ which has roots
+            $\alpha = -2$ and $\beta = 2$, so with $\alpha, \beta \in
+            \mathbb{R}$ and $\alpha \neq \beta$, the general solution to the
+            homogeneous part of the ODE is $y = Ae^{-2w} + Be^{2w}$ with $A, B
+            \in \mathbb{R}$. A particular solution to the original ODE is 4 and
+            so the general solution is therefore $y = Ae^{-2w} + Be^{2w} + 4$.
+        \item The equation we are trying to find has the form 
+            \begin{align}
+            P\df{^2y}{x^2} + Q\dydx + Ry = S(x)
+            \end{align}
+            where the $P$,$Q$ and $R$ terms are the
+            homogeneous part yielding the complimentary function $C(x)$ and
+            $S(x)$ is the non-homogeneous part yielding the particular integral
+            $p(x)$. The general solution to (6) given in the question can be
+            written in the form $y = C(x) + p(x)$. Let's consider the
+            complimentary function first. The form of the general solution
+            suggests that $C(x) = e^{2x}(A\cos(3x) + B\sin(3x))$. We will
+            proceed under this assumption since it also gives us $p(x) = 4x^2 +
+            x - 1$.  The form of $C(x)$ tells us that the auxiliary function
+            $Pt^2 + Qt + R = 0$ has roots $2\pm 3i$. If a polynomial has roots
+            $\pm a$ then $(x \pm a)$ are factors of that polynomial. As such 
+            \begin{align*}
+                0 &= (x - 2 - 3i)(x - 2 + 3i) \\
+                &= x^2 - (4 + 6i)x - (5 - 12i)
+            \end{align*}
+            and we infer $P = 1$, $-Q = 4 + 6i$, $-R = 5 - 12i$. Now we will
+            consider the particular integral $p(x)$ and its relationship to
+            $S(x)$. Because $p$ is a solution to (6), $ \df{^2p}{x^2} - (4 + 6i)\df{p}{x} - (5 - 12i)p = S(x).$
+            Now
+            \begin{align*}
+                p(x) &= 4x^2 + x - 1 \\
+                \df{p}{x} &= 8x + 1 \\
+                \df{^2p}{x^2} &= 8 \\
+            \end{align*}
+            and
+            $$
+            S(x) = 12x^2 + 29x + 1
+            $$
+            so
+            $$
+            \df{^2y}{x^2} - (4 + 6i)\dydx - (5 - 12i)y = 12x^2 + 29x + 1.
+            $$
+
+    \end{enumerate}
+\end{document}
