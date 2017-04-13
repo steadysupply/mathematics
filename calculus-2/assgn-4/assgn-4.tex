@@ -54,29 +54,33 @@
                       &= T_s - \frac{e^{\ln(T_s - T_0)}}{e^{kt}} \\
                       &= T_s - \frac{T_s - T_0}{e^{kt}}. \\
                 \end{align*}
-            \item We are given $T(0) = 37$ and $T_s = 24$. Let the amount of
-                time between death and discovery be $A$, now $T(A) = 34$, $T(A
-                + 30) = 32$ and
-                \begin{align*}
-                    e^{kA} &= \frac{13}{10} \\
-                    kA &= \ln\left(\tfrac{13}{10}\right), \\
-                      e^{k(A+30)} &= \frac{13}{8} \\
-                    kA+k30 &= \ln\left(\tfrac{13}{8}\right). \\
-                \end{align*}
-                Substituting our value for $kA$ into the second equation
-                \begin{align*}
-                    k &= \frac{\ln\left(\tfrac{13}{8}\right) - \ln\left(\tfrac{13}{10}\right)}{30} \\
-                     &= \frac{\ln\left(\tfrac{5}{4}\right)}{30}. \\
-                \end{align*}
-            \item With a value for $k$, our formula for $T$ will feature the structure
-                $e^{\ln\left(\tfrac{5}{4}\right)\cdot\frac{t}{30}}$
-                which can be written  $\left( e^{ \ln \left( \tfrac{5}{4} \right) } \right)^{\frac{t}{30}}$
-                and more simply as $\left(\tfrac{5}{4}\right)^\frac{t}{30}$, hence
-                $$T = T_s - \frac{(T_s - T_0)}{\left(\tfrac{5}{4}\right)^\frac{t}{30}}$$ and
-                and
-                \begin{align*}
-                    34 = 24 - (-13)\cdot\exp{\left(-\frac{A\left(\ln\left(\tfrac{13}{8}\right) - \ln\left(\tfrac{13}{10}\right)\right)}{30}\right)}
-                \end{align*}
+            \item We are given $T(0) = 37$ and $T_s = 24$. 
+                \begin{enumerate}
+                    \item Let the amount of time between death and discovery be
+                        $A$, now $T(A) = 34$, $T(A + 30) = 32$ and
+                    \begin{align*}
+                        e^{kA} &= \frac{13}{10} \\
+                        kA &= \ln\left(\tfrac{13}{10}\right), \\
+                        e^{k(A+30)} &= \frac{13}{8} \\
+                        kA+k30 &= \ln\left(\tfrac{13}{8}\right). \\
+                    \end{align*}
+                    Substituting our value for $kA$ into the second equation
+                    \begin{align*}
+                        k &= \frac{\ln\left(\tfrac{13}{8}\right) - \ln\left(\tfrac{13}{10}\right)}{30} \\
+                        &= \frac{\ln\left(\tfrac{5}{4}\right)}{30}. \\
+                    \end{align*}
+                \item With a value for $k$, we can write
+                        $$T = T_s - (T_s - T_0)\cdot\exp{\left(-\frac{A\ln\left(\tfrac{5}{4}\right)}{30}\right)}$$
+                    and
+                    \begin{align*}
+                        34 &= 24 - (-13)\cdot\exp{\left(-\frac{A\ln\left(\tfrac{5}{4}\right)}{30}\right)} \\
+                        \frac{10}{13} &= \exp{\left(-\frac{A\ln\left(\tfrac{5}{4}\right)}{30}\right)} \\
+                        A &= -\frac{30\ln\left(\tfrac{10}{13}\right)}{\ln\left(\tfrac{5}{4}\right)} \\
+                        &\approx 35.2729347...,
+                    \end{align*}
+                    which tells us the time of death was about 35 minutes before
+                    high noon.
+            \end{enumerate}
         \end{enumerate}
     \end{enumerate}
 \end{document}
