@@ -1,0 +1,82 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\newcommand*{\dTdt}[0]{\frac{\text{d}T}{\text{d}t}}
+\newcommand*{\dy}[0]{\text{d}y}
+\newcommand*{\dx}[0]{\text{d}x}
+\newcommand*{\dt}[0]{\text{d}t}
+\newcommand*{\dT}[0]{\text{d}T}
+\newcommand*{\D}[2]{\frac{\partial{#1}}{\partial{#2}}}%
+\newcommand*{\df}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}%
+\author{BM Corser}
+\title{Calculus 2, Assignment 4}
+\begin{document}
+    \maketitle 
+    \begin{enumerate}
+        \item 
+        \begin{enumerate}
+            \item In this context, $k$ cannot be 0, since $k = 0$ implies there
+                is no relationship between $\dTdt$ and $T_s - T$. This gives us
+                $|k| > 0$. However, I don't see a colloquial reason for $k >
+                0$, since either or both of $T_s$ and $T$ can be negative. I
+                can see it's in some sense meaningless to take a negative
+                factor, since if $a$ is a factor of $b$ then $-a$ is also a
+                factor of $b$.
+
+                ...
+
+                After having found a value for $T$, on the other hand, I can
+                see that a negative value of $k$ would lead to a situation
+                where instead of $T$ approaching $T_s$ as $t$ approaches
+                infinity, $T$ would also go to minus infinity (which breaks the
+                model of reality).
+            \item $\df{T}{t} = k(T_s - T)$ is a first order variables separable
+                ordinary differential equation and as such we can write
+                \begin{align*}
+                    \int\frac{1}{T_s - T}\dT &= k\int \dt \\
+                    k(t + c) &= -\ln(T_s - T) \\
+                    e^{-k(t + c)} &= T_s - T \\
+                    T &= T_s - e^{-k(t+c)}. \\
+                \end{align*}
+            If $T = T_0$ when $t = 0$ we can write
+                \begin{align*}
+                    T_0 &= T_s - e^{-kc} \\
+                    e^{-kc} &= T_s - T_0 \\
+                    c &= -\frac{\ln(T_s - T_0)}{k} \\
+                \end{align*}
+                and
+                \begin{align*}
+                    T &= T_s - e^{-k\left(t-\tfrac{\ln(T_s - T_0)}{k}\right)} \\
+                      &= T_s - e^{\ln(T_s - T_0)-kt} \\
+                      &= T_s - \frac{e^{\ln(T_s - T_0)}}{e^{kt}} \\
+                      &= T_s - \frac{T_s - T_0}{e^{kt}}. \\
+                \end{align*}
+            \item We are given $T(0) = 37$ and $T_s = 24$. Let the amount of
+                time between death and discovery be $A$, now $T(A) = 34$, $T(A
+                + 30) = 32$ and
+                \begin{align*}
+                    e^{kA} &= \frac{13}{10} \\
+                    kA &= \ln\left(\tfrac{13}{10}\right), \\
+                      e^{k(A+30)} &= \frac{13}{8} \\
+                    kA+k30 &= \ln\left(\tfrac{13}{8}\right). \\
+                \end{align*}
+                Substituting our value for $kA$ into the second equation
+                \begin{align*}
+                    k &= \frac{\ln\left(\tfrac{13}{8}\right) - \ln\left(\tfrac{13}{10}\right)}{30} \\
+                     &= \frac{\ln\left(\tfrac{5}{4}\right)}{30}. \\
+                \end{align*}
+            \item With a value for $k$, our formula for $T$ will feature the structure
+                $e^{\ln\left(\tfrac{5}{4}\right)\cdot\frac{t}{30}}$
+                which can be written  $\left( e^{ \ln \left( \tfrac{5}{4} \right) } \right)^{\frac{t}{30}}$
+                and more simply as $\left(\tfrac{5}{4}\right)^\frac{t}{30}$, hence
+                $$T = T_s - \frac{(T_s - T_0)}{\left(\tfrac{5}{4}\right)^\frac{t}{30}}$$ and
+                and
+                \begin{align*}
+                    34 = 24 - (-13)\cdot\exp{\left(-\frac{A\left(\ln\left(\tfrac{13}{8}\right) - \ln\left(\tfrac{13}{10}\right)\right)}{30}\right)}
+                \end{align*}
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
