@@ -20,7 +20,7 @@
         \begin{enumerate}
             \item In this context, $k$ cannot be 0, since $k = 0$ implies there
                 is no relationship between $\dTdt$ and $T_s - T$. This gives us
-                $|k| > 0$. However, I don't see a colloquial reason for $k >
+                $|k| > 0$. However, I don't see a ``colloquial" reason for $k >
                 0$, since either or both of $T_s$ and $T$ can be negative. I
                 can see it's in some sense meaningless to take a negative
                 factor, since if $a$ is a factor of $b$ then $-a$ is also a
@@ -37,8 +37,8 @@
                 ordinary differential equation and as such we can write
                 \begin{align*}
                     \int\frac{1}{T_s - T}\dT &= k\int \dt \\
-                    k(t + c) &= -\ln(T_s - T) \\
-                    e^{-k(t + c)} &= T_s - T \\
+                    -\ln(T_s - T)&= k(t + c)  \\
+                    T_s - T &=  e^{-k(t + c)}\\
                     T &= T_s - e^{-k(t+c)}. \\
                 \end{align*}
             If $T = T_0$ when $t = 0$ we can write
@@ -94,10 +94,22 @@
                     $f \circ g$ is also even.
                 \item $f(-x)g(-x) = f(x)(-g(x)) = -f(x)g(x)$ so $f(x)g(x)$ is
                     odd. Similarly, $\frac{f(-x)}{g(-x)} = \frac{f(x)}{-g(x)} =
-                    -\frac{f(x)}{g(x)}$ and $\frac{f(x)}{g(x)}$ so is also odd.
-                \item Differentiable functions are functions such that for any
-                    $u > 0$ there exists $v$ such that $f(x) - f(x + h) < u$
-                    for all $h < v$.
+                    -\frac{f(x)}{g(x)}$ and so $\frac{f(x)}{g(x)}$ is also odd.
+                \item Functions of the form $a_1x^{b_1} + ... + a_nx^{b_n}$ are
+                    odd when $b_i \in 2\mathbb{N} + 1$ and even when $b_i \in
+                    2\mathbb{N}$ and since $\df{(x^b)}{x} = bx^{b -1}$, in this
+                    case differentiating takes a funciton from even to odd and
+                    vice-versa. Similarly, where $\sin$ is odd and $\cos$ is
+                    even and $\df{\sin}{} = \cos$ and $\df{\cos}{} = -\sin$ and
+                    there is the same relationship between derivative and
+                    oddness.
+                \item
+                    \begin{enumerate}
+                        \item $h_e(-x) = \frac{1}{2}(h(-x) + h(x)) = h_e(x)$ and $h_e$ is even, also
+                        $h_o(-x) = \frac{1}{2}(h(-x) - h(x)) = -h_o(x)$  and $h_o$ is odd.
+                    \item $f(x) = x^2 + x$, $h_e = x^2$, $h_o = x$, $h_e$ is
+                        even, $h_o$ is odd, $f(x) = h_e(x) + h_o(x)$.
+                    \end{enumerate}
             \end{enumerate}
     \end{enumerate}
 \end{document}
