@@ -1,5 +1,6 @@
 \documentclass[10pt]{article}
 \usepackage{mathtools}
+\usepackage{minted}
 \usepackage{amsfonts}
 \usepackage{pifont}
 \usepackage{pgfplots}
@@ -14,7 +15,7 @@
 \newcommand*{\df}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}%
 \author{BM Corser}
 \title{Calculus 2, Assignment 4}
-\date{yeah yo}
+\date{}
 \begin{document}
     \maketitle 
     \begin{enumerate}
@@ -30,35 +31,27 @@
 
                 ...
 
-                After having found a value for $T$, on the other hand, I can
-                see that a negative value of $k$ would lead to a situation
-                where instead of $T$ approaching $T_s$ as $t$ approaches
-                infinity, $T$ would also go to minus infinity (which breaks the
-                model of reality).
-
-                ...
-
-                Also, having found $T$, it is clear that as $t \rightarrow
-                \infty$, $T \rightarrow T_s$ and so we can write
-                \begin{align*}
-                    T_s \geq T, T_s - T \geq 0, \dTdt \geq 0 \implies k > 0 \\
-                    T_s \leq T, T_s - T \leq 0, \dTdt \leq 0 \implies k > 0
-                \end{align*}
+                Also, having found $T$, it is clear that (for the model to be
+                sane) as $t \rightarrow \infty$, $T \rightarrow T_s$ and so we
+                can write
+                    $$\text{when } T_s \geq T, T_s - T \geq 0, \dTdt \geq 0 \text{ therefore } k > 0$$
+                    and
+                    $$\text{when } T_s \leq T, T_s - T \leq 0, \dTdt \leq 0 \text{ therefore } k > 0.$$
             \item $\df{T}{t} = k(T_s - T)$ is a first order variables separable
-                ordinary differential equation and as such we can write
+                ordinary differential equation and as such
                 \begin{align*}
                     \int\frac{1}{T_s - T}\dT &= k\int \dt \\
-                    -\ln(T_s - T)&= k(t + c)  \\
+                    -\ln(T_s - T)&= k(t + c)  \text{ where $c$ is of the form $a + \tfrac{b}{k}$}\\
                     T_s - T &=  e^{-k(t + c)}\\
                     T &= T_s - e^{-k(t+c)}. \\
                 \end{align*}
-            If $T = T_0$ when $t = 0$ we can write
+            If $T = T_0$ when $t = 0$
                 \begin{align*}
                     T_0 &= T_s - e^{-kc} \\
                     e^{-kc} &= T_s - T_0 \\
                     c &= -\frac{\ln(T_s - T_0)}{k} \\
                 \end{align*}
-                and
+                so
                 \begin{align*}
                     T &= T_s - e^{-k\left(t-\tfrac{\ln(T_s - T_0)}{k}\right)} \\
                       &= T_s - e^{\ln(T_s - T_0)-kt} \\
@@ -80,7 +73,7 @@
                         k &= \frac{\ln\left(\tfrac{13}{8}\right) - \ln\left(\tfrac{13}{10}\right)}{30} \\
                         &= \frac{\ln\left(\tfrac{5}{4}\right)}{30}. \\
                     \end{align*}
-                \item With a value for $k$, we can write
+                \item With a value for $k$,
                         $$T = T_s - (T_s - T_0)\cdot\exp{\left(-\frac{A\ln\left(\tfrac{5}{4}\right)}{30}\right)}$$
                     and
                     \begin{align*}
@@ -108,22 +101,33 @@
                     \item $f(-x)g(-x) = f(x)(-g(x)) = -f(x)g(x)$ so $f(x)g(x)$ is
                         odd. Similarly, $\frac{f(-x)}{g(-x)} = \frac{f(x)}{-g(x)} =
                         -\frac{f(x)}{g(x)}$ and so $\frac{f(x)}{g(x)}$ is also odd.
-                    \item Functions of the form $a_1x^{b_1} + ... + a_nx^{b_n}$ are
-                        only odd when $b_i \in 2\mathbb{N} + 1$ and even when $b_i \in
-                        2\mathbb{N}$ and since $\df{(x^b)}{x} = bx^{b -1}$, in this
-                        case differentiating takes a funciton from even to odd and
-                        vice-versa. Similarly, where $\sin$ is odd and $\cos$ is
-                        even and $\df{\sin}{} = \cos$ and $\df{\cos}{} = -\sin$ and
-                        there is the same relationship between derivative and
-                        oddness. So yes, if $f$ and $g$ are of the forms
-                        described above then $f'$ is odd and $g'$ is even.
+                    \item The definition of the chain rule is
+                        $\dydx = \df{y}{u} \cdot \df{u}{x}$. Since
+                        $f(x) = f(-x)$, if we let $y = f$ and $u = -x$ then
+                        \begin{align*}
+                            \df{f(-x)}{x} &= \df{f(u)}{u} \cdot \df{u}{x}, \\
+                            \df{u}{x} &= -1, \\
+                            \df{f(-x)}{x} &= \df{f(u)}{u} \cdot (-1) \\
+                             &= -\df{f(x)}{x}. \\
+                        \end{align*}
+                        Similarly, since $g(-x) = -g(x)$,
+                        \begin{align*}
+                            \df{g(-x)}{x} &= \df{g(u)}{u} \cdot \df{u}{x}, \\
+                            \df{u}{x} &= -1, \\
+                            \df{g(-x)}{x} &= \df{g(u)}{u} \cdot (-1) \\
+                             &= \df{g(-x)}{x} \cdot (-1) \\
+                             &= \df{\left(-g(x)\right)}{x} \cdot (-1) \\
+                             &= (-1)\cdot\df{g(x)}{x} \cdot (-1) \\
+                             &= \df{g(x)}{x} \\
+                        \end{align*}
                 \end{enumerate}
                 \item
                     \begin{enumerate}
                         \item $h_e(-x) = \frac{1}{2}(h(-x) + h(x)) = h_e(x)$ and $h_e$ is even, also
                         $h_o(-x) = \frac{1}{2}(h(-x) - h(x)) = -h_o(x)$  and $h_o$ is odd.
-                    \item $f(x) = x^2 + x$, $h_e = x^2$, $h_o = x$, $h_e$ is
-                        even, $h_o$ is odd, $f(x) = h_e(x) + h_o(x)$.
+                    \item $f(x) = x^2 + x$, $f$ is their even nor odd. Let $h_e
+                        = x^2$ and $h_o = x$, $h_e$ is even, $h_o$ is odd,
+                            $f(x) = h_e(x) + h_o(x)$.
                     \end{enumerate}
             \end{enumerate}
             \item
@@ -131,7 +135,23 @@
                     \item 
                         \begin{align*}
                             \ddot{x} &= t^2 + bt + c \\
-                            \dot{x} &= \frac{t^3}{3} + b\frac{t^2}{2} + c \\
+                            \dot{x} &= \frac{t^3}{3} + b\frac{t^2}{2} + ct \\
+                            x &= \frac{t^4}{12} + b\frac{t^3}{6} + ct^2 \\
+                        \end{align*}
+                    \item Since we are told that the particle is ``at rest"
+                        when $t = 0$, we know $c = ct = ct^2 = 0$ (this is also
+                        why I have ignored other constants of integration
+                        above). Now let $b = -\tfrac{1}{2}$ and consider our
+                        equation for displacement at $t = 1$.
+                        \begin{align*}
+                            x(1) &= \frac{1}{12} + (-\frac{1}{2})\cdot\frac{1}{6} + 0 \\
+                                 &= \frac{1}{12} - \frac{1}{12} \\
+                                 &=0
+                        \end{align*}
+                    \item As $t \rightarrow \infty$ all of $\ddot{x}$,
+                        $\dot{x}$ and $x$ will also go to infinity; the
+                        particle will have infinite acceleration, achieve
+                        infinite speed and travel infinitely far.
                 \end{enumerate}
             \item
                 \begin{align*}
@@ -139,12 +159,70 @@
                     \df{^2y}{x^2} &= 3x\dydx + 3y \\
                          &= 9x^2y + 3y \\
                     \df{^3y}{x^3} &= 3\dydx + 3x\df{^2y}{x^2} + 3\dydx \\
-                    &= 27xy + 27x^3y \\
+                    \df{^3y}{x^3} &= 6\dydx + 3x\df{^2y}{x^2} \\
+                    &= 18x^2y + 27x^3y + 9xy\\
                 \end{align*}
                 and
                 \begin{align*}
-                    y_{i+1} &= y_i + h\dydx + \frac{h^2}{2!}\df{^2y}{x^2} + \frac{h^3}{3!}\df{^3y}{x^3} \\
-                    y_{i+1} &= y_i + 0.1\cdot 3x_iy_i + \frac{h^2}{2!}\df{^2y}{x^2} + \frac{h^3}{3!}\df{^3y}{x^3}
+                    y_{i+1} &= y_i + h\dydx + \frac{h^2}{2!}\df{^2y}{x^2} + \frac{h^3}{3!}\df{^3y}{x^3}. \\
                 \end{align*}
+
+                \pagebreak
+
+                Writing a Python program that expresses the above (and is is
+                general over derivative terms, see the \mintinline{python}{terms}
+                variable) might look like the following
+                \begin{minted}[linenos]{python}
+                
+from math import factorial
+
+def d1(x, y):  # first derivative
+    return 3 * x * y
+
+def d2(x, y):  # second derivative
+    return 3 * x * d1(x, y) + 3 * y
+
+def d3(x, y):  # third derivative
+    return 6 * d1(x, y) + 3 * x * d2(x, y)
+
+terms = [d1, d2, d3]
+initial_condition = 0.5
+step = 0.1
+
+def x(i):
+    return step * i
+
+def h(i):
+    return pow(step, i) / factorial(i)
+
+def euler(i, n, d):
+    return h(n) * d(x(i), y(i))
+
+def y(i_1):  # i_1 means i + 1
+    if i_1 == 0:
+        return initial_condition
+    i = i_1 - 1
+    return y(i) + sum([
+        euler(i, n + 1, d) for n, d in enumerate(terms)
+    ])
+
+tab_fmt = "{0} & {1} & {2:.6f} \\\\"
+for i in range(0, 5):
+    print(tab_fmt.format(i, x(i), y(i)))
+
+                \end{minted}
+    Lines 33-35 format output suitable for {\LaTeX} as follows
+
+    \begin{tabular}{| c | c | c |}
+        \hline
+        $i$ & $x_i$ & $y_i$ \\
+        \hline
+        0 & 0.0 & 0.500000 \\
+        1 & 0.1 & 0.507500 \\
+        2 & 0.2 & 0.530797 \\
+        3 & 0.3 & 0.572059 \\
+        4 & 0.4 & 0.635283 \\
+        \hline
+    \end{tabular}
     \end{enumerate}
 \end{document}
