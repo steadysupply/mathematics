@@ -5,6 +5,7 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 \newcommand*{\dTdt}[0]{\frac{\text{d}T}{\text{d}t}}
+\newcommand*{\dydx}[0]{\frac{\text{d}y}{\text{d}x}}
 \newcommand*{\dy}[0]{\text{d}y}
 \newcommand*{\dx}[0]{\text{d}x}
 \newcommand*{\dt}[0]{\text{d}t}
@@ -13,6 +14,7 @@
 \newcommand*{\df}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}%
 \author{BM Corser}
 \title{Calculus 2, Assignment 4}
+\date{yeah yo}
 \begin{document}
     \maketitle 
     \begin{enumerate}
@@ -33,6 +35,15 @@
                 where instead of $T$ approaching $T_s$ as $t$ approaches
                 infinity, $T$ would also go to minus infinity (which breaks the
                 model of reality).
+
+                ...
+
+                Also, having found $T$, it is clear that as $t \rightarrow
+                \infty$, $T \rightarrow T_s$ and so we can write
+                \begin{align*}
+                    T_s \geq T, T_s - T \geq 0, \dTdt \geq 0 \implies k > 0 \\
+                    T_s \leq T, T_s - T \leq 0, \dTdt \leq 0 \implies k > 0
+                \end{align*}
             \item $\df{T}{t} = k(T_s - T)$ is a first order variables separable
                 ordinary differential equation and as such we can write
                 \begin{align*}
@@ -89,20 +100,24 @@
         \end{enumerate}
              \item
             \begin{enumerate}
-                \item Since $f$ is even, $g(f(-x)) = g(f(x))$ and so $g \circ
-                    f$ is even. Similarly, $f(g(-x)) = f(-g(x)) = f(g(x))$ so
-                    $f \circ g$ is also even.
-                \item $f(-x)g(-x) = f(x)(-g(x)) = -f(x)g(x)$ so $f(x)g(x)$ is
-                    odd. Similarly, $\frac{f(-x)}{g(-x)} = \frac{f(x)}{-g(x)} =
-                    -\frac{f(x)}{g(x)}$ and so $\frac{f(x)}{g(x)}$ is also odd.
-                \item Functions of the form $a_1x^{b_1} + ... + a_nx^{b_n}$ are
-                    odd when $b_i \in 2\mathbb{N} + 1$ and even when $b_i \in
-                    2\mathbb{N}$ and since $\df{(x^b)}{x} = bx^{b -1}$, in this
-                    case differentiating takes a funciton from even to odd and
-                    vice-versa. Similarly, where $\sin$ is odd and $\cos$ is
-                    even and $\df{\sin}{} = \cos$ and $\df{\cos}{} = -\sin$ and
-                    there is the same relationship between derivative and
-                    oddness.
+                \item
+                \begin{enumerate}
+                    \item Since $f$ is even, $g(f(-x)) = g(f(x))$ and so $g \circ
+                        f$ is even. Similarly, $f(g(-x)) = f(-g(x)) = f(g(x))$ so
+                        $f \circ g$ is also even.
+                    \item $f(-x)g(-x) = f(x)(-g(x)) = -f(x)g(x)$ so $f(x)g(x)$ is
+                        odd. Similarly, $\frac{f(-x)}{g(-x)} = \frac{f(x)}{-g(x)} =
+                        -\frac{f(x)}{g(x)}$ and so $\frac{f(x)}{g(x)}$ is also odd.
+                    \item Functions of the form $a_1x^{b_1} + ... + a_nx^{b_n}$ are
+                        only odd when $b_i \in 2\mathbb{N} + 1$ and even when $b_i \in
+                        2\mathbb{N}$ and since $\df{(x^b)}{x} = bx^{b -1}$, in this
+                        case differentiating takes a funciton from even to odd and
+                        vice-versa. Similarly, where $\sin$ is odd and $\cos$ is
+                        even and $\df{\sin}{} = \cos$ and $\df{\cos}{} = -\sin$ and
+                        there is the same relationship between derivative and
+                        oddness. So yes, if $f$ and $g$ are of the forms
+                        described above then $f'$ is odd and $g'$ is even.
+                \end{enumerate}
                 \item
                     \begin{enumerate}
                         \item $h_e(-x) = \frac{1}{2}(h(-x) + h(x)) = h_e(x)$ and $h_e$ is even, also
@@ -111,5 +126,25 @@
                         even, $h_o$ is odd, $f(x) = h_e(x) + h_o(x)$.
                     \end{enumerate}
             \end{enumerate}
+            \item
+                \begin{enumerate}
+                    \item 
+                        \begin{align*}
+                            \ddot{x} &= t^2 + bt + c \\
+                            \dot{x} &= \frac{t^3}{3} + b\frac{t^2}{2} + c \\
+                \end{enumerate}
+            \item
+                \begin{align*}
+                    \dydx &= 3xy \\
+                    \df{^2y}{x^2} &= 3x\dydx + 3y \\
+                         &= 9x^2y + 3y \\
+                    \df{^3y}{x^3} &= 3\dydx + 3x\df{^2y}{x^2} + 3\dydx \\
+                    &= 27xy + 27x^3y \\
+                \end{align*}
+                and
+                \begin{align*}
+                    y_{i+1} &= y_i + h\dydx + \frac{h^2}{2!}\df{^2y}{x^2} + \frac{h^3}{3!}\df{^3y}{x^3} \\
+                    y_{i+1} &= y_i + 0.1\cdot 3x_iy_i + \frac{h^2}{2!}\df{^2y}{x^2} + \frac{h^3}{3!}\df{^3y}{x^3}
+                \end{align*}
     \end{enumerate}
 \end{document}
