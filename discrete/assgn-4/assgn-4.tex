@@ -1,0 +1,167 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{tkz-graph}
+\usetikzlibrary{graphs}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\author{BM Corser}
+\title{Discrete, Assignment 4}
+\begin{document}
+    \maketitle 
+    \begin{enumerate}
+        \item 
+        \begin{enumerate}
+            \item 3
+            \item 3
+            \item 3
+        \end{enumerate}
+        \item 
+        \begin{enumerate}
+            \item Shortest path algorithm;
+
+				\begin{tabular}{ l | l | l }
+                    Iteration & $T(v)$ & $P(v)$ \\
+                    \hline
+                    1 & & $P(a) = 0$ \\
+                    2 & $T(b) = 9, T(d) = 6, T(e) = 3$ & $P(e) = 3$ \\
+                    3 & $T(d) = 4, T(j) = 7$ & $P(d) = 4$ \\
+                    4 & $T(g) = 11, T(h) = 5$ & $P(c) = 5$ \\
+                    5 & $T(f) = 13$ & $P(h) = 5$ \\
+                    6 & $T(g) = 8, T(z) = 9$ & $P(j) = 7$ \\
+                    7 & & $P(g) = 8$ \\
+                    8 & & $P(b) = 9$ \\
+                    6 & $T(f) = 12$ & $P(z) = 9$ \\
+				\end{tabular}
+            \item Longest path algorithm (starting by applying $P(a) = 0$,
+                $P(e) = 3$);
+
+				\begin{tabular}{ l | l | l }
+                    Iteration & $T(v)$ & $P(v)$ \\
+                    \hline
+                    1 & $T(j)=7, T(d)=6, T(c)=5, T(b)=9$ & $P(d)=6$ \\
+                    2 & $T(j)=10, T(h)=7, T(g)=13, T(c)=11$ & $P(j)=10, P(c)=11$ \\
+                    3 & $T(h)=13, T(z)=15, T(g)=18, T(f)=19, T(b)=15$ & $P(h)=13, P(b)=15$ \\
+                    4 & $T(g)=16, T(f)=18, T(z)=17$ & $P(g)=18$ \\
+                    5 & $T(f)=23, T(z)=20$ & $P(f)=23$ \\
+                    6 & $T(z)=28$ & $P(z)=28$ \\
+				\end{tabular}
+        \end{enumerate}
+        \item Ranked matching
+
+            \begin{tabular}{ l | l | l }
+                Round & Offer & Accept \\
+                \hline
+                1 & $(E_1 \rightarrow C_5), (E_1 \rightarrow C_5), (E_2 \rightarrow C_5), (E_3 \rightarrow C_2), (E_4 \rightarrow C_3), (E_5 \rightarrow C_3)$ & $(E_1 \leftrightarrow C_5)$ \\
+                2 & $(E_2 \rightarrow C_4)$ & $(E_2 \leftrightarrow C_4)$ \\
+                3 & $$ & $(E_3 \leftrightarrow C_2)$ \\
+                4 & $$ & $(E_4 \leftrightarrow C_3)$ \\
+                5 & $(E_5 \leftrightarrow C_1)$ & $(E_5 \leftrightarrow C_1)$ \\
+            \end{tabular}
+        \pagebreak
+        \item Weighted matching (maximum)
+        \begin{enumerate}
+            \item 
+
+            Matrix adjusted for application of Hungarian algorithm
+
+            \begin{tabular}{ r | c c c c c c }
+                & $h$ & $s$ & $w$ & $v$ & $p$ & $w'$ \\
+                \hline
+                $A$ & 3 & 1 & 7 & 5 & 9 & 5 \\
+                $B$ & 2 & 0 & 8 & 6 & 4 & 6 \\
+                $C$ & 9 & 9 & 3 & 4 & 5 & 7 \\
+                $D$ & 9 & 7 & 5 & 4 & 3 & 5 \\
+                $E$ & 2 & 4 & 4 & 3 & 3 & 3 \\
+                $F$ & 5 & 5 & 5 & 2 & 4 & 3 \\
+            \end{tabular}
+
+            Applying Hungarian algorithm. Column and row highlight indicates
+                membership in $S_1$.
+
+                $$ S_1 = \{C,D,E,F,s\}, |S_1| = 5$$
+
+                \begin{tabular}{ r | c >{\columncolor[gray]{0.8}}c c c c c }
+                    & $h$ & $s$ & $w$ & $v$ & $p$ & $w'$ \\
+                    \hline
+                    $A$ & 2 & 0 & 6 & 4 & 8 & 3 \\
+                    $B$ & 2 & 0 & 8 & 6 & 4 & 5 \\
+                    \rowcolor[gray]{0.8}
+                    $C$ & 6 & 6 & 0 & 1 & 2 & 3 \\
+                    \rowcolor[gray]{0.8}
+                    $D$ & 6 & 4 & 2 & 1 & 0 & 1 \\
+                    \rowcolor[gray]{0.8}
+                    $E$ & 0 & 2 & 2 & 1 & 1 & 0 \\
+                    \rowcolor[gray]{0.8}
+                    $F$ & 3 & 3 & 3 & 0 & 2 & 0 \\
+                \end{tabular}
+
+                Using the table below
+
+                \begin{tabular}{ r | c c c c c c }
+                    & $h$ & $s$ & $w$ & $v$ & $p$ & $w'$ \\
+                    \hline
+                    $A$ & 0 & \bf{0} & 4 & 2 & 6 & 1 \\
+                    $B$ & \bf{0} & 0 & 6 & 4 & 2 & 3 \\
+                    $C$ & 6 & 6 & \bf{0} & 1 & 2 & 3 \\
+                    $D$ & 6 & 4 & 2 & 1 & \bf{0} & 1 \\
+                    $E$ & 0 & 2 & 2 & 1 & 1 & \bf{0} \\
+                    $F$ & 3 & 3 & 3 & \bf{0} & 2 & 0 \\
+                \end{tabular}
+
+                we can find the set of 6 independent zeros $\{As, Bh, Cw, Dp,
+                Ew', Fv\}$ with maximum suitability, emboldened above. $\{Ah,
+                Bs, Cw, Dp, Ew', Fv\}$ is the other set of 6 independent zeros,
+                but doesn't have maximum suitability.
+
+                \pagebreak
+            \item Weighted matching (minimum)
+
+            Applying Hungarian algorithm. Column and row highlight indicates
+                membership in $S_1$.
+
+                $$ S_1 = \{h,s,w,v,p,E\}, |S_1| = 6$$
+
+            \begin{tabular}{ r | c>{\columncolor[gray]{0.8}} c>{\columncolor[gray]{0.8}} c>{\columncolor[gray]{0.8}} c c>{\columncolor[gray]{0.8}} c }
+                & $h$ & $s$ & $w$ & $v$ & $p$ & $w'$ \\
+                \hline
+                $A$ & 6 & 8 & 2 & 3 & 0 & 3 \\
+                $B$ & 6 & 8 & 0 & 1 & 4 & 1 \\
+                $C$ & 0 & 0 & 6 & 4 & 4 & 1 \\
+                $D$ & 0 & 2 & 4 & 4 & 6 & 3 \\
+                \rowcolor[gray]{0.8}
+                $E$ & 2 & 0 & 0 & 0 & 1 & 0 \\
+                $F$ & 0 & 0 & 0 & 2 & 1 & 1 \\
+            \end{tabular}
+
+            \begin{tabular}{ r | c c c c c c }
+                & $h$ & $s$ & $w$ & $v$ & $p$ & $w'$ \\
+                \hline
+                $A$ & 6 & 8 & 2 & 2 & 0 & 2 \\
+                $B$ & 6 & 8 & 0 & 0 & 4 & 0 \\
+                $C$ & 0 & 0 & 6 & 3 & 4 & 0 \\
+                $D$ & 0 & 2 & 4 & 3 & 6 & 2 \\
+                $E$ & 2 & 0 & 0 & 0 & 1 & 0 \\
+                $F$ & 0 & 0 & 0 & 1 & 1 & 0 \\
+            \end{tabular}
+            
+            Several 6-sets of independent zeros are possible, enumerated below
+
+            \begin{tabular}{lllllll|l}
+                Set & &&&&&Weight \\
+                \hline
+                $s_1=$ & $\{Ap,$ & $Bw,$ & $Cs,$  & $Dh,$ & $Ev,$  & $Fw'\}$ & 13 \\
+                $s_2=$ & $\{Ap,$ & $Bw,$ & $Cw',$ & $Dh,$ & $Ev,$  & $ Fs\}$ & 12 \\
+                $s_3=$ & $\{Ap,$ & $Bv,$ & $Cw',$ & $Dh,$ & $Ew,$  & $ Fs\}$ & 14 \\
+                $s_4=$ & $\{Ap,$ & $Bv,$ & $Cw',$ & $Dh,$ & $Es,$  & $ Fw\}$ & 14 \\
+                $s_5=$ & $\{Ap,$ & $Bv,$ & $Cs,$  & $Dh,$ & $Ew,$  & $Fw'\}$ & 14 \\
+                $s_6=$ & $\{Ap,$ & $Bv,$ & $Cs,$  & $Dh,$ & $Ew',$ & $ Fw\}$ & 13 \\
+                $s_7=$ & $\{Ap,$ & $Bw',$ & $Cs,$ & $Dh,$ & $Ev,$  & $ Fw\}$ & 13 \\
+            \end{tabular}
+
+            Any of $s_3,s_4,s_5$ are suitable.
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
+
