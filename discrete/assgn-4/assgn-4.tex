@@ -13,9 +13,15 @@
     \begin{enumerate}
         \item 
         \begin{enumerate}
-            \item 3
-            \item 3
-            \item 3
+            \item $\lambda(G) \geq 3$, $G$ is 3-edge connected.
+            \item $\kappa(G) \geq 2$, $G$ is 2-connected.
+            \item An $ae$-disconnecting set will be a $G$-disconnecting set and
+                as such cannot have magnitude $<3$. Since $\{\{ab\},
+                \{ac\}, \{ad\}\}$ is an $ea$-disconnecting set of size 3, the
+                size of the smallest $ea$-disconnecting set must also be 3.
+            \item The same logic applies to the size of the smallest
+                $be$-separating set, where $\{c, d\}$ is a $be$-separating set
+                with size equal to the smallest value of $\kappa(G)$.
         \end{enumerate}
         \item 
         \begin{enumerate}
@@ -48,6 +54,7 @@
                     6 & $T(z)=28$ & $P(z)=28$ \\
 				\end{tabular}
         \end{enumerate}
+        \pagebreak
         \item Ranked matching
 
             \begin{tabular}{ l | l | l }
@@ -59,7 +66,6 @@
                 4 & $$ & $(E_4 \leftrightarrow C_3)$ \\
                 5 & $(E_5 \leftrightarrow C_1)$ & $(E_5 \leftrightarrow C_1)$ \\
             \end{tabular}
-        \pagebreak
         \item Weighted matching (maximum)
         \begin{enumerate}
             \item 
@@ -97,7 +103,7 @@
                     $F$ & 3 & 3 & 3 & 0 & 2 & 0 \\
                 \end{tabular}
 
-                Using the table below
+                Using the table
 
                 \begin{tabular}{ r | c c c c c c }
                     & $h$ & $s$ & $w$ & $v$ & $p$ & $w'$ \\
@@ -108,7 +114,7 @@
                     $D$ & 6 & 4 & 2 & 1 & \bf{0} & 1 \\
                     $E$ & 0 & 2 & 2 & 1 & 1 & \bf{0} \\
                     $F$ & 3 & 3 & 3 & \bf{0} & 2 & 0 \\
-                \end{tabular}
+                \end{tabular},
 
                 we can find the set of 6 independent zeros $\{As, Bh, Cw, Dp,
                 Ew', Fv\}$ with maximum suitability, emboldened above. $\{Ah,
@@ -149,7 +155,7 @@
             Several 6-sets of independent zeros are possible, enumerated below
 
             \begin{tabular}{lllllll|l}
-                Set & &&&&&Weight \\
+                Set & &&&&&& Weight \\
                 \hline
                 $s_1=$ & $\{Ap,$ & $Bw,$ & $Cs,$  & $Dh,$ & $Ev,$  & $Fw'\}$ & 13 \\
                 $s_2=$ & $\{Ap,$ & $Bw,$ & $Cw',$ & $Dh,$ & $Ev,$  & $ Fs\}$ & 12 \\
