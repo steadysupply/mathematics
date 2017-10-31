@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+scores \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{1}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{212}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{2}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{140}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{3}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{156}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{4}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{170}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{5}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{172}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{6}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{150}\PYG{p}{)}
+\PYG{p}{)}
+t.test\PYG{p}{(}scores\PYG{p}{,} mu\PYG{o}{=}\PYG{l+m}{3.5}\PYG{p}{,} alternative\PYG{o}{=}\PYG{l+s}{\PYGZdq{}two.sided\PYGZdq{}}\PYG{p}{)}
+
+	One Sample \PYG{k+kp}{t}\PYG{o}{\PYGZhy{}}test
+
+data\PYG{o}{:}  scores
+t \PYG{o}{=} \PYG{l+m}{\PYGZhy{}1.814}\PYG{p}{,} df \PYG{o}{=} \PYG{l+m}{999}\PYG{p}{,} p\PYG{o}{\PYGZhy{}}value \PYG{o}{=} \PYG{l+m}{0.06998}
+alternative hypothesis\PYG{o}{:} true mean is not equal to \PYG{l+m}{3.5}
+\PYG{l+m}{95} percent confidence interval\PYG{o}{:}
+ \PYG{l+m}{3.291821} \PYG{l+m}{3.508179}
+sample estimates\PYG{o}{:}
+mean of x
+      \PYG{l+m}{3.4}
+\end{Verbatim}

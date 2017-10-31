@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+binom.test\PYG{p}{(}\PYG{k+kp}{sum}\PYG{p}{(}D \PYG{o}{\PYGZlt{}} \PYG{l+m}{0}\PYG{p}{),} \PYG{k+kp}{sum}\PYG{p}{(}D \PYG{o}{!=} \PYG{l+m}{0}\PYG{p}{),} alternative\PYG{o}{=}\PYG{l+s}{\PYGZdq{}less\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

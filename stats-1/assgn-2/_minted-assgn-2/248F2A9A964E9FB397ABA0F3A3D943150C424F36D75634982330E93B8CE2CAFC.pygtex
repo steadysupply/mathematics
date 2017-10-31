@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	Exact binomial test
+
+data:  sum(D \PYGZlt{} 0) and sum(D != 0)
+number of successes = 4, number of trials = 9, p\PYGZhy{}value = 0.5
+alternative hypothesis: true probability of success is less than 0.5
+95 percent confidence interval:
+ 0.0000000 0.7486324
+sample estimates:
+probability of success
+             0.4444444
+\end{Verbatim}

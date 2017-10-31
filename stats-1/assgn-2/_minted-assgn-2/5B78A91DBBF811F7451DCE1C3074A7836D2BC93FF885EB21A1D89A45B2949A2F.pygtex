@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+NoDrug \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{206.13}\PYG{p}{,} \PYG{l+m}{203.62}\PYG{p}{,} \PYG{l+m}{226.43}\PYG{p}{,} \PYG{l+m}{139.81}\PYG{p}{,} \PYG{l+m}{137.40}\PYG{p}{,} \PYG{l+m}{131.80}\PYG{p}{,} \PYG{l+m}{145.41}\PYG{p}{,} \PYG{l+m}{141.64}\PYG{p}{,} \PYG{l+m}{216.86}\PYG{p}{)}
+Drug \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{166.81}\PYG{p}{,} \PYG{l+m}{181.14}\PYG{p}{,} \PYG{l+m}{211.65}\PYG{p}{,} \PYG{l+m}{96.99}\PYG{p}{,} \PYG{l+m}{141.41}\PYG{p}{,} \PYG{l+m}{166.91}\PYG{p}{,} \PYG{l+m}{101.25}\PYG{p}{,} \PYG{l+m}{169.05}\PYG{p}{,} \PYG{l+m}{237.90}\PYG{p}{)}
+D \PYG{o}{=} NoDrug \PYG{o}{\PYGZhy{}} Drug
+t.test\PYG{p}{(}D\PYG{p}{)}
+\end{Verbatim}

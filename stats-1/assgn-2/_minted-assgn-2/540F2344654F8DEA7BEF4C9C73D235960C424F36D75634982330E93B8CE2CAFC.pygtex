@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	Wilcoxon signed rank test
+
+data:  D
+V = 30, p\PYGZhy{}value = 0.4258
+alternative hypothesis: true location is not equal to 0
+\end{Verbatim}

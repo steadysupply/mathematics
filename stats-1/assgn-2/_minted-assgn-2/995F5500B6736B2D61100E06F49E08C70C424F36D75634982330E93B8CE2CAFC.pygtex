@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	1\PYGZhy{}sample proportions test without continuity correction
+
+data:  3420 out of 5008, null probability 0.5
+X\PYGZhy{}squared = 670.17, df = 1, p\PYGZhy{}value \PYGZlt{} 2.2e\PYGZhy{}16
+alternative hypothesis: true p is greater than 0.5
+95 percent confidence interval:
+ 0.671995 1.000000
+sample estimates:
+        p
+0.6829073
+\end{Verbatim}

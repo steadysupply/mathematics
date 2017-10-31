@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	One Sample t\PYGZhy{}test
+
+data:  D
+t = 0.80838, df = 8, p\PYGZhy{}value = 0.4422
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ \PYGZhy{}15.64232  32.52899
+sample estimates:
+mean of x
+ 8.443333
+\end{Verbatim}

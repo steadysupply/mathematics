@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+scores \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{1}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{212}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{2}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{140}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{3}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{156}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{4}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{170}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{5}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{172}\PYG{p}{),}
+    \PYG{k+kp}{rep}\PYG{p}{(}\PYG{l+m}{6}\PYG{p}{,} times \PYG{o}{=} \PYG{l+m}{150}\PYG{p}{)}
+\PYG{p}{)}
+t.test\PYG{p}{(}scores\PYG{p}{,} mu\PYG{o}{=}\PYG{l+m}{3.5}\PYG{p}{,} alternative\PYG{o}{=}\PYG{l+s}{\PYGZdq{}two.sided\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}
