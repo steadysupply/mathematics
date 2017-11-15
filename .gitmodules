@@ -1,0 +1,3 @@
+[submodule "algebra-2/assgn-1/automorphisms-Z_p/cppitertools"]
+	path = algebra-2/assgn-1/automorphisms-Z_p/cppitertools
+	url = git@github.com:ryanhaining/cppitertools.git

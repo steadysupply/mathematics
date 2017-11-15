@@ -1,0 +1,33 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\author{BM Corser}
+\title{Calculus 3 Assignment 1}
+\date{}
+\begin{document}
+    \maketitle 
+    \begin{enumerate}
+        \item
+            $$
+                f(t) =
+                \begin{cases}
+                    5 & 0 \le t < 1 \\
+                    t + 4 & 1 \le t < 2 \\
+                    4t - 2 & 2 \le t
+                \end{cases}
+            $$
+        \begin{enumerate}
+            \item Where $H$ is the unit step function
+                \begin{align*}
+                    f(t) &= 5 - 5H(t - 1) + (t + 4)H(t - 1) - (t + 4)H(t - 2) + (4t - 2)H(t - 2) \\
+                         &= 5 + (t + 4 - 5)H(t - 1) + \Big((4t - 2) - (t + 4)\Big)H(t - 2) \\
+                         &= 5 + (t - 1)H(t - 1) + (3t - 6)H(t - 2) \\
+                         &= 5 + H(t - 1)(t - 1) + 3H(t - 2)(t - 2) \\
+                \end{align*}
+            \item 
+                \begin{align*}
+                    \mathcal{L}\Big(f(t)\Big) &= 
+                \end{align*}
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
