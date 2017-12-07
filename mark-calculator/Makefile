@@ -1,6 +1,6 @@
-DOCKER_TAG=mark-calculator
+DOCKER_RUN=docker-compose run --rm marks
 build:
-	docker build -t ${DOCKER_TAG} .
+	docker-compose build
 
 marks:
-	docker run --rm  -v `pwd`:/src -it ${DOCKER_TAG} python main.py
+	${DOCKER_RUN} python main.py

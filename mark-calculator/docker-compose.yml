@@ -1,0 +1,15 @@
+version: "3"
+services:
+  redis:  # response cache
+    image: redis
+    volumes:
+      - ./volumes/redis:/data
+  marks:
+    build:
+      context: .
+    volumes:
+      - .:/src
+    links:
+      - redis
+
+
