@@ -1,33 +1,144 @@
 \documentclass[10pt]{article}
 \usepackage{mathtools}
 \usepackage{amsfonts}
+\newcommand*{\La}{\mathcal{L}}
 \author{BM Corser}
 \title{Calculus 3 Assignment 1}
-\date{}
 \begin{document}
-    \maketitle 
+  \maketitle 
+  \begin{enumerate}
+    \item
+      $$
+        f(t) =
+        \begin{cases}
+          5 & 0 \le t < 1 \\
+          t + 4 & 1 \le t < 2 \\
+          4t - 2 & 2 \le t
+        \end{cases}
+      $$
     \begin{enumerate}
-        \item
-            $$
-                f(t) =
-                \begin{cases}
-                    5 & 0 \le t < 1 \\
-                    t + 4 & 1 \le t < 2 \\
-                    4t - 2 & 2 \le t
-                \end{cases}
-            $$
-        \begin{enumerate}
-            \item Where $H$ is the unit step function
-                \begin{align*}
-                    f(t) &= 5 - 5H(t - 1) + (t + 4)H(t - 1) - (t + 4)H(t - 2) + (4t - 2)H(t - 2) \\
-                         &= 5 + (t + 4 - 5)H(t - 1) + \Big((4t - 2) - (t + 4)\Big)H(t - 2) \\
-                         &= 5 + (t - 1)H(t - 1) + (3t - 6)H(t - 2) \\
-                         &= 5 + H(t - 1)(t - 1) + 3H(t - 2)(t - 2) \\
-                \end{align*}
-            \item 
-                \begin{align*}
-                    \mathcal{L}\Big(f(t)\Big) &= 
-                \end{align*}
-        \end{enumerate}
+      \item Where $H$ is the unit step function
+        \begin{align*}
+          f(t) &= 5 - 5H(t - 1) + (t + 4)H(t - 1) - (t + 4)H(t - 2) + (4t - 2)H(t - 2) \\
+               &= 5 + (t + 4 - 5)H(t - 1) + \Big((4t - 2) - (t + 4)\Big)H(t - 2) \\
+               &= 5 + (t - 1)H(t - 1) + (3t - 6)H(t - 2) \\
+               &= 5 + H(t - 1)(t - 1) + 3H(t - 2)(t - 2) \\
+        \end{align*}
+      \item
+        \begin{align*}
+          \La\Big(f(t)\Big) &= \La(5) + \La\Big(H(t - 1)(t - 1)\Big) + 3\La\Big(H(t - 2)(t - 2)\Big) \\
+            F(s) &= \frac{5}{s} + \frac{e^{-s}}{s} + \frac{3e^{-2s}}{s}
+        \end{align*}
     \end{enumerate}
+    \item
+      \begin{enumerate}
+        \item
+          \begin{align*}
+            \La(2t^4 + e^{-t}t^5) &= \La(2t^4) + \La(e^{-t}t^5) \\
+            &= 2\La(t^4) + \La(e^{-t}t^5) \\
+            &= \frac{2 \cdot 4!}{s^5} + \frac{5!}{s^{(5 - 1) + 1}} \\
+            &= \frac{2 \cdot 4!}{s^5} + \frac{5!}{s^5} \\
+          \end{align*}
+        \item
+          \begin{align*}
+            f(t) &= \sin^2t = \frac{1}{2}\big(1 - \cos(2t)\big) \\
+            &= \frac{1}{2}\Big(\La(1) - \La\big(\cos(2t)\big)\Big) \\
+            &= \frac{1}{2}\Big(\frac{1}{s} - \frac{s}{s^2 + 4}\Big)
+          \end{align*}
+      \end{enumerate}
+    \item
+      \begin{align*}
+        F(s) &= \frac{s + 2}{s^2 + 2s + 5} = \frac{s + 2}{(s + 1)^2 + 2^2} \\
+        &= \frac{s}{(s + 1)^2 + 2^2} + \frac{2}{(s + 1)^2 + 2^2} \\
+        f(t) &= \frac{\sin(2t)}{2e^{t}} + \frac{\cos(2t)}{e^t} \\
+             &= e^{-t}\left(\frac{\sin(2t)}{2} + \cos(2t)\right)
+      \end{align*}
+    \item
+      \begin{enumerate}
+        \item Given $\La(y') = s\La(y) - y|_0$ we can write
+        \begin{align*}
+          \La(y'''') &= s\La(y''') - y'''|_0 \\
+                     &= s(s\La(y'') - y''|_0) - y'''|_0 \\
+                     &= s^2\La(y'') - sy''|_0 - y'''|_0 \\
+                     &= s^2(s\La(y') - y'|_0) - sy''|_0 - y'''|_0 \\
+                     &= s^3\La(y') - s^2y'|_0 - sy''|_0 - y'''|_0 \\
+                     &= s^3(s\La(y) - y|_0) - s^2y'|_0 - sy''|_0 - y'''|_0 \\
+                     &= s^4\La(y) - s^3y|_0 - s^2y'|_0 - sy''|_0 - y'''|_0.
+        \end{align*}
+        \item Given initial conditions $y|_0 = 0$, $y'|_0 = 0$, $y''|_0 = 4$
+          and $y'''|_0 = 16$, we can write $\La(y'''') = \La(16y)$ and
+          \begin{align*}
+            16\La(y) &= s^4\La(y) - s^3y|_0 - s^2y'|_0 - sy''|_0 - y'''|_0 \\
+                &= s^4\La(y) - s^3 \cdot 0 - s^2 \cdot 0 - s \cdot 4 - 16 \\
+                &= s^4\La(y) - 4s - 16 \\
+                \La(y)(s^4 -16) &= 4s + 16 \\
+                \La(y) &= \frac{4s + 16}{(s^2 + 4)(s^2 - 4)}.
+          \end{align*}
+          Now,
+          \begin{align*}
+            \frac{4s + 16}{(s^2 + 4)(s^2 - 4)} &\equiv \frac{As + B}{s^2 + 4} + \frac{Cs + D}{s^2 - 4} \\
+            \text{and} \\
+            4s + 16 &= (As + B)(s^2 - 4) + (Cs + D)(s^2 + 4) \\
+                    &= As^3 - 4As + Bs^2 - 4B + Cs^3 + 4Cs + Ds^2 + 4D. \\
+          \end{align*}
+          Equating coefficients for $s^3$ gives
+          $$
+            A + C = 0,
+          $$
+          for $s^2$
+          $$
+             B + D = 0,
+          $$
+          for $s$
+          \begin{align*}
+            4 &=4C -4A \\
+            C - A &= 1,
+          \end{align*}
+          and comparing constant terms
+          \begin{align*}
+            16 &= 4D - 4B \\
+            D - B &= 4.
+          \end{align*}
+          For these equations to hold, it must be true that $A = -\tfrac{1}{2}$,
+          $B = -2$, $C = \tfrac{1}{2}$ and $D = 2$. Now let $y = f(t)$,
+          \begin{align*}
+            \La\big(f(t)\big) &= \frac{As + B}{s^2 + 4} + \frac{Cs + D}{s^2 - 4} \\
+             &=  \frac{-\tfrac{s}{2} - 2}{s^2 + 4} + \frac{\tfrac{s}{2} + 2}{s^2 - 4} \\
+             &=  \frac{1}{2} \cdot \left(\frac{-s-4}{s^2 + 4} + \frac{s + 4}{s^2 - 4}\right) \\
+             2\La\big(f(t)\big) &=  - \frac{s}{s^2 + 2^2} - 2\cdot\left(\frac{2}{s^2  + 2^2}\right) + \frac{s}{s^2 - 2^2} + 2\cdot\left(\frac{2}{s^2 - 2^2}\right) \\
+             2f(t) &=  - \cos(2t) - 2\sin(2t) + \cosh(2t) + 2\sinh(2t) \\
+             f(t) &=  \frac{1}{2}\Big(\cosh(2t) + 2\sinh(2t) - \cos(2t) - 2\sin(2t)\Big).
+          \end{align*}
+      \end{enumerate}
+    \item
+      Let $g(t) = e^{-t}$. Now we can write
+      $\La(g(t)) = G(s) = \tfrac{1}{s + 1}$
+      and wrt the question
+      \begin{align}
+        f(t) + \int_0^tf(\tau)g(t  - \tau)\text{d}\tau &= 1.
+      \end{align}
+      By the definition of convolution,
+      $\int_0^tf(\tau)g(t  - \tau)\text{d}\tau = \La^{-1}\big(F(s)G(s)\big)$.
+      Now when we consider the Laplace transform of equation (1), we can write
+      \begin{align*}
+        \La\big(f(t)\big) + \La\left(\La^{-1}\big(F(s)G(s)\big)\right) &= \La(1) \\
+        F(s) + F(s)G(s) &= \frac{1}{s} \\
+        F(s)\left(1 + \frac{1}{s + 1}\right) &= \\
+        F(s)\left(\frac{s + 1}{s + 1} + \frac{1}{s + 1}\right) &= \\
+        F(s)\left(\frac{s + 2}{s + 1}\right) &= \\
+        F(s) &= \frac{s + 1}{s(s + 2)}. \\
+      \end{align*}
+    Taking the inverse Laplace transform of the equation gives
+      \begin{align*}
+        \La^{-1}\big(F(s)\big) &= \La^{-1}\left(\frac{s + 1}{s(s + 2)}\right) \\
+        f(t) &= \La^{-1}\left(\frac{1}{s + 2}\right) + \La^{-1}\left(\frac{1}{s}\cdot\frac{1}{s + 2}\right) \\
+             &= e^{-2t} + (1 * e^{-2t})(t) \\
+             &= e^{-2t} + (e^{-2t} * 1)(t) \\
+             &= e^{-2t} + \int_0^t\left(e^{-2\tau} \cdot 1\right) \text{d}\tau \\
+             &= e^{-2t} + \left[-\frac{1}{2}e^{-2\tau}\right]_0^t \\
+             &= e^{-2t} + \Big(( - \frac{1}{2}e^{-2t}) - ( - \frac{1}{2}e^{-2 \cdot 0} ) \Big) \\
+             &= e^{-2t} + ( 1 - \frac{1}{2}e^{-2t}) \\
+             &= \frac{1}{2}e^{-2t} + 1. \\
+      \end{align*}
+  \end{enumerate}
 \end{document}

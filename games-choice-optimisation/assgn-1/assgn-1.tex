@@ -1,0 +1,224 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\newcommand*{\La}{\mathcal{L}}
+\author{BM Corser}
+\title{Games, Choice and Optimisation Assignment 1}
+\begin{document}
+  \maketitle 
+  \begin{enumerate}
+    \item
+    \begin{enumerate}
+      \item Let the variable $x_1$ represent the number 2-storey executive
+        homes, $x_2$ represent the number of 3-storey blocks, $x_3$ represent
+        the number of 1-storey bungalows and $x_4$ represent the number of
+        2-storey social housing. The constraints of the linear programme
+        representing the development problem can be written, for
+        \begin{align*}
+          \text{time in weeks }  & 3x_1 + 2x_2 + x_3 + x_4 \leq 140, \\
+          \text{units of land }  & 4x_1 + 3x_2 + x_3 + \tfrac{3}{2}x_4 \leq 600, \\
+          \text{storey limit }   & \frac{1}{4}\left(2x_1 + 3x_2 + x_3 + 2x_4\right) \leq \frac{9}{5}, \\
+                                  & 8x_1 + 12x_2 + x_3 + 4x_4 \leq \frac{36}{5}, \\
+          \text{social housing } & \frac{1}{4}\left(x_1 + x_2 + x_3 + x_4\right) \leq x_4, \\
+                                  & x_1 + x_2 + x_3 - 3x_4 \leq 0. \\
+        \end{align*}
+        Since the objective in the development problem is to maximise profit,
+        the objective function is, where coefficients represent units of 1000
+        pounds, $70x_1 + 30x_2 + 25x_3 + 5x_4$.
+
+        In standard form, then, our linear programme is written
+        \begin{align*}
+          &\text{maximise   }   &   70x_1 + 30x_2 + 25x_3 + 5x_4, \\
+          &\text{subject to   } &   3x_1  + 2x_2  + x_3   + x_4            &\leq 140, \\
+          &                     &  4x_1  + 3x_2  + x_3   + \tfrac{3}{2}x_4 &\leq 600, \\
+          &                     &  8x_1  + 12x_2 + x_3   + 4x_4            &\leq \frac{36}{5}, \\
+          &                     &   x_1  + x_2   + x_3   - 3x_4            &\leq 0, \\
+          &                     & x_1, x_2, x_3, x_4 \geq 0.&
+        \end{align*}
+      \item
+        \begin{align*}
+          &\text{maximise}    & -2x_1 &+& (\bar x - \hat x) &+& 3x_3 \\
+          &\text{subject to}  &   x_1 &+& 2(\bar x - \hat x) &+& 3x_3 &\leq 25 \\
+          &                   & -2x_1 &+& 3(\bar x - \hat x) &+& x_3 &\leq 17 \\
+          &                   & x_1, x_2, x_3, \bar x, \hat x \geq 0.
+        \end{align*}
+      \item
+      \begin{enumerate}
+        \item One slack variable is introduced per constraint, so in this case,
+          we introduce $x_4, x_5, x_6 \geq 0$.
+
+          Because $x_1$, $x_2$ and $x_3$ appear in the objective function,
+          $x_1$, $x_2$ and $x_3$ will be made nonbasic.
+
+          Since $x_3$ has the greatest coefficient in $z$ and as such will
+          contribute most to the maximisation of that function, $x_3$ will be
+          our pivot variable.
+          \begin{align*}
+            x_4  &=  136  -  x_1  +  6x_2  -  4x_3 \\
+            x_5  &=  44  -  2x_1  -  3x_2  -  8x_3 \\
+            x_6  &=  56  -  4x_1  +  2x_2  -  4x_3 \\
+          \end{align*}
+          Since $x_1 = x_2 = x_3 = 0$, $x_4 = 136$, $x_5 = 44$ and $x_6 = 56$.
+
+          We increase the pivot variable $x_3$ and write it in terms of our
+          basic variables $x_4$, $x_5$, $x_6$ and using the fact that $x_1 =
+          x_2 = 0$ have
+          \begin{align*}
+            x_4  &=  136  -  4x_3 \geq 0 \text{ and } x_3 \leq 34, \\
+          \end{align*}
+          and
+          \begin{align*}
+            x_5  &=  44  +  8x_3 \geq 0 \text{ and } x_3 \geq - \frac{11}{2}, \\
+          \end{align*}
+          also
+          \begin{align*}
+            x_6  &=  56  -  4x_3 \geq 0 \text{ and } x_3 \leq 14. \\
+          \end{align*}
+          Here the most restrictive value for nonbasic $x_3$ comes from the
+          equation for basic $x_6$, so we set $x_3 = 14$ and $x_6 = 0$, making
+          $x_4$ basic and $x_6$ nonbasic.
+        \pagebreak
+        \item
+          Now we use the equation for now-nonbasic $x_6$ to write basic $x_3$
+          in terms of nonbasic variables
+          \begin{align*}
+            x_6  &=  56  -  4x_1  +  2x_2  -  4x_3 \\
+            x_3  &=  \frac{1}{4}\left(56  -  4x_1  +  2x_2  -  x_6\right) \\
+                 &=  14  -  x_1  +  \frac{1}{2}x_2  -  \frac{1}{4}x_6 \\
+          \end{align*}
+          and substitute this into our equations for basic $x_4$ and $x_5$ and
+          for $z$
+          \begin{align*}
+            x_4  &=  136  -  x_1  +  6x_2  -  (56  -  4x_1  +  2x_2  -  x_6) \\
+                 &=  80  -  5x_1  +  4x_2  +  x_6,  \\
+            x_5  &=  44  -  2x_1  -  3x_2  -  2(56  -  4x_1  +  2x_2  -  x_6) \\
+                 &=  -68  +  6x_1  -  5x_2  +  2x_6, \\
+            z  &=  3x_1 - 7x_2 + 10(14  -  x_1  +  \frac{1}{2}x_2  -  \frac{1}{4}x_6) \\
+               &=  140 - 7x_1 - 13x_2 - \frac{5}{2}x_6
+          \end{align*}
+          At this stage the basic feasible solution is $x_1 = x_2 = 0$ and
+          $x_3 = 14$ with value 140.
+      \end{enumerate}
+    \end{enumerate}
+    \item
+      \begin{enumerate}
+          \item We introduct two slack variables, one for each constraint
+          \begin{align*}
+            x_4  &=  21 - 2x_1 - 3x_2 + 3x_3, \\
+            x_5  &=  72 - 4x_1 - 9x_2 + 4x_3. \\
+          \end{align*}
+          Setting $x_2 = x_3 = 0$ as our nonbasic variables and choosing $x_1$
+          as our pivot variable, we write
+          \begin{align*}
+            x_4  &=  21 - 2x_1 \geq 0 \text{ and } x_1 \leq \frac{21}{2} \\
+            x_5  &=  72 - 4x_1 \geq 0 \text{ and } x_1 \leq 18. \\
+          \end{align*}
+          Since the inequality arising from $x_4$ is most restrictive, we set
+          $x_1 = \frac{21}{2}$ and $x_4 = 0$ and write
+          \begin{align*}
+            x_1  &=  \frac{21}{2} - \frac{3}{2}x_2 + \frac{3}{2}x_3 - \frac{1}{2}x_4 \\
+          \end{align*}
+          and
+          \begin{align*}
+            x_5 &= 30 - 3x_2 - 2x_3 + 2x_4 \\
+          \end{align*}
+          and
+          \begin{align*}
+            z &= 5\left(\frac{21}{2} - \frac{3}{2}x_2 + \frac{3}{2}x_3 - \frac{1}{2}x_4\right) + 4x_2 - 7x_3 \\
+              &= \frac{105}{2} - \frac{15}{2}x_2 + \frac{15}{2}x_3 - \frac{5}{2}x_4 + 4x_2 - 7x_3\\
+              &= \frac{105}{2} - \frac{7}{2}x_2 + \frac{1}{2}x_3 - \frac{5}{2}x_4 \\
+          \end{align*}
+          Since the only variable with a positive coefficient is $x_3$, we
+          choose it as our pivot variable and write it in terms of our basic
+          variables $x_1$ and $x_5$
+          \begin{align*}
+            x_1  &=  \frac{21}{2} + \frac{3}{2}x_3 \geq 0 \text{ and } x_3 \geq - 7 \\
+            x_5  &=  30 - 2x_3 \geq 0 \text{ and } x_3 \leq 15. \\
+          \end{align*}
+          Of these inequalities, the one arising from $x_5$ is most
+          restrictive, so we set $x_3 = 15$ and $x_5 = 0$ and write
+          \begin{align*}
+            x_5 &= 30 - 3x_2 - 2x_3 + 2x_4, \\
+            x_3 &= \frac{1}{2}(30 - 3x_2 + 2x_4 - x_5) \\
+                &= 15 - \frac{3}{2}x_2 + x_4 - \frac{1}{2}x_5 \\
+          \end{align*}
+          and
+          \begin{align*}
+            x_1  &=  \frac{21}{2} - \frac{3}{2}x_2 + \frac{3}{2}\left(15 - \frac{3}{2}x_2 + x_4 - \frac{1}{2}x_5\right) - \frac{1}{2}x_4 \\
+                 &=  \frac{21}{2} - \frac{3}{2}x_2 + \left(\frac{45}{2} - \frac{9}{4}x_2 + \frac{3}{2}x_4 - \frac{3}{4}x_5\right) - \frac{1}{2}x_4 \\
+                 &=  33 - \frac{15}{4}x_2 + x_4 - \frac{3}{4}x_5 \\
+          \end{align*}
+          now
+          \begin{align*}
+            z &= \frac{105}{2} - \frac{7}{2}x_2 + \frac{1}{2}x_3 - \frac{5}{2}x_4 \\
+              &= \frac{105}{2} - \frac{7}{2}x_2 + \frac{1}{2}\left(15 - \frac{3}{2}x_2 + x_4 - \frac{1}{2}x_5\right) - \frac{5}{2}x_4 \\
+              &= \frac{120}{2} - \frac{12}{4}x_2 - 2x_4 - \frac{1}{2}x_5 \\
+          \end{align*}
+          and all coefficients in the objective function of the linear
+          programme are negative and the basic feasible solution $x_1 = 33$,
+          $x_3 = 15$ with value 60 is an optimal solution of the linear
+          programme.
+        \item Because $x_3$ has a coefficient of zero in the objective
+          function, there are alternative solutions of $\La$, for example
+
+          \begin{align*}
+            \begin{tabular}{ c c c c c c | c }
+              $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & \\
+              \hline
+              $\tfrac{1}{2}$ & $-\tfrac{3}{4}$ & 1 & 0 & $\tfrac{1}{2}$ & $-\tfrac{1}{4}$ & $18$ \\
+              $-2$ & $2$ & $0$ & $1$ & $\tfrac{1}{2}$ & $3$ & $25$ \\
+              \hline
+              $0$ & $\tfrac{5}{2}$ & $0$ & $0$ & $\tfrac{9}{2}$ & $\tfrac{3}{2}$ & $427$ \\
+            \end{tabular}
+          \end{align*}
+        \item 
+          \begin{enumerate}
+            \item
+              \begin{align*}
+                &\text{maximise   }   &   -x_0 \\
+                &\text{subject to   } &  -x_0 + 5x_1 - 4x_2 - 6x_3 - 2x_4 &\leq -68, \\
+                &                     &  -x_0 + 3x_1 +  x_2 - 2x_3 - 4x_4 &\leq -32, \\
+                &                     & x_0, x_1, x_2, x_3, x_4 \geq 0.&
+              \end{align*}
+            \item The auxilliary linear programme for $\La$ is
+
+              \begin{tabular}{ c c c c c c c | c }
+                $x_0$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & \\
+                \hline
+                -1 & 5 & -4 & -6 & -2 & 1 & 0 & -68 \\
+                -1 & 3 & 1 & -2 & -4 & 0 & 1 & -32 \\
+                \hline
+                1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+              \end{tabular}
+
+              Pivot on row 2 and column 1, eros
+              $r_1 \rightarrow r_1 - r_2$, $r_3 \rightarrow r_3 + r_1$, $r_2
+              \rightarrow -r_2$ give tableau
+
+              \begin{tabular}{ c c c c c c c | c }
+                $x_0$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & \\
+                \hline
+                0 & 2 & -5 & -4 & 2 & 1 & -1 & -36 \\
+                1 & -3 & -1 & 2 & 4 & 0 & -1 & 32 \\
+                \hline
+                0 & 3 & 1 & -2 & -4 & 0 & 1 & -32 \\
+              \end{tabular}
+
+              Pivot on row 2 and column 4, eros $r_3 \rightarrow r_3 + r_2$,
+              $r_1 \rightarrow r_1 + \frac{1}{2}r_2$, $r_2 \rightarrow
+              \frac{1}{4}r_2$ give tableau
+
+              \begin{tabular}{ c c c c c c c | c }
+                $x_0$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & \\
+                \hline
+                -$\frac{1}{2}$ & $\frac{5}{2}$ & -$\frac{9}{2}$ & -5 & 0 & 1 & -$\frac{1}{2}$ & -52 \\
+                $\frac{1}{4}$ & -$\frac{3}{2}$ & -$\frac{1}{4}$ & $\frac{1}{2}$ & 1 & 0 & -$\frac{1}{4}$ & 8 \\
+                \hline
+                1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+              \end{tabular}
+              That the object function here has value zero tells us that the
+              linear programme $\La$ is feasible.
+        \end{enumerate}
+      \end{enumerate}
+  \end{enumerate}
+\end{document}
