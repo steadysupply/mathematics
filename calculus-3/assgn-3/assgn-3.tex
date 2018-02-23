@@ -1,0 +1,303 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\newcommand*{\La}{\mathcal{L}}
+\newcommand*{\dxdt}[1]{\frac{\text{d}#1}{\text{d}t}}
+\newcommand*{\nip}{\left(\tfrac{400}{\pi n}\right)}
+\newcommand*{\dx}{\text{d}x}
+\newcommand*{\px}[2]{\tfrac{\partial\dot #1}{\partial #2}}
+
+\author{BM Corser}
+\title{Calculus 3 Assignment 2}
+\date{January 18, 2018}
+\begin{document}
+  \maketitle
+  \begin{enumerate}
+    \item Let $\dxdt{x} = y$, now
+      \begin{align*}
+        (t^2+1)\dxdt{y} - xty + x^2 &= x\cos t \\
+        (t^2+1)\dxdt{y} &= x(\cos t + ty - x) \\
+        \dxdt{y} &= x\left(\frac{\cos t + ty - x}{t^2+1}\right) \\
+      \end{align*}
+      let $z = t$. Now we can write the original differential equation as a
+      system of first order autonomous differential equations
+      \begin{align*}
+        \dxdt{x} &= y \\
+        \dxdt{y} &= x\left(\frac{\cos z + zy - x}{z^2+1}\right) \\
+        \dxdt{z} &= 1.
+      \end{align*}
+      \pagebreak
+    \item $\dot x = \alpha x^2 - x^4 = x^2(\alpha - x^2)$. The fixed points of
+      this system are $x = 0$ and $x = \pm \sqrt{\alpha}$. To examine the
+      behaviour of the sytem around these fixed points, we introduce an
+      ``amount of change'' variable $\sqrt{\delta} \in \mathbb{R}$.
+
+      In the case that $\alpha > 0$, when $x < -\sqrt{\alpha}$ we let
+      $\sqrt{\delta} > 1$ and suppose that
+      $x = \sqrt{\delta}(-\sqrt{\alpha}) = -\sqrt{\delta\alpha}$, now
+      $x^2 = \delta\alpha > \alpha$, and the derivative of $x$,
+      $\dot x = \delta\alpha(\alpha - \delta\alpha) < 0$.
+      In the case $-\sqrt{\alpha} < x < 0$,
+      let $0 < \sqrt{\delta} < 1$ and suppose $x = -\sqrt{\delta\alpha}$,
+      now $x^2 = \delta\alpha < \alpha$ and
+      $\dot x = \delta\alpha(\alpha-\delta\alpha) > 0$.
+      In the case $0 < x < \sqrt{\alpha}$,
+      let $0 < \sqrt{\delta} < 1$ and suppose $x = \sqrt{\delta\alpha}$,
+      now $x^2 = \delta\alpha < \alpha$ and
+      $\dot x = \delta\alpha(\alpha-\delta\alpha) > 0$.
+      In the case $x > \sqrt{\alpha}$,
+      let $\sqrt{\delta} > 1$ and suppose $x = \sqrt{\delta\alpha}$,
+      now $x^2 = \delta\alpha > \alpha$ and
+      $\dot x = \delta\alpha(\alpha-\delta\alpha) < 0$. We now have the
+      necessary information to draw our phase portrait for the system when
+      $\alpha > 0$, namely
+
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+
+      It is clear that the fixed point $x = -\sqrt{\alpha}$ is unstable, $x =
+      0$ is semistable and $x = \sqrt{\alpha}$ is stable.
+
+      In the case that $\alpha < 0$, since this dynamical system is one-dimensional, we know that $x \not \in \mathbb{C}$ so the only fixed point is $x = 0$.
+      consider the behaviour of the dynamical system around the fixed points $x
+      = \pm\sqrt{\alpha}$ and $x = 0$.
+      When $x < -\sqrt{\alpha}$, we let
+      $\sqrt{\delta} > 1$ and suppose that
+      $x = -\sqrt{\delta\alpha}$, now
+      $x^2 = \delta\alpha < \alpha$ (ie. a \emph{more} negative number) and
+      $\dot x = \delta\alpha(\alpha - \delta\alpha) < 0$.
+      In the case $-\sqrt{\alpha} < x < 0$,
+      let $0 < \sqrt{\delta} < 1$ and suppose $x = -\sqrt{\delta\alpha}$,
+      now $x^2 = \delta\alpha > \alpha$ and
+      $\dot x = \delta\alpha(\alpha-\delta\alpha) > 0$.
+      In the case $0 < x < \sqrt{\alpha}$,
+      we
+      let $0 < \sqrt{\delta} < 1$ and suppose $x = \sqrt{\delta\alpha}$,
+      now $x^2 = \delta\alpha > \alpha$ and
+      $\dot x = \delta\alpha(\alpha-\delta\alpha) > 0$.
+      In the case $x > \sqrt{\alpha}$,
+      let $\sqrt{\delta} > 1$ and suppose $x = \sqrt{\delta\alpha}$,
+      now $x^2 = \delta\alpha < \alpha$ and
+      $\dot x = \delta\alpha(\alpha-\delta\alpha) < 0$. We now have enough
+      information to conclude that our first phase portrait equally for $\alpha
+      > 0$ illustrates the case when $\alpha < 0$.
+
+      Finally, considering the case when $\alpha = 0$, our dynamical system can
+      be written $\dot x = -x^4$, but our phase portrait still provides a
+      satisfactory illustration when the interval between
+      $-\sqrt{\alpha}$ and $\sqrt{\alpha}$ is exactly zero.
+
+
+      \item
+        \begin{enumerate}
+          \item $A = \begin{pmatrix} 3 & 0 \\ \beta & 3 \end{pmatrix}$, $\det(A
+              - \lambda I) = (3 - \lambda)^2 = 0$, $\lambda = 3$.
+
+            \item
+              \begin{enumerate}
+                  \item $\beta = 0$:
+                    \begin{align*}
+                      (A - \lambda I)\mathbf{x} &= \mathbf{0} \\
+                      \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
+                      \begin{pmatrix} x \\ y \end{pmatrix}
+                        &=
+                      \begin{pmatrix} 0 \\ 0 \end{pmatrix} \\
+                    \end{align*}
+                  Any value of $x$ and $y$ will satisfy this equation, so the eigenvectors are 
+                      $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and
+                      $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Because A is a
+                        $2\times 2$ matrix and there are 2 independent
+                        eigenvectors, $A$ is not defective when $\beta = 0$.
+                  \item $\beta \not= 0$:
+                    \begin{align*}
+                      (A - \lambda I)\mathbf{x} &= \mathbf{0} \\
+                      \begin{pmatrix} 0 & 0 \\ \beta & 0 \end{pmatrix}
+                      \begin{pmatrix} x \\ y \end{pmatrix}
+                        &=
+                      \begin{pmatrix} 0 \\ 0 \end{pmatrix} \\
+                      \begin{pmatrix} 0 \\ \beta x \end{pmatrix}
+                        &=
+                      \begin{pmatrix} 0 \\ 0 \end{pmatrix} \\
+                    \end{align*}
+                  To satisfy this equation $x$ must be equal to zero, so the only eigenvector of this $A$ is
+                      $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$.  Becaues there is
+                        only one independent eigenvector, $A$ is defective when
+                        $\beta \not= 0$.
+              \end{enumerate}
+      \item When $\beta = 0$ the system can be classified as an unstable star,
+        where eigenvectors are the axes of the graph.
+
+      \pagebreak
+
+      When $\beta \not= 0$ the system can be classified as an unstable improper
+      node where eigenvectors are the $y$ axis of the graph.
+
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \item Because the system has equal real eigenvalues, $\lambda_1 = \lambda_2 = \lambda$, the general form
+        \begin{align*}
+          \mathbf{x}(t) &= c_1e^{\lambda_1t}\mathbf{x}_1+c_2e^{\lambda_2t}\mathbf{x}_2 \\
+                        &= e^{\lambda t}(c_1\mathbf{x}_1+c_2\mathbf{x}_2).
+        \end{align*}
+        Substituting values for the initial conditions $\mathbf{x}(t)$ at
+        $t = 0$, $\lambda = 3$ and eigenvectors $\mathbf{x}_1$ and
+        $\mathbf{x}_1$ we can write
+        \begin{align*}
+          \begin{pmatrix} 2 \\ -1 \end{pmatrix} &=
+            e^{3 \cdot 0}\left(c_1\begin{pmatrix} 1 \\ 0 \end{pmatrix} +
+              c_2\begin{pmatrix} 0 \\ 1 \end{pmatrix}\right) \\
+                &= \begin{pmatrix} c_1 \\ 0 \end{pmatrix} +
+              \begin{pmatrix} 0 \\ c_2 \end{pmatrix} \\
+                &= \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} \\
+        \end{align*}
+        therefore $c_1 = 2$ and $c_2 = -1$ and $\mathbf{x}(t) = e^{3t}\begin{pmatrix} 2 \\ -1 \end{pmatrix}$.
+        \end{enumerate}
+      \item The dynamical system in the question can be written
+        \begin{align*}
+          \dot x &= y \\
+          \dot y &= -4\sin x - 3y.
+        \end{align*}
+        The fixed points of this system are those that satisfy
+        $\dot x = \dot y = 0$. We can write $y = 0$ and see that
+        $-4\sin x = 0$. The latter is true when $x$ takes values in
+        $\{n\pi : n \in \mathbb{Z}\}$. Therefore the fixed points of this
+        system are $\{(n\pi,0) : n \in \mathbb{Z}\}$.
+        Computing the Jacobian of the system gives
+        \begin{align*}
+          J = \begin{pmatrix}
+            \px{x}{x} & \px{x}{y} \\
+            \px{y}{x} & \px{y}{y} \\
+          \end{pmatrix} &=
+          \begin{pmatrix}
+            0 & 1 \\
+            -4\cos x & -3 \\
+          \end{pmatrix}.
+        \end{align*}
+      Given that values of $x$ are $n\pi$, we can see that there are two
+      possible values for the bottom left entry $-4\cos x$, namely $4$ and
+      $-4$. To classify fixed points relating to both possiblities, we will
+      evaluate $J$ when $x = \pi$ and $x = 0$.
+
+      Evaluating $J$ at the fixed point $(\pi,0)$ gives
+        $
+          J_\pi = \begin{pmatrix}
+            0 & 1 \\
+            4 & -3 \\
+          \end{pmatrix}
+        $.
+        $$\det(J_\pi - \lambda I) = -\lambda(-3-\lambda) - 4 = (\lambda +
+        4)(\lambda - 1)$$ tells us that the eigenvalues for $J_\pi$ are $\lambda
+        = -4$ and $\lambda = 1$. For $\lambda = -4$,
+        \begin{align*}
+          (J_\pi = \lambda I)\mathbf{x} &= \mathbf{0} \\
+          \begin{pmatrix}
+            4 & 1 \\
+            4 & 1 \\
+          \end{pmatrix}
+          \begin{pmatrix}
+            x \\
+            y \\
+          \end{pmatrix}
+          &=
+          \begin{pmatrix}
+            0 \\
+            0 \\
+          \end{pmatrix}
+        \end{align*}
+        and the eigenvectors associated with $\lambda = 4$ are of the form $
+          \begin{pmatrix}
+            4 \\
+            -1 \\
+          \end{pmatrix}$.
+        For $\lambda = 1$,
+        \begin{align*}
+          (J_\pi = \lambda I)\mathbf{x} &= \mathbf{0} \\
+          \begin{pmatrix}
+            -1 & 1 \\
+            4 & -1 \\
+          \end{pmatrix}
+          \begin{pmatrix}
+            x \\
+            y \\
+          \end{pmatrix}
+          &=
+          \begin{pmatrix}
+            0 \\
+            0 \\
+          \end{pmatrix}
+        \end{align*}
+        and the eigenvectors associated with $\lambda = 1$ are of the form $
+          \begin{pmatrix}
+            1 \\
+            1 \\
+          \end{pmatrix}$. The general form of the linearised system in the
+          neighbourhood of point $(\pi, 0)$ is therefore
+          $\mathbf{x}(t) = c_1e^{-4t}
+          \begin{pmatrix}
+            4 \\
+            -1 \\
+          \end{pmatrix}
+          + c_2e^t$. Because eigenvalues are real and with opposite signs we
+          can say that locally, the fixed point $(\pi, 0)$ is a saddle point
+          with a trajectory inwards in the direction $
+          \begin{pmatrix}
+            4 \\
+            -1 \\
+          \end{pmatrix}
+          $ and a trajectory outwards in the direction $
+          \begin{pmatrix}
+            1 \\
+            1 \\
+          \end{pmatrix}
+          $.
+
+      Evaluating $J$ at the fixed point $(0,0)$ gives
+        $
+          J_0 = \begin{pmatrix}
+            0 & 1 \\
+            -4 & -3 \\
+          \end{pmatrix}
+        $.
+        $$\det(J_\pi - \lambda I) = -\lambda(-3-\lambda) + 4$$ doesn't
+        factorise, which tells us $\lambda \in \mathbb{C}$. Applying the
+        quadratic equation,
+        $\lambda = \frac{-3\pm\sqrt{(-3)^2-4\cdot 1 \cdot 4}}{2 \cdot 1} = \tfrac{1}{2}(-3 \pm i\sqrt{7})$.
+        We don't need to caculate the eigenvectors in this case because we know
+        $(0, 0)$ behaves like a spiral locally. Because
+        $\operatorname{Re}(\lambda) < 0$ we also know that this spiral is
+        stable. As for the winding direction, because $\dot x = y$ and
+        $\dot y = -3y$ when $x = 0$ so this spiral winds in a clockwise
+        direction.
+
+        We now have enough information to draw our phase portrait
+
+
+
+  \end{enumerate}
+\end{document}
