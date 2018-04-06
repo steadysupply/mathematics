@@ -49,11 +49,9 @@
       let $\sqrt{\delta} > 1$ and suppose $x = \sqrt{\delta\alpha}$,
       now $x^2 = \delta\alpha > \alpha$ and
       $\dot x = \delta\alpha(\alpha-\delta\alpha) < 0$. We now have the
-      necessary information to draw our phase portrait for the system when
-      $\alpha > 0$, namely
+      necessary information to write our phase portrait for the system when
+      $\alpha > 0$,
 
-      \bigskip
-      \bigskip
       \bigskip
       \bigskip
       \bigskip
@@ -66,40 +64,19 @@
       It is clear that the fixed point $x = -\sqrt{\alpha}$ is unstable, $x =
       0$ is semistable and $x = \sqrt{\alpha}$ is stable.
 
-      In the case that $\alpha < 0$, since this dynamical system is one-dimensional, we know that $x \not \in \mathbb{C}$ so the only fixed point is $x = 0$.
-      consider the behaviour of the dynamical system around the fixed points $x
-      = \pm\sqrt{\alpha}$ and $x = 0$.
-      When $x < -\sqrt{\alpha}$, we let
-      $\sqrt{\delta} > 1$ and suppose that
-      $x = -\sqrt{\delta\alpha}$, now
-      $x^2 = \delta\alpha < \alpha$ (ie. a \emph{more} negative number) and
-      $\dot x = \delta\alpha(\alpha - \delta\alpha) < 0$.
-      In the case $-\sqrt{\alpha} < x < 0$,
-      let $0 < \sqrt{\delta} < 1$ and suppose $x = -\sqrt{\delta\alpha}$,
-      now $x^2 = \delta\alpha > \alpha$ and
-      $\dot x = \delta\alpha(\alpha-\delta\alpha) > 0$.
-      In the case $0 < x < \sqrt{\alpha}$,
-      we
-      let $0 < \sqrt{\delta} < 1$ and suppose $x = \sqrt{\delta\alpha}$,
-      now $x^2 = \delta\alpha > \alpha$ and
-      $\dot x = \delta\alpha(\alpha-\delta\alpha) > 0$.
-      In the case $x > \sqrt{\alpha}$,
-      let $\sqrt{\delta} > 1$ and suppose $x = \sqrt{\delta\alpha}$,
-      now $x^2 = \delta\alpha < \alpha$ and
-      $\dot x = \delta\alpha(\alpha-\delta\alpha) < 0$. We now have enough
-      information to conclude that our first phase portrait equally for $\alpha
-      > 0$ illustrates the case when $\alpha < 0$.
-
-      Finally, considering the case when $\alpha = 0$, our dynamical system can
-      be written $\dot x = -x^4$, but our phase portrait still provides a
-      satisfactory illustration when the interval between
-      $-\sqrt{\alpha}$ and $\sqrt{\alpha}$ is exactly zero.
+      In the case that $\alpha < 0$, since this dynamical system is
+      one-dimensional, we know that $x \not \in \mathbb{C}$ so the only fixed
+      point is $x = 0$ and our dynamical system can be written $\dot x = -x^4$,
+      but our phase portrait still provides a satisfactory illustration when
+      the interval between $-\sqrt{\alpha}$ and $\sqrt{\alpha}$ is exactly
+      zero. The fixed point $x = 0$ is semistable.
 
 
       \item
         \begin{enumerate}
           \item $A = \begin{pmatrix} 3 & 0 \\ \beta & 3 \end{pmatrix}$, $\det(A
-              - \lambda I) = (3 - \lambda)^2 = 0$, $\lambda = 3$.
+              - \lambda I) = (3 - \lambda)^2 = 0$, $\lambda = 3$ with algebraic
+              multiplicity 2.
 
             \item
               \begin{enumerate}
@@ -113,7 +90,7 @@
                     \end{align*}
                   Any value of $x$ and $y$ will satisfy this equation, so the eigenvectors are 
                       $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and
-                      $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Because A is a
+                      $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Because $A$ is a
                         $2\times 2$ matrix and there are 2 independent
                         eigenvectors, $A$ is not defective when $\beta = 0$.
                   \item $\beta \not= 0$:
@@ -129,45 +106,59 @@
                     \end{align*}
                   To satisfy this equation $x$ must be equal to zero, so the only eigenvector of this $A$ is
                       $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$.  Becaues there is
-                        only one independent eigenvector, $A$ is defective when
+                        only one independent eigenvector, $A$ does not have a
+                        complete base of eigenvectors and is defective when
                         $\beta \not= 0$.
               \end{enumerate}
-      \item When $\beta = 0$ the system can be classified as an unstable star,
-        where eigenvectors are the axes of the graph.
+            \item When $\beta = 0$ the fixed point $(0,0)$ can be classified as
+              an unstable star, and the phase portrait can be written
 
-      \pagebreak
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
 
-      When $\beta \not= 0$ the system can be classified as an unstable improper
-      node where eigenvectors are the $y$ axis of the graph.
+              where eigenvectors are the axes of the graph.
 
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \item Because the system has equal real eigenvalues, $\lambda_1 = \lambda_2 = \lambda$, the general form
+              When $\beta = 3$ the fixed point $(0, 0)$ can be classified as an
+              unstable improper node and the phase portrait can be written
+
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+              \bigskip
+
+              where the single eigenvector is the $y$-axis of the graph.
+
+
+      \item Because the system has equal eigenvalues, $\lambda_1 = \lambda_2 = \lambda$, the general form
         \begin{align*}
           \mathbf{x}(t) &= c_1e^{\lambda_1t}\mathbf{x}_1+c_2e^{\lambda_2t}\mathbf{x}_2 \\
                         &= e^{\lambda t}(c_1\mathbf{x}_1+c_2\mathbf{x}_2).
         \end{align*}
-        Substituting values for the initial conditions $\mathbf{x}(t)$ at
+        Substituting values for the initial conditions of $\mathbf{x}(t)$ when
         $t = 0$, $\lambda = 3$ and eigenvectors $\mathbf{x}_1$ and
-        $\mathbf{x}_1$ we can write
+        $\mathbf{x}_2$ we can write
         \begin{align*}
           \begin{pmatrix} 2 \\ -1 \end{pmatrix} &=
             e^{3 \cdot 0}\left(c_1\begin{pmatrix} 1 \\ 0 \end{pmatrix} +
@@ -176,7 +167,8 @@
               \begin{pmatrix} 0 \\ c_2 \end{pmatrix} \\
                 &= \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} \\
         \end{align*}
-        therefore $c_1 = 2$ and $c_2 = -1$ and $\mathbf{x}(t) = e^{3t}\begin{pmatrix} 2 \\ -1 \end{pmatrix}$.
+        therefore $c_1 = 2$, $c_2 = -1$ and
+        $\mathbf{x}(t) = e^{3t}\begin{pmatrix} 2 \\ -1 \end{pmatrix}$.
         \end{enumerate}
       \item The dynamical system in the question can be written
         \begin{align*}
@@ -200,22 +192,28 @@
           \end{pmatrix}.
         \end{align*}
       Given that values of $x$ are $n\pi$, we can see that there are two
-      possible values for the bottom left entry $-4\cos x$, namely $4$ and
-      $-4$. To classify fixed points relating to both possiblities, we will
-      evaluate $J$ when $x = \pi$ and $x = 0$.
+      possibilities for the bottom left entry $-4\cos x$, namely, $4$ when
+      $n$ is odd and $-4$ when $n$ is even.
 
-      Evaluating $J$ at the fixed point $(\pi,0)$ gives
+      Evaluating $J$ at the fixed point $(n\pi,0)$ when $n$ is odd, gives the
+      Jacobian matrix
         $
           J_\pi = \begin{pmatrix}
             0 & 1 \\
             4 & -3 \\
           \end{pmatrix}
         $.
-        $$\det(J_\pi - \lambda I) = -\lambda(-3-\lambda) - 4 = (\lambda +
-        4)(\lambda - 1)$$ tells us that the eigenvalues for $J_\pi$ are $\lambda
-        = -4$ and $\lambda = 1$. For $\lambda = -4$,
+
+        That 
+        $$\det(J_\pi - \lambda I) = -\lambda(-3-\lambda) - 4 = (\lambda + 4)(\lambda - 1)$$
+        tells us that the eigenvalues for $J_\pi$ are $\lambda
+        = -4$ and $\lambda = 1$. Since these eigenvalues both have a nonzero
+        real part, we know that the fixed points $\{(n\pi,0):n\text{ is odd}\}$ are
+        hyperbolic and we can apply Hartman-Grobman.
+
+        For $\lambda = -4$,
         \begin{align*}
-          (J_\pi = \lambda I)\mathbf{x} &= \mathbf{0} \\
+          (J_\pi - \lambda I)\mathbf{x} &= \mathbf{0} \\
           \begin{pmatrix}
             4 & 1 \\
             4 & 1 \\
@@ -235,9 +233,10 @@
             4 \\
             -1 \\
           \end{pmatrix}$.
+
         For $\lambda = 1$,
         \begin{align*}
-          (J_\pi = \lambda I)\mathbf{x} &= \mathbf{0} \\
+          (J_\pi - \lambda I)\mathbf{x} &= \mathbf{0} \\
           \begin{pmatrix}
             -1 & 1 \\
             4 & -1 \\
@@ -257,47 +256,82 @@
             1 \\
             1 \\
           \end{pmatrix}$. The general form of the linearised system in the
-          neighbourhood of point $(\pi, 0)$ is therefore
-          $\mathbf{x}(t) = c_1e^{-4t}
+          neighbourhood of fixed points $\{(n\pi,0):n \text{ is odd}\}$ can
+          therefore be written
+          \begin{align*}
+            \mathbf{x}(t) &= Ae^{\lambda_1t}\mathbf{x}_1+Be^{\lambda_2t}\mathbf{x}_2 \\
+             &= Ae^{-4t}
           \begin{pmatrix}
             4 \\
             -1 \\
           \end{pmatrix}
-          + c_2e^t$. Because eigenvalues are real and with opposite signs we
-          can say that locally, the fixed point $(\pi, 0)$ is a saddle point
-          with a trajectory inwards in the direction $
-          \begin{pmatrix}
-            4 \\
-            -1 \\
-          \end{pmatrix}
-          $ and a trajectory outwards in the direction $
+          + Be^t
           \begin{pmatrix}
             1 \\
             1 \\
-          \end{pmatrix}
-          $.
+          \end{pmatrix}.
+          \end{align*}
+          Because eigenvalues are real and with opposite signs we can say that,
+          locally, these fixed points are saddle points with
+          $\mathbf{x}_1$ pushing trajectories inwards and
+          $\mathbf{x}_2$ pushing trajectories outwards. Sending $t \rightarrow
+          -\infty$ tells us that the $\mathbf{x}_1$ dominates early
+          times and $t \rightarrow \infty$ tells us $\mathbf{x}_2$ dominates
+          late times.
 
-      Evaluating $J$ at the fixed point $(0,0)$ gives
+      Evaluating $J$ at the fixed point $(n\pi,0)$ when $n$ is even, gives the
+      Jacobian matrix
         $
           J_0 = \begin{pmatrix}
             0 & 1 \\
             -4 & -3 \\
           \end{pmatrix}
         $.
-        $$\det(J_\pi - \lambda I) = -\lambda(-3-\lambda) + 4$$ doesn't
+
+        $$\det(J_0 - \lambda I) = -\lambda(-3-\lambda) + 4$$ doesn't
         factorise, which tells us $\lambda \in \mathbb{C}$. Applying the
         quadratic equation,
         $\lambda = \frac{-3\pm\sqrt{(-3)^2-4\cdot 1 \cdot 4}}{2 \cdot 1} = \tfrac{1}{2}(-3 \pm i\sqrt{7})$.
+        These complex conjugate values for $\lambda$ both have a nonzero real
+        part, so this fixed point is also hyperbolic and we can apply
+        Hartman-Grobman.
+
         We don't need to caculate the eigenvectors in this case because we know
-        $(0, 0)$ behaves like a spiral locally. Because
-        $\operatorname{Re}(\lambda) < 0$ we also know that this spiral is
-        stable. As for the winding direction, because $\dot x = y$ and
-        $\dot y = -3y$ when $x = 0$ so this spiral winds in a clockwise
-        direction.
+        these fixed points behave like a spirals locally. Because
+        $\operatorname{Re}(\lambda) < 0$ we also know that these spirals are
+        stable. As for the winding direction, because $\dot x = y$ and $\dot y
+        = -3y$ when $x = 0$ these spirals wind in a clockwise direction.
 
-        We now have enough information to draw our phase portrait
+        \pagebreak
 
+        One last thing to consider before writing the phase portrait of this
+        system is the interaction between the two classes of fixed points with
+        respect to a given trajectory. We have establised that for those fixed
+        points with $n$-odd, $\mathbf{x}_1$ dominates early times and
+        $\mathbf{x}_2$ dominates late times. For fixed points with $n$-even,
+        the idea of early/late times doesn't really make sense, since the
+        conjugate eigenvalues mean the eigenvectors ``share'' dominance over
+        time, but always in a spiral inwards. In that sense, fixed points with
+        $n$-even have a constant amount of ``spiralling dominance'' over the
+        trajectory. To get an idea of what happens when all the fixed points
+        have most similar amount of influence on the trajectory, we consider
+        what happens at \emph{mid times} with, let's say, $t=0$.
 
+        At mid times, then, the coefficients of the eigenvectors $\mathbf{x}_1$
+        and $\mathbf{x}_2$ are $1$. Between these two (very roughly, not
+        considering $c_1$ or $c_2$) the vector with the larger magnitude will
+        be more influential, that is $\mathbf{x}_1$. However, the spiral fixed
+        point has exactly the same amount of ``spiralling dominance'' as it did
+        when $t \rightarrow \pm \infty$, so there is more ``sum dominance''
+        over a trajectory that would cause it to behave as if it were being
+        attracted to a fixed point.
+
+        This is an attempt to explain why trajectories don't follow
+        $\mathbf{x}_2$ vectors as $t \rightarrow \infty$. A more informal
+        argument would be that this dynamical system describes a pendulum, and
+        pendulums come to rest.
+
+        The phase portrait is written overleaf.
 
   \end{enumerate}
 \end{document}

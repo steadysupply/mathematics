@@ -1,0 +1,124 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\newcommand*{\La}{\mathcal{L}}
+\newcommand*{\pinx}{\left(\tfrac{\pi nx}{400}\right)}
+\newcommand*{\nip}{\left(\tfrac{400}{\pi n}\right)}
+\newcommand*{\dx}{\text{d}x}
+
+\author{BM Corser}
+\title{Calculus 3 Assignment 2}
+\date{January 18, 2018}
+\begin{document}
+  \maketitle
+  \begin{enumerate}
+    \item
+    \begin{enumerate}
+      \item $P_0$ is even, $P_1$ is odd, $P_2$ is even, $P_3$ is odd.
+      \item Since for any odd function $f(x)$ we know that
+        $\int^M_{-M}f(x)\text{d}x = 0$, all we need to demonstrate is any
+        pairwise product $P_iP_j$ is odd. The product of two odd functions is
+        odd and the product of an odd and an even function is also odd (ie.
+        $\langle P_1, P_i\rangle = \langle P_3, P_i\rangle = 0$), so it only
+        remains to prove $\langle P_0, P_2 \rangle = 0$, that is
+        \begin{align*}
+          \int^1_{-1}1\cdot\frac{1}{2}(3x^2 - 1)\text{d}x &= 0 \\
+          \frac{1}{2}\left(\int^1_{-1}3x^2\text{d}x - \int^1_{-1}1\text{d}x\right) &= 0 \\
+          \frac{1}{2}\left([x^3]^1_{-1} - [x]^1_{-1}\right) &= 0 \\
+          \frac{1}{2}\left((1 -- 1)  - (1 -- 1)\right) &= 0 \\
+          \frac{1}{2}\left(2 - 2\right) &= 0 \\
+          \frac{1}{2}\left(0\right) &= 0 \\
+          0 &= 0 \\
+        \end{align*}
+        QED
+    \end{enumerate}
+      \pagebreak
+    \item
+    \begin{enumerate}
+      \item
+        The definition of the Fourier series of $f(x)$ is
+        \begin{align*}
+          f(x) = a_0 + \sum^\infty_{n=1}\left(a_n\cos(\tfrac{\pi nx}{L}) + b_n\sin(\tfrac{\pi nx}{L})\right)
+        \end{align*}
+        where
+        \begin{align*}
+          a_0 &= \frac{1}{2L}\int^L_{-L}f(x)\text{d}x \\
+          a_n &= \frac{1}{L}\int^L_{-L}f(x)\cos(\tfrac{\pi nx}{L})\text{d}x \\
+          b_n &= \frac{1}{L}\int^L_{-L}f(x)\sin(\tfrac{\pi nx}{L})\text{d}x
+        \end{align*}
+        and here $f(x) = e^x$, $L = \pi$ so
+        \begin{align*}
+          a_0 &= \frac{1}{2\pi}\int^\pi_{-\pi}e^x\text{d}x \\
+              &= \frac{1}{2\pi}(e^\pi + e^{-\pi}) \\
+          a_n &= \frac{1}{\pi}\int^\pi_{-\pi}e^x\cos(nx)\text{d}x \\
+              &= \frac{1}{\pi}\left[e^x\left(\frac{\cos(nx) + n\sin(nx)}{n^2+1}\right)\right]^\pi_{-\pi} \\
+              &= \frac{1}{\pi}(e^\pi - e^{-\pi})\frac{(-1)^n}{n^2 + 1} \\
+          b_n &= \frac{1}{\pi}\int^\pi_{-\pi}e^x\sin(nx)\text{d}x \\
+              &= \frac{1}{\pi}\left[e^x\left(\frac{\sin(nx) - n\cos(nx)}{n^2+1}\right)\right]^\pi_{-\pi} \\
+              &= -n\frac{1}{\pi}(e^\pi - e^{-\pi})\frac{(-1)^n}{n^2 + 1} \\
+        \end{align*}
+        and we can write the Fourier series as
+        \begin{align*}
+          f(x) &= \frac{1}{2\pi}(e^\pi + e^{-\pi}) + \sum^\infty_{n=1}\left(\frac{1}{\pi}(e^\pi - e^{-\pi})\frac{(-1)^n}{n^2 + 1}\cos(nx) -n\frac{1}{\pi}(e^\pi - e^{-\pi})\frac{(-1)^n}{n^2 + 1}\sin(nx)\right) \\
+               &= \frac{1}{2\pi}(e^\pi + e^{-\pi}) + \frac{1}{\pi}(e^\pi - e^{-\pi})\sum^\infty_{n=1}\frac{(-1)^n}{n^2 + 1}\big(\cos(nx) -n\sin(nx)\big) \\
+        \end{align*}
+        and because $\sinh(\pi) = \frac{1}{2}(e^\pi + e^{-\pi})$ we can finally write
+        \begin{align*}
+          f(x) &= \frac{\sinh(\pi)}{\pi}\left(1 + 2\sum^\infty_{n=1}\frac{(-1)^n}{n^2 + 1}\big(\cos(nx) -n\sin(nx)\big)\right) \\
+        \end{align*}
+      \item
+        Because $f(x)$ is continuous at $x = 0$, by Theorem 2.3, the Fourier
+        series at $x = 0$ converges to $f(0) = e^0 = 1$ and we can write
+        \begin{align*}
+          1 &= f(0) \\
+            &= \frac{\sinh(\pi)}{\pi}\left(1 + 2\sum^\infty_{n=1}\frac{(-1)^n}{n^2 + 1}\right) \\
+          \frac{1}{\sinh(\pi)} &= \frac{1}{\pi}\left(1 + 2\sum^\infty_{n=1}\frac{(-1)^n}{n^2 + 1}\right) \\
+          \text{cosech}(\pi) &=  \\
+          \pi\text{cosech}(\pi) &=  1 + 2\sum^\infty_{n=1}\frac{(-1)^n}{n^2 + 1}. \\
+        \end{align*}
+        Because $f(x)$ has a discontinuity at $x = \pi$, the Fourier series at $x=\pi$ will converge to 
+        $$\tfrac{1}{2}\left(\lim_{x \to \pi^+}f(x) + \lim_{x\to \pi}f(x)\right) = \tfrac{1}{2}(e^\pi + e^{-\pi}) = \cosh(\pi)$$
+        now
+        \begin{align*}
+          \cosh(\pi) &= f(\pi) \\
+          &= \frac{\sinh(\pi)}{\pi}\left(1 + 2\sum^\infty_{n=1}\frac{1}{n^2 + 1}\right) \\
+          \frac{\cosh(\pi)}{\sinh(\pi)}&= \frac{1}{\pi}\left(1 + 2\sum^\infty_{n=1}\frac{1}{n^2 + 1}\right) \\
+          \coth(\pi) &= \\
+          \pi\coth(\pi) &= 1 + 2\sum^\infty_{n=1}\frac{1}{n^2 + 1} \\
+        \end{align*}
+    \end{enumerate}
+      \item
+
+    \begin{enumerate}
+        \pagebreak
+      \item The steady state solution $g(x)$ must be a linear function that
+        satisfies the boundary conditions $g(0)  = 0$ and $g(400) = 200$. $g(x)
+        = \tfrac{1}{2}x$ is such a function.
+      \item $h(x) = u_0(x) - g(x) = \tfrac{3}{2}x - \tfrac{x^2}{400} -
+        \frac{1}{2}x = x - \tfrac{x^2}{400}$. If $h(x)$ is even about $x = 200$
+        then $h(200 + x) = h(200 + x)$ and
+        \begin{align*}
+          (200 + x) - \frac{(200 + x)^2}{400} &= (200 - x) - \frac{(200 - x)^2}{400} \\
+          200 + x - \frac{200^2 + 400x + x^2}{400} &= 200 - x - \frac{200^2 - 400x + x^2}{400} \\
+          400x - 200^2 + 400x + x^2 &= - 400x - 200^2 - 400x + x^2 \\
+          x^2 - 200 &= x^2 - 200 \\
+        \end{align*}
+      \item $$u(x,t) = \sum^\infty_{n=1}B_n\sin\left(\tfrac{\pi nx}{L}\right)e^{\lambda^2_nt} + \frac{x}{2}$$
+        where $L=400$, $\lambda_n = \alpha\tfrac{\pi n}{L}$, $\alpha^2 = 1$,
+        \begin{align*}
+          B_n &= \frac{2}{400}\int_0^{400}(x-\tfrac{x^2}{400})\sin\pinx\dx \\
+              &= \frac{1}{200}\left(\Big[- (x - \tfrac{x^2}{400})\cos\pinx\nip\Big]_0^{400} + \int_0^{400}(1 - \tfrac{x}{200})\cos\pinx\nip\dx\right) \\
+              &= \frac{2}{\pi n}\left(\int_0^{400}(1 - \tfrac{x}{200})\cos\pinx\dx\right) \\
+              &= \frac{2}{\pi n}\left(\Big[(1 - \tfrac{x}{200})\nip\sin\pinx\Big]_0^{400} + \tfrac{1}{200}\nip\int_0^{400}\sin\pinx\dx\right) \\
+              &= \frac{4}{(\pi n)^2}\left(\int_0^{400}\sin\pinx\dx\right) \\
+              &= \frac{4}{(\pi n)^2}\Big[-\nip\cos\pinx\Big]_0^{400} \\
+              &= -\frac{1600}{(\pi n)^3}\left(\cos(\pi n) - 1\right). \\
+        \end{align*}
+        We can now write
+        \begin{align*}
+          u(x,t) &= - 1600 \sum^\infty_{n=1}\frac{1}{(\pi n)^3}\big((-1)^n - 1\big)sin\big(\tfrac{\pi nx}{400}\big)e^{\tfrac{(\pi n)^2}{400^2}t} + \frac{x}{2} \\
+        \end{align*}
+    \end{enumerate}
+
+  \end{enumerate}
+\end{document}

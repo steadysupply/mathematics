@@ -1,0 +1,176 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\newcommand*{\La}{\mathcal{L}}
+\newcommand*{\dxdt}[1]{\frac{\text{d}#1}{\text{d}t}}
+\newcommand*{\nip}{\left(\tfrac{400}{\pi n}\right)}
+\newcommand*{\dt}{\text{d}t}
+\newcommand*{\px}[2]{\tfrac{\partial\dot #1}{\partial #2}}
+
+\author{BM Corser}
+\title{Calculus 3 Assignment 4}
+\date{January 18, 2018}
+\begin{document}
+  \maketitle
+  \begin{enumerate}
+    \item
+      \begin{enumerate}
+        \item To show that $\bar\beta$ is independent of time, we must show
+          $\dxdt{\bar\beta} = 0$. First note that, since $x = x_1 + x_2$,
+          \begin{align*}
+            \dot x = \dot x_1 + \dot x_2 
+                   &= -\alpha y \frac{x_1}{x} -\alpha y \frac{x_2}{x} \\
+                   &= -\alpha y \frac{1}{x}(x_1 + x_2) \\
+                   &= -\alpha y
+          \end{align*}
+          also that, by the chain rule
+          \begin{align*}
+            \dxdt{(x^{-1})} = \dot x\left(-\frac{1}{x^2}\right)
+                           = -\frac{\dot x}{x^2}
+                           = \frac{\alpha y}{x^2} \\
+          \end{align*}
+          and that
+          \begin{align*}
+            \dxdt{(\beta_1x_1+\beta_2x_2)} &= \beta_1\dot x_1+\beta_2\dot x_2 \\
+                           &= -\frac{\alpha y}{x}(\beta_1x_1+\beta_2x_2).
+          \end{align*}
+          By the product rule, then,
+          \begin{align*}
+            \dxdt{\bar\beta} &= \dxdt{(x^{-1})}(\beta_1x_1+\beta_2x_2) + (x^{-1})\dxdt{(\beta_1x_1+\beta_2x_2)} \\
+                             &= \frac{\alpha y}{x^2}(\beta_1x_1+\beta_2x_2) + (x^{-1})(-\frac{\alpha y}{x}(\beta_1x_1+\beta_2x_2) \\
+                             &= \frac{\alpha y}{x^2}(\beta_1x_1+\beta_2x_2) - \frac{\alpha y}{x^2}(\beta_1x_1+\beta_2x_2) \\
+                             &= 0
+          \end{align*}
+          and $\bar\beta$ is independent of time. Now notice that 
+          $\bar\beta = -\frac{\dot y}{x}$, $\bar\beta x = -\dot y$ and
+          $\dot y = -\bar\beta x$. We have shown that $\bar\beta$ is constant
+          and $\dot x = -\alpha y$, $\dot y = - \bar\beta x$, so by
+          Lanchester's square law $\dxdt{(\alpha y^2 - \bar\beta x^2)}$ is also
+          constant with respect to time (ie. constant throughout the battle).
+          We can interpret $\bar\beta$ as the ``aggregate effectiveness'' of a
+          soldier in army $X$.
+        \item Since $\bar\beta$ is constant, we may evaluate it for any value
+          of $t$ to obtain its quantity. Let $t=0$, now $\bar\beta = \tfrac{4
+          \times 100 + 1 \times 500}{100 +500} = \tfrac{3}{2}$.
+          Since $c = \alpha y^2 - \bar\beta x^2$ is constant,we may obtain a its
+          value in a similar fashion, namely
+          $c = (2 \times 1000^2) - (\tfrac{3}{2} \times 600^2) = 1 460 000$.
+          Because $c > 0$, we know $Y$ is the victor, with $y =
+          \sqrt{\tfrac{c}{\alpha}} \approx 854$ archers remaining (plus one
+          poor guy missing $\tfrac{3}{5}$ths of  his body) when $x = 0$.
+      \end{enumerate}
+      \item
+        \begin{enumerate}
+          \item As above, to show $N$ is constant, we must show its derivative
+            is zero with respect to time.
+            \begin{align*}
+              N &= S + I \\
+                &= I + S \\
+              \dot N &= \dot I + \dot S \\
+                     &= \beta SI - \beta SI \\
+                     &= 0
+            \end{align*}
+          \item ...
+
+           \pagebreak
+
+          \item By the definition of $\dot I$ and $N$, we may write
+            \begin{align*} \label{I}
+              \dot I &= -\beta SI \\
+                     &= -\beta I(N - I) \\
+              \frac{\dot I}{I(N - I)} &= -\beta.
+            \end{align*}
+            Since we know $\tfrac{1}{I(N - I)} \equiv \tfrac{X}{I} + \tfrac{Y}{N - I}$, we may write
+            \begin{align*}
+              1 &= X(N - I) + YI \\
+                &= I(X - Y) + YN \\
+            \end{align*}
+            and infer by equating coefficients that
+            $Y = \tfrac{1}{N}$ and $X = Y$. We may now write
+            \begin{align*}
+              \frac{\dot I}{I(N - I)} &= \frac{1}{N}\left(\frac{\dot I}{I} + \frac{\dot I}{N - I} \right) = -\beta \\
+              \frac{\dot I}{I} + \frac{\dot I}{N - I} &= -\beta N \\
+              \int \frac{\dot I}{I} \dt + \int \frac{\dot I}{N - I} \dt &= -\beta N \int 1 \dt. \\
+            \end{align*}
+            By substitution and laws of logarithms, let $A = e^c$ and write
+            \begin{align*}
+              \ln(I) + \ln(N -I) &= -\beta N t + c \\ 
+              \ln(I(N -I)) &= \\
+              I(N -I) &= Ae^{-\beta N t}.\\
+            \end{align*}
+            We can now see $SI = Ae^{-\tau}$. It is given that when $t = 0$, 
+            $S = I$, so we know $A = I^2$. We can now write \begin{align*}
+              SI &= I^2e^{-\tau} \\
+                    e^\tau &= \frac{I}{S}. \\
+            \end{align*}
+            Finally, returning to $N = S + I$ and dividing by $I$, we can write
+            \begin{align*}
+              \frac{N}{I} &= \frac{S}{I} + 1 \\
+              &= e^{-\tau} + 1 \\
+              N &= I(e^{-\tau} + 1) \\
+              I &= \frac{N}{e^{-\tau} + 1} \\
+            \end{align*}
+            and, dividing by $S$
+            \begin{align*}
+              \frac{N}{S} &=  1 + \frac{I}{S}\\
+              &= 1 + e^\tau \\
+              N &= S(1 + e^\tau) \\
+              S &= \frac{N}{1 + e^{\tau}} \\
+            \end{align*}
+        \end{enumerate}
+      \item There general form of the Lotka-Volterra equations is $\dot x =
+        \alpha x - \beta x y$, $\dot y = \gamma xy - \delta y$. In this case it
+        is given that $\alpha = 2, \beta = \tfrac{1}{2}, \gamma = 1$ and
+        $\delta = \tfrac{1}{2}$.
+        \begin{enumerate}
+          \item Because we know the non-trivial fixed points of these equations
+            are $(x_*, y_*) = \left(\frac{\delta}{\gamma},
+            \frac{\alpha}{\beta}\right)$, we know there is a fixed point at $x
+            = \frac{\delta}{\gamma} = 2$ and $y = \frac{\alpha}{\beta} = 4$,
+            namely when there are 2000 rabbits and 4000 foxes.
+          \item The Jacobian of the given system is
+            \begin{align*}
+              J &=
+                \begin{pmatrix}
+                  \px{x}{x} & \px{x}{y} \\ 
+                  \px{y}{x} & \px{y}{y} \\ 
+                \end{pmatrix} \\
+                &=
+                \begin{pmatrix}
+                  2 - \tfrac{1}{2} x & -\tfrac{1}{2}x \\ 
+                  \tfrac{1}{2} y & x - \tfrac{1}{2} \\ 
+                \end{pmatrix} \\
+            \end{align*}
+            which, when we evalulate it at $x = y = 0$, gives $
+              J_0 =
+                \begin{pmatrix}
+                  2 & 0 \\ 
+                  0 & -\tfrac{1}{2} \\ 
+                \end{pmatrix} 
+              $.
+
+              When $x = 10$ and $y = 10$, $\dot x = -30$ and $\dot x = 95$.
+              Since we know $(2,4)$ is a fixed point, we know a prey population
+              can support a predator population double its size, so it makes
+              sense that having predator and prey populations equal will lead
+              to predator population growth due to abundance of delicious
+              rabbits. It also makes sense (in this situation) that prey
+              population should be decreasing, because predators do not hunt
+              according to the reproduction coefficients of their prey (ie.
+              $\beta y > \alpha$).
+
+         %    We can see that this matrix has eigenvalues $\lambda_1 = 2$
+         %    and $\lambda_2 = -\frac{1}{2}$ with eigenvectors
+         %    $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and
+         %    $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$ respectively. Because the
+         %      eigenvalues are of opposite signs, we know that $(0,0)$ is a
+         %      saddle point and, due to association of eigenvalues with
+         %      eigenvectors, has trajectories approaching the origin along the
+         %      $y$-axis and heading away from the origin along the $x$-axis.
+
+         %      This tells us that as the two species approach extinction,
+         %      there reaches a point when the prey species with population
+         %      $x$ will increase 
+        \end{enumerate}
+  \end{enumerate}
+\end{document}

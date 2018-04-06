@@ -1,0 +1,201 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{verbatim}
+\newcommand*{\La}{\mathcal{L}}
+\author{BM Corser}
+\title{Games, Choice and Optimisation Assignment 3}
+\begin{document}
+  \maketitle 
+  \begin{enumerate} \item \begin{enumerate} \item Because the column Colin $B$
+        dominates the column Colin $A$, we can rewrite the game
+
+      \setlength{\unitlength}{1.0cm}
+      $$ \begin{picture}(4,3)
+        \put(2.5, 2.7){Colin}
+        \put(2.4,2.1){\(B\)}
+        \put(3.2,2.1){\(C\)}
+        \put(3.8,2.1){\(D\)}
+        \put(1.3,2){\line(1,0){3.1}}
+
+        \put(0.3, 1.25){Rose}
+        \put(1.5,1.5){\(A\)}
+        \put(1.5,1.0){\(B\)}
+        \put(2,0.7){\line(0,1){1.7}}
+
+        \put(2.3,1.5){\(-2\)} \put(2.5,1.0){\(3\)}
+
+        \put(3.2,1.5){\(4\)} \put(3.2,1.0){\(1\)}
+
+        \put(3.6,1.5){\(-4\)} \put(3.8,1.0){\(5\)} \put(4.2,1.0){.}
+
+      \end{picture} $$
+
+      Because Rose has exactly two strategies, we can represent Colin's payoff
+      for each of Rose's pure strategies as vertical lines and draw slopes
+      between his payoffs that represent what his strategy should be in
+      response to Rose's mixed strategies.
+
+      \pagebreak
+
+      Having drawn our picture, we can see that Colin should select
+      a mixed strategy involving $B$, $C$ and $D$. Because Rose wants to
+      minimise her loss, she will chose a mixed strategy where Colin's best
+      response is a mixed strategy involving $B$ and $C$.
+
+      Thus, the solution of the game can be realised from the $2 \times 2$
+      subgame
+
+      $$ \begin{picture}(4,3) \put(2.5, 2.7){Colin} \put(2.4,2.1){\(B\)}
+        \put(3.2,2.1){\(C\)} \put(1.3,2){\line(1,0){2.6}}
+
+        \put(0.3, 1.25){Rose} \put(1.5,1.5){\(A\)} \put(1.5,1.0){\(B\)}
+        \put(2,0.7){\line(0,1){1.7}}
+
+        \put(2.3,1.5){\(-2\)} \put(2.5,1.0){\(3\)}
+
+        \put(3.2,1.5){\(4\)} \put(3.2,1.0){\(1\)}
+
+        \put(4.2,1.0){.}
+
+      \end{picture} $$
+
+      Suppose that Colin plays $xB$, $(1-x)C$. His expected payoff if Rose
+      plays $A$ is $x(-2) + (1-x)4 = 4 - 6x$ and if Rose plays $B$, $x3 + (1-x)
+      =  2x + 1$. The value for $x$ that satisfies these expressions is
+      $\tfrac{3}{8}$ and we can write Colin's equalising strategy
+      $\tfrac{3}{8}B$, $\tfrac{5}{8}C$.
+
+      Suppose Rose plays $yA$, $(1-y)B$. Her expected payoff when Colin plays
+      $B$ is $y(-2) + (1-y)3 = 3 - 5y$ and when Colin plays $C$, and
+      $y4 + (1-y) = 3y + 1$ when Colin plays $D$, so Rose's equalising strategy
+      is $\tfrac{1}{4}A, \frac{3}{4}B$.
+
+      The value of the game is $3 - 5 \cdot \tfrac{1}{4} = \tfrac{7}{4}$.
+
+    \item The saddle points of $G$ are $G_{12}$, $G_{32}$, $G_{14}$, $G_{34}$
+      and the value of the game is 1.
+
+      \begin{comment}
+      \end{comment}
+
+      \item
+        \begin{enumerate}[(i)]
+          \item For Colin $C$ to dominate Colin $D$, since the values in the
+            matrix represent Colin's loss, all entries in Colin $C$ must be less
+            than or equal to corresponding entries in Colin $D$, and at least
+            one entry must be strictly less that the corresponding entry in
+            Colin $D$. This is the case when $-10 \leq x \leq - 4$. Notice,
+            since $x$ cannot be both $-4$ and $-10$, this is not a strict
+            inequality.
+          \item For $H_{31}$ to be a saddle point, it must be less than or
+            equal to each entry in its row and greater than or equal to each
+            entry in its column. This is true when $-5 \leq x \leq -2$.
+      \end{enumerate}
+    \end{enumerate}
+    \pagebreak
+      \item
+      \begin{enumerate}
+        \item
+          \begin{enumerate}[(i)]
+            \item 
+        The movement diagram of $G$ can be written
+
+      $$
+      \setlength{\unitlength}{1.0cm}
+      \begin{picture}(6,4)
+
+        \begin{comment}
+        \put(0, 0){\line(0,1){0.3}}
+        \put(0, 0){\line(1,0){0.3}}
+        \put(6, 4){\line(0,-1){0.3}}
+        \put(6, 4){\line(-1,0){0.3}}
+        \end{comment}
+
+        \put(3.5, 3.7){Colin}
+        \put(2.4, 3.1){\(A\)}
+        \put(3.2, 3.1){\(B\)}
+        \put(3.8, 3.1){\(C\)}
+        \put(4.4, 3.1){\(D\)}
+        \put(5.0, 3.1){\(E\)}
+        \put(1.3, 3.0){\line(1,0){4.2}}
+
+        \put(0.3, 1.75){Rose}
+        \put(1.5, 2.6){\(A\)}
+        \put(1.5, 2.0){\(B\)}
+        \put(1.5, 1.4){\(C\)}
+        \put(1.5, 0.8){\(D\)}
+        \put(2.0, 0.7){\line(0,1){3.0}}
+
+        \begin{comment}
+        \put(2.5, 2.7){\vector(1,0){2.6}}
+
+        \put(2.5, 2.1){\vector(1,0){2.0}}
+        \put(5.1, 2.1){\vector(-1,0){0.5}}
+
+        \put(2.5, 1.5){\vector(1,0){1.5}}
+        \put(5.1, 1.5){\vector(-1,0){1.0}}
+
+        \put(2.5, 0.9){\vector(1,0){1.5}}
+        \put(5.1, 0.9){\vector(-1,0){1.0}}
+
+        \put(2.5, 2.7){\vector(0,-1){0.5}}
+        \put(2.5, 0.9){\vector(0,1){1.1}}
+        \end{comment}
+
+      \end{picture}
+      $$
+
+            \item Start by ``shifting'' the game so that all payoffs are
+              positive, we do this by adding 10 to all entries in the matrix.
+              We can then write the linear programme
+                $$
+                \begin{array}{rrrrrrrrrr}
+                  \text{maximise   }   &   x_1 &+& x_2 &+& x_3 &+& x_4, \\
+                  \text{subject to   } &   14x_1 &+& 15x_2 &+& 8x_3 &+& 6x_4 &\geq& 1, \\
+                                      &   8x_1 &+&13x_2 &+& 7x_3 &+& 18x_4 &\geq& 1, \\
+                                      &   17x_1 &+& 14x_2 &+& 4x_3 &+& x_4 &\geq& 1, \\
+                                      &   11x_1 &+& 8x_2 &+& 16x_3 &+& 7x_4 &\geq& 1, \\
+                                      &   5x_1 &+& 9x_2 &+& 15x_3 &+& 12x_4 &\geq& 1, \\
+                \end{array}
+                $$
+                $$x_1 \geq 0, x_2 \geq 0, x_3 \geq 0, x_4 \geq 0.$$
+              \item By von Neumann's minmax theorem, any $m \times n$ game can
+                be realised by a $k \times k$ subgame where
+                $1 < k \leq \min(m,n)$.
+                For the game $G$, $\min(m,n) = 4$.
+          \end{enumerate}
+        \item 
+          \begin{enumerate}[(i)]
+            \item An outcome of a game is a Nash equilibrium when neither
+              player can independently change their strategy to increase their
+              payoff. For the game $H$, the only entry satisfying this
+              condition is $H_{21}$ (corresponding to Rose $A$ and Colin $B$).
+            \item To find Colin's prudential strategy, we first write Colin's game
+
+      \setlength{\unitlength}{1.0cm}
+      $$ \begin{picture}(4,3) \put(2.5, 2.7){Colin} \put(2.4,2.1){\(A\)}
+        \put(3.2,2.1){\(B\)} \put(1.3,2){\line(1,0){2.6}}
+
+        \put(0.3, 1.25){Rose} \put(1.5,1.5){\(A\)} \put(1.5,1.0){\(B\)}
+        \put(2,0.7){\line(0,1){1.7}}
+
+        \put(2.5,1.5){\(1\)} \put(2.5,1.0){\(5\)}
+        \put(3.2,1.5){\(5\)} \put(3.2,1.0){\(3\)}
+
+        \put(4.2,1.0){.}
+
+      \end{picture} $$
+              Suppose Colin plays $xA, (1-x)B$ in this game. If Rose plays $A$,
+              her expected payoff is $5 - 4x$ and if she plays $B$ it is
+              $2x + 3$. The value of $x$ that satisfies both of these
+              expression is $\tfrac{1}{3}$. Therefore Colin's equalising
+              strategy is $\tfrac{1}{3}A, \tfrac{2}{3}B$ with security level
+              $\tfrac{11}{3}$. When Colin plays his prudential strategy, Rose's
+              expected payoff when she plays $A$ is $5$ and $\tfrac{8}{3}$ when
+              she plays $B$. As such her counter-prudential strategy is $A$.
+          \end{enumerate}
+      \end{enumerate}
+  \end{enumerate}
+\end{document}

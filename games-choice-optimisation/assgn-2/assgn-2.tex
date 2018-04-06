@@ -1,0 +1,190 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\newcommand*{\La}{\mathcal{L}}
+\author{BM Corser}
+\title{Games, Choice and Optimisation Assignment 2}
+\date{January 18, 2018}
+\begin{document}
+  \maketitle 
+  \begin{enumerate}
+    \item
+      \begin{enumerate}
+      \item The dual of $\mathcal{L}$ is
+        $$
+        \begin{array}{rrcrcrl}
+          \text{maximise   }   &   80y_1 &  + & 165y_2 & + & 105y_3, \\
+          \text{subject to   } &   2y_1  &  + & 3y_2  & - & y_3    &\leq 6, \\
+                               &   4y_1  &  + & y_2   & - & 2y_3   &\leq 2, \\
+                               &  -3y_1  &  - & 2y_2  & + & 2y_3   &\leq -2, \\
+        \end{array}
+        $$
+        $$y_1 \geq 0, y_2 \geq 0, y_3 \geq 0.$$
+    \item
+      \begin{enumerate}[(i)]
+        \item $x_1 = 135$, $x_2 = 68$, $x_3 = 154$ is an optimal solution of
+          $\mathcal{L}$ with value 638.
+        \item The specified change to the objective function of $\mathcal{L}$
+          would yield the following tableau
+          $$
+          \begin{array}{rrrrrr|r}
+            x_1 & x_2 & x_3 & x_4 & x_5 & x_6 \\
+            \hline
+            1 & 0 & 0 & 0 & \tfrac{1}{2} & \tfrac{1}{2} & 135 \\
+            0 & 0 & 1 & \tfrac{1}{5} & \tfrac{1}{5} & 1 & 154 \\
+            0 & 1 & 0 & \tfrac{2}{5} & -\tfrac{1}{10} & \tfrac{1}{2} & 68 \\
+            \hline
+            0 & -4 & 0 & \tfrac{2}{5} & \tfrac{12}{5} & 2 & 638
+          \end{array}
+          $$
+          All that remains is to send $r_4 \rightarrow r_4 + 4r_3$ to return
+          $x_2$ to basis,
+          $$
+          \begin{array}{rrrrrr|r}
+            x_1 & x_2 & x_3 & x_4 & x_5 & x_6 \\
+            \hline
+            1 & 0 & 0 & 0 & \tfrac{1}{2} & \tfrac{1}{2} & 135 \\
+            0 & 0 & 1 & \tfrac{1}{5} & \tfrac{1}{5} & 1 & 154 \\
+            0 & 1 & 0 & \tfrac{2}{5} & -\tfrac{1}{10} & \tfrac{1}{2} & 68 \\
+            \hline
+            0 & 0 & 0 & 2 & 2 & 4 & 910
+          \end{array}
+          $$
+          this doesn't change the fact that this tableau shows
+          an optimal solution, but changes the value of the linear programme to
+          $910$.
+        \item We first note that this linear programme is $\mathcal{L}$ with
+          the addition of the variable $x_0$ as represented by the column
+          $
+          \begin{array}{r}
+            x_0 \\
+            \hline
+            3  \\
+            -3 \\
+            1  \\
+            \hline
+            -1 \\
+          \end{array}\
+          $ in the initial tableau.
+          In the final tableau for $\mathcal{L}$, $e_1 = \left(\begin{smallmatrix} 1 \\ 0 \\ 0 \end{smallmatrix}\right)$,
+          $e_2 = \left(\begin{smallmatrix} 0 \\ 0 \\ 1 \end{smallmatrix}\right)$,
+          $e_3 = \left(\begin{smallmatrix} 0 \\ 1 \\ 0 \end{smallmatrix}\right)$ and from the initial tableau
+          $c = \left(\begin{smallmatrix} 6 \\ 2 \\ -2 \end{smallmatrix}\right)$, so
+          $c^* = \left(\begin{smallmatrix} 6 \\ -2 \\ 2 \end{smallmatrix}\right)$ and
+          $B = \left(\begin{smallmatrix} 0 & \tfrac{1}{2} & \tfrac{1}{2} \\ \tfrac{1}{5} & \tfrac{1}{5} & 1 \\ \tfrac{2}{5} & -\tfrac{1}{10} & \tfrac{1}{2} \end{smallmatrix}\right)$.
+
+          We can now compute the new column corresponding to $x_0$ in the final tableau.
+
+          \begin{align*}
+          \begin{array}{c}
+            B \left(\begin{smallmatrix} 3 \\ -3 \\ 1 \end{smallmatrix}\right)\\
+            \hline
+            (c^*)^TB\left(\begin{smallmatrix} 3 \\ -3 \\ 1 \end{smallmatrix}\right)-2\\
+          \end{array}
+            &=
+          \begin{array}{c}
+            \left(\begin{smallmatrix} -1 \\ 1 \\ 2 \end{smallmatrix}\right)\\
+            \hline
+            \left(\begin{smallmatrix} 6 & -2 & 2 \end{smallmatrix}\right) \left(\begin{smallmatrix} 3 \\ -3 \\ 1 \end{smallmatrix}\right)-2\\
+          \end{array} \\
+            &=
+          \begin{array}{r}
+            -1  \\
+            1 \\
+            2  \\
+            \hline
+            24 \\
+          \end{array}.
+          \end{align*}
+
+          We can see the tableau still presents an optimal solution.
+
+          $$
+          \begin{array}{rrrrrrr|r}
+            x_0 & x_1 & x_2 & x_3 & x_4 & x_5 & x_6 \\
+            \hline
+            -1 & 1 & 0 & 0 & 0 & 0.5 & 0.5 & 135 \\
+            1 & 0 & 0 & 1 & 0.2 & 0.2 & 1 & 154 \\
+            2 & 0 & 1 & 0 & 0.4 & -0.1 & 0.5 & 68 \\
+            \hline
+            24 & 0 & 0 & 0 & 0.4 & 2.4 & 2 & 638 \\
+          \end{array} \\
+          $$
+          This final tableau shows an optimal solution with $x_1 = 135$, $x_2 = 68$, $x_3 = 154$ and a value of 638.
+      \end{enumerate}
+      \pagebreak
+    \end{enumerate}
+      \item
+      \begin{enumerate}
+        \item
+          \begin{enumerate}[(i)]
+          \item 
+            \begin{enumerate}[(I)]
+            \item Rose's choice $BC$ from $M$ does not satisfy the contraction
+              condition because his choice from $AC$ does not contain $C$.
+            \item Rose's choice $BC$ from $M$ does not satisfy the expansion
+              condition because he chooses $D$ from all size 2 submenus
+                containing $D$ but his choice from $M$ does not contain $D$.
+          \end{enumerate}
+          \item By the contraction condition, Colin did not choose $A$ because
+            her choice $BD$ from $ABD$ does not contain $A$, she did not choose $C$
+              because her choice $B$ from $BC$ doesn't contain $C$, similarly for
+              $D$ because her choice $AC$ from $ACD$ doesn't contain $D$. For her
+              choice to the satisfy expansion condition, the only element Colin
+              must have chosen from $M$ is $B$. Hence the only reasonable
+              element to be in $X$ is $B$.
+        \end{enumerate}
+          \item 
+            \begin{enumerate}[(i)]
+              \item $N$ is not a preference ordering because $A_1 \geq A_2$,
+                $A_2 \geq A_3$, but $A_1 \not\geq A_3$.
+                \item
+                \begin{enumerate}[(I)]
+                    \item The restriction of $\geq$ to $N_1$ is
+
+                      $A_1 \geq A_1, A_7$
+
+                      $A_3 \geq A_1, A_3$
+
+                      $A_7 \geq A_3, A_7$.
+
+
+                  The restriction of $\geq$ to $N_2$ is
+
+                      $A_3 \geq A_3, A_4$
+
+                      $A_4 \geq A_4, A_5$
+
+                      $A_5 \geq A_3, A_5$
+
+                      $A_7 \geq A_3, A_4, A_5, A_7$.
+
+                    \item Mary chooses $A_\geq = \{A_2, A_6\}$ from $M$.
+
+                    (A) No, since $N_{1\geq} = \{\}$.
+
+                    (B) Yes, since $N_{2\geq} = \{A_7\}$. Mary chooses $A_7$.
+                \end{enumerate}
+              \item Because of the fact that Najma is indifferent between $X$ and $\tfrac{17}{6}W$, $\tfrac{17}{6}W$ we know
+                  $U(X) = \tfrac{7}{16}\cdot U(W) + \tfrac{9}{16} \cdot U(W)$
+                  and 
+
+                  $U(W) = 20$, $U(Z) = 4$ we can write
+                  $U(X) = \tfrac{7}{16}\cdot 20 + \tfrac{9}{16} \cdot 4 = 11$.
+                  Similarly, since Najma is indifferent between $Y$ and $\tfrac{5}{8}X$, $\tfrac{3}{8}Z$ we know
+                  $U(Y) = \tfrac{5}{8}\cdot U(X) + \tfrac{3}{8} \cdot U(Z) =
+                  \tfrac{67}{8}$, to determine whether or not Najma prefers
+                  $\tfrac{1}{5}W, \tfrac{4}{5}Y$ over $\tfrac{4}{5}X, \tfrac{1}{5}Z$ we evaluate the truth of the inequality
+                  \begin{align*}
+                    \tfrac{1}{5}W, \tfrac{4}{5}Y &\geq \tfrac{4}{5}X, \tfrac{1}{5}Z \\
+                    \tfrac{1}{5}\cdot U(W) + \tfrac{4}{5}\cdot U(Y) &\geq \tfrac{4}{5}\cdot U(X) + \tfrac{1}{5}\cdot U(Z) \\
+                    \tfrac{1}{5}\cdot 26 + \tfrac{4}{5}\cdot \tfrac{67}{8} &\geq \tfrac{4}{5}\cdot 11 + \tfrac{1}{5}\cdot 4 \\
+                    \tfrac{107}{10} &\geq \tfrac{96}{10}, \\
+                  \end{align*}
+                  which is true, so Najma does prefer
+                  $\tfrac{1}{5}W, \tfrac{4}{5}Y$ over $\tfrac{4}{5}X, \tfrac{1}{5}Z$.
+            \end{enumerate}
+      \end{enumerate}
+  \end{enumerate}
+\end{document}

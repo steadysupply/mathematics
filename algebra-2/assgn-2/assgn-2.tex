@@ -1,0 +1,220 @@
+\documentclass[10pt]{article}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{listings}
+\author{BM Corser}
+\title{Algebra 2 Assignment 2}
+\date{January 18, 2018}
+\newcommand*{\E}{$e$}
+\newcommand*{\A}{$\alpha$ }
+\newcommand*{\As}{$\alpha^2$ }
+\newcommand*{\Ac}{$\alpha^3$ }
+\newcommand*{\B}{$\beta$ }
+\newcommand*{\AB}{$\alpha\beta$ }
+\newcommand*{\AsB}{$\alpha^2\beta$ }
+\newcommand*{\AcB}{$\alpha^3\beta$ }
+\newcommand*{\Fix}{\text{Fix}}
+\begin{document}
+  \maketitle 
+  \begin{enumerate}
+    \item In order to show that $V_4 \trianglelefteq S_4$, we must show that
+      for a set of $V_4$-coset representatives $A$, $xV_4 = V_4x \ \forall \ x
+      \in A$. Because $|S_4 : v_4| = 6$ we know $|A| = 6$. Choosing the first
+      member of $A$ as 1, (now all we know about $A$ is that $A = \{1, ... \}$) by
+      the property of the identity element, we know that
+      $$1V_4 = V_41 = V_4 = \{1, (12)(34), (13)(24), (14)(23) \}.$$
+
+      Let $B$ be the set of all $g \in S_4$ where $g$ is a member of a
+      $V_4$-coset we have already considered. Because the cosets ``generated''
+      by coset representatives partition $S_4$, we know that if we choose our
+      next element $x$ from $S_4 - B$, we will be fixing a new member in $A$.
+
+      The next member of $A$ will be $(12)$, we write
+      \begin{align*}
+        (12)V_4 &= \{(12), (34), (1423), (1324)\} \\
+        V_4(12) &= \{(12), (34), (1324), (1423)\} = (12)V_4.
+      \end{align*}
+      We now know that $A = \{1, (12), ... \}$, and choose the next member as
+      $(13)$. We write
+      \begin{align*}
+        (13)V_4 &= \{(13), (1432), (24), (1234)\} \\
+        V_4(13) &= \{(13), (1234), (24), (1423)\} = (13)V_4.
+      \end{align*}
+      Now $A = \{1, (12), (13), ... \}$, and consider $(23)$. We write
+      \begin{align*}
+        (23)V_4 &= \{(13), (1432), (24), (1234)\} \\
+        V_4(23) &= \{(23), (1342), (1243), (14)\} = (23)V_4.
+      \end{align*}
+      Now $A = \{1, (12), (13), (23), ... \}$, and consider $(123)$. We write
+      \begin{align*}
+        (123)V_4 &= \{(123), (243), (142), (134)\} \\
+        V_4(123) &= \{(123), (134), (243), (142)\} = (123)V_4.
+      \end{align*}
+      Now $A = \{1, (12), (13), (23), (123), ... \}$, and consider $(234)$. We
+      write
+      \begin{align*}
+        (234)V_4 &= \{(234), (124), (132), (143)\} \\
+        V_4(234) &= \{(234), (134), (143), (124)\} = (234)V_4.
+      \end{align*}
+      Now $A = \{1, (12), (13), (23), (123), (234) \}$, and because we know
+      $|A| = 6$, there are no more coset representatives to verify meet the
+      condition $xV_4 = V_4x \ \forall \ x \in A$. As such, we have shown that
+      $V_4 \trianglelefteq S_4$.
+  \item 
+    \begin{enumerate}
+      \item The $G$-action on $M_3$ for $G = GL_3(\mathbb{R})$ is defined
+        exactly as matrix multiplication. The identity of $G$ is $I_3$. For
+        $M_3$ to be a $G$-set, for $A, B \in G$ and for $C \in M_3$ it must
+        hold that $(AB) \cdot C = A \cdot (B \cdot C)$ and $I_3C = C$. By the
+        associativity of matrix multiplication the first is true, by the
+        behaviour of the identity matrix under matrix multiplication the second
+        is true.
+        Therefore $M_3$ is a $G$-set and $G$ acts on $M_3$.
+      \item Suppose $X_2 \in \text{orb}(X_1)$. Because orbits partition $M_3$,
+        \begin{align*}
+          \text{orb}(X_1) &= \text{orb}(X_2) \\
+        \end{align*}
+        and by the definition of orbit,
+        \begin{align*}
+          \{ a \cdot X_1 : a \in G \} = \{ b \cdot X_2 : b \in G \}.
+        \end{align*}
+        Therefore there must be some particular $A, B \in G$ such that
+        \begin{align*}
+          A \cdot X_1 &= B \cdot X_2. \\
+        \end{align*}
+        Let $A = \begin{pmatrix} a_1 & a_2 & a_3 \\ a_4 & a_5 & a_6 \\ a_7 & a_8 & a_9 \\ \end{pmatrix}$
+        and $B = \begin{pmatrix} b_1 & b_2 & b_3 \\ b_4 & b_5 & b_6 \\ b_7 & b_8 & b_9 \\ \end{pmatrix}$. Now
+
+        \begin{align*}
+          A \cdot X_1  &= B \cdot X_2 \\
+          A X_1 &= B X_2 \\
+          \begin{pmatrix}
+          a_1 & a_2 & a_3 \\
+          a_4 & a_5 & a_6 \\
+          a_7 & a_8 & a_9 \\
+          \end{pmatrix}
+          \begin{pmatrix}
+          2 & 1 & 0 \\
+          0 & 0 & 0 \\
+          0 & 2 & 1 \\
+          \end{pmatrix}
+            &=
+          \begin{pmatrix}
+          b_1 & b_2 & b_3 \\
+          b_4 & b_5 & b_6 \\
+          b_7 & b_8 & b_9 \\
+          \end{pmatrix}
+          \begin{pmatrix}
+          2 & 1 & 0 \\
+          0 & 0 & 0 \\
+          0 & 1 & 1 \\
+          \end{pmatrix} \\
+          \begin{pmatrix}
+          2a_1 & a_1 + 2a_3 & a_3 \\
+          2a_4 & a_4 + 2a_6 & a_6 \\
+          2a_7 & a_4 + 2a_9 & a_9 \\
+          \end{pmatrix}
+            &=
+          \begin{pmatrix}
+          2b_1 & b_1 + b_3 & b_3 \\
+          2b_4 & b_4 + b_6 & b_6 \\
+          2b_7 & b_4 + b_9 & b_9 \\
+          \end{pmatrix} \\
+        \end{align*}
+        Considering the relationship between coefficients of variables in each
+        row is identical, we only need to consider $2a_1 = 2b_1$,
+        $a_1 + 2a_3 = b_1 + b_3$ and $a_3 = b_3$. These equations only hold if
+        $a_3 = b_3 = 0$ (which means $a_6 = b_6 = a_9 = b_9 = 0$) and the
+        matrices $A$ and $B$ have a zero column, telling us $|A| = |B| = 0$ and
+        hence $A, B \not \in G$, $ \text{orb}(X_1) \not = \text{orb}(X_2)$ and
+        $X_1$ and $X_2$ must therefore be in different orbits.
+      \item
+        \begin{enumerate}
+          \item Using the same reasoning as above, for some $A, B \in G$, that
+          \begin{align*}
+            A X_1 &= B X_3 \\
+            \begin{pmatrix}
+            2a_1 & a_1 + 2a_3 & a_3 \\
+            2a_4 & a_4 + 2a_6 & a_6 \\
+            2a_7 & a_4 + 2a_9 & a_9 \\
+            \end{pmatrix}
+              &=
+            \begin{pmatrix}
+            2b_2 - 2b_3 & b_1 + b_2 - b_3 & b_1 \\
+            2b_5 - 2b_6 & b_4 + b_5 - b_6 & b_4 \\
+            2b_8 - 2b_9 & b_7 + b_8 - b_9 & b_7 \\
+            \end{pmatrix} \\
+          \end{align*}
+          tells us $a_1 = b_2 - b_3$, $a_1 + 2a_3 = b_1 + b_2 - b_3$ and $a_3 =
+            b_1$. These equations only hold if $b_1 = 0$, which means that $A,
+            B \not\in G$, $ \text{orb}(X_1) \not = \text{orb}(X_3)$ and $X_1$
+            and $X_3$ must therefore be in different orbits.
+          \item Again, for some $A, B \in G$, setting
+          \begin{align*}
+            A X_2 &= B X_3 \\
+            \begin{pmatrix}
+            2a_1 & a_1 + a_3 & a_3 \\
+            2a_4 & a_4 + a_6 & a_6 \\
+            2a_7 & a_4 + a_9 & a_9 \\
+            \end{pmatrix}
+              &=
+            \begin{pmatrix}
+            2b_2 - 2b_3 & b_1 + b_2 - b_3 & b_1 \\
+            2b_5 - 2b_6 & b_4 + b_5 - b_6 & b_4 \\
+            2b_8 - 2b_9 & b_7 + b_8 - b_9 & b_7 \\
+            \end{pmatrix} \\
+          \end{align*}
+          tells us $a_1 = b_2 - b_3$, $a_1 + a_3 = b_1 + b_2 - b_3$ and $a_3 =
+            b_1$. These equations are consistent without requiring some any
+            variable to be zero, consequently there exist matrices $A$ and $B$
+            in $G$. As such $\text{orb}(X_3) = \text{orb}(X_2)$ and $X_2$ and
+            $X_3$ are in the same orbit.
+          \end{enumerate}
+      \end{enumerate}
+    \item
+        \begin{enumerate}
+          \item Let $(a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) \in
+            \Fix(\alpha)$ where $a_i$ are the sides of the hexagon and $b_i$
+            are the diagonals. Then 
+            \begin{align*}
+              (a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) &= \alpha \cdot (a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) \\
+                                                            &= (a_2, a_3, a_4, a_5, a_6, a_1, b_2, b_3, b_1). \\
+                                                            & \text{(Note $a_i$ and $b_i$ are rotated idependently)}
+            \end{align*}
+            Hence $a_1 = a_2 = ... = a_3$ and $b_1 = b_2 = b_3$ and $|\Fix(\alpha)| = 3^2 = 9$.
+
+          \
+
+          Let $(a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) \in
+            \Fix(\alpha^2)$. Then 
+            \begin{align*}
+              (a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) &= \alpha^2 \cdot (a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) \\
+                                                            &= (a_3, a_4, a_5, a_6, a_1, a_2, b_3, b_1, b_2). \\
+            \end{align*}
+            Hence $a_1 = a_3 = a_5$, $a_2 = a_4 = a_6$ and $b_1 = b_2 = b_3$ and $|\Fix(\alpha^2)| = 3^3 = 27$.
+
+          \
+
+          Let $(a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) \in
+            \Fix(\alpha^3)$. Then 
+            \begin{align*}
+              (a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) &= \alpha^3 \cdot (a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3) \\
+                                                            &= (a_4, a_5, a_6, a_1, a_2, a_3, b_1, b_2, b_3). \\
+            \end{align*}
+            Hence $a_1 = a_4$, $a_2 = a_5$, $a_3 = a_6 = a_6$ and there are no restrictions on $b_i$ and $|\Fix(\alpha^3)| = 3^6 = 729$.
+
+          \
+
+          Now note that $|\Fix(\alpha^4)| = |\Fix(\alpha^2)| = 27$, that
+          $|\Fix(\alpha^{-1})| = |\Fix(\alpha)| = 9$ and that
+          $|\Fix(1)| = |\Fix(X)| = 19683$.
+        \item 
+            \begin{align*}
+              \text{\#colourings} &= \frac{1}{|G|} \sum_{g \in G}|\Fix(g)| \\
+                                 &= \frac{1}{6}(19683 + 9 + 27 + 729 + 27 + 9 \\
+                                 &= 3414.
+            \end{align*}
+      \end{enumerate}
+    \end{enumerate}
+\end{document}
