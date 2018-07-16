@@ -64,7 +64,7 @@ code_mark = (
     ('BUEM022S6', 54),
     ('BUEM008S6', None),
     ('BUEM009S6', None),
-    ('BUEM003S6', None),
+    ('EMMS093S6', None),
 )
 
 modules = [Module(code, mark) for code, mark in code_mark]
