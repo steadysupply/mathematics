@@ -17,8 +17,8 @@ def cache(code):
         response_body = response.content
         response_cache.set(code, response_body)
     content = pyquery.PyQuery(response_body)('#content')
-    name = content[0][1].text_content()
-    text = content[0][2][0][0].text_content()
+    name = content('.page-title')[0].text_content()
+    text = content('#content')[0][2][1][0][0].text_content()
     level = int(re.search(regexp, text).group(0)[-1])
     return name, level
 
@@ -38,6 +38,13 @@ class Module(object):
         ]
         return "<Course {0}>".format(', '.join(desc))
 
+    def __gt__(self, other):
+        if self.mark is None:
+            return False
+        if other.mark is None:
+            return False
+        return self.mark > other.mark
+
 
 weighting = {
     4: 0,
@@ -52,15 +59,17 @@ code_mark = (
     ('BUEM001S5', 43),
     ('BUEM002S5', 58),
     ('EMMS098S5', 60),
-    ('EMMS094S6', None),
-    ('BUEM021S6', None),
-    ('BUEM022S6', None),
+    ('EMMS094S6', 71),
+    ('BUEM021S6', 75),
+    ('BUEM022S6', 54),
     ('BUEM008S6', None),
     ('BUEM009S6', None),
     ('BUEM003S6', None),
 )
 
 modules = [Module(code, mark) for code, mark in code_mark]
+# pop weakest non-zero-weighted result
+modules.pop(modules.index(min(mod for mod in modules if mod.level > 4)))
 marked_modules = tuple(filter(lambda module: module.mark is not None, modules))
 
 pprint.pprint(modules)
@@ -78,7 +87,7 @@ def weighted_average(level_mark):
     return numerator / denominator
 
 
-for prospective_mark in range(70, 80):
+for prospective_mark in range(100):
     level_mark = []
     for module in modules:
         if module.mark is None:
@@ -86,8 +95,8 @@ for prospective_mark in range(70, 80):
         else:
             mark = module.mark
         level_mark.append((module.level, mark))
+    lowest_mark = min(mark for level, mark in level_mark if level > 4)
     final = weighted_average(level_mark)
-    print("With average {0}, final {1}".format(mark, final))
-    if final > 70:
+    if final > 69:
         print("Average mark required: {0}".format(mark))
         break
